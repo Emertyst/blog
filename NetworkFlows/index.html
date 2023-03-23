@@ -1,0 +1,1313 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>网络流 - Emertyst 的博客</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CJetbrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Jetbrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="Emertyst 的博客" class="md-header__button md-logo" aria-label="Emertyst 的博客" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Emertyst 的博客
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              网络流
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Emertyst 的博客" class="md-nav__button md-logo" aria-label="Emertyst 的博客" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Emertyst 的博客
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          网络流
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        网络流
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    流网络
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    残量网络
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    增广路径
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    割
+  </a>
+  
+    <nav class="md-nav" aria-label="割">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    最大流最小割定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    残量网络中不加反边的不正确性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ek" class="md-nav__link">
+    EK 算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dinic" class="md-nav__link">
+    Dinic 算法
+  </a>
+  
+    <nav class="md-nav" aria-label="Dinic 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    正确性证明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    一些细节
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    当前弧优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    时间复杂度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    动态建图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    流网络
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    残量网络
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    增广路径
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    割
+  </a>
+  
+    <nav class="md-nav" aria-label="割">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    最大流最小割定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    残量网络中不加反边的不正确性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ek" class="md-nav__link">
+    EK 算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dinic" class="md-nav__link">
+    Dinic 算法
+  </a>
+  
+    <nav class="md-nav" aria-label="Dinic 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    正确性证明
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    一些细节
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    当前弧优化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    时间复杂度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    动态建图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<p><del>网络瘤</del></p>
+<blockquote>
+<p>现在大部分网络流算法的介绍都存在「易得」「考虑到……因此」「于是……就行了」这类「感性理解」，以及不证或假证部分定理和结论的现象，对于网络流初学者的造成了一定障碍。本文会尽可能给出严谨的证明，使读者能够理解网络流算法的正确性。</p>
+</blockquote>
+<h1 id="_1">最大流</h1>
+<h2 id="_2">流网络</h2>
+<p>定义流网络 <span class="arithmatex">\(G = (\mathbf V, \mathbf E)\)</span> 为一个有向图，其中 <span class="arithmatex">\(\mathbf V\)</span> 为点集，<span class="arithmatex">\(\mathbf E\)</span> 为边集。若 <span class="arithmatex">\((u, v) \in \mathbf E\)</span>，有向边 <span class="arithmatex">\((u, v)\)</span> 有一个容量 <span class="arithmatex">\(w(u, v)\)</span>；若 <span class="arithmatex">\((u, v) \notin \mathbf E\)</span>，定义 <span class="arithmatex">\(w(u, v) = 0\)</span>。流网络有一个源点 <span class="arithmatex">\(s\)</span>，汇点 <span class="arithmatex">\(t\)</span>。</p>
+<p>定义<strong>流</strong> <span class="arithmatex">\(f\)</span> 为流网络的一种状态，<span class="arithmatex">\(f(u, v)\)</span> 为当前边 <span class="arithmatex">\((u, v)\)</span> 上的流量，流满足两个限制：</p>
+<ul>
+<li>容量限制：对于 <span class="arithmatex">\(u, v \in \mathbf V\)</span>，<span class="arithmatex">\(0 \leq f(u, v) \leq w(u, v)\)</span>。</li>
+<li>流量守恒：对于 <span class="arithmatex">\(u \in \mathbf V \setminus \{s, t\}\)</span>，<span class="arithmatex">\(\displaystyle\sum_{v \in \mathbf V} f(u, v) = \sum_{v \in \mathbf V} f(v, u)\)</span>。</li>
+</ul>
+<p>定义一个流的值 <span class="arithmatex">\(\mid f \mid = \displaystyle\sum_{v \in \mathbf V} f(s, v) - \sum_{v \in \mathbf V} f(v, s)\)</span>，最大流问题要求值最大的一个 <span class="arithmatex">\(f\)</span>。</p>
+<h2 id="_3">残量网络</h2>
+<p>给定流网络 <span class="arithmatex">\(G\)</span> 和流 <span class="arithmatex">\(f\)</span>，定义残量网络 <span class="arithmatex">\(G_f\)</span> 是由仍有空间对流量进行调节的边构成。定义残量网络 <span class="arithmatex">\(G_f\)</span> 中的容量限制：</p>
+<div class="arithmatex">\[
+w_f(u, v) =
+\begin{cases}
+w(u, v) - f(u, v), &amp;(u, v) \in \mathbf E \\
+f(v, u), &amp;(v, u) \in \mathbf E \\
+0, &amp;\text{otherwise} \\
+\end{cases}
+\]</div>
+<p>其中第二种情况为流网络 <span class="arithmatex">\(G\)</span> 的反边，因为在增广的过程中只有增加一条边的流量的操作，而增广反边意味着缩减原边，能让残量网络对每条边上的流量缩减。</p>
+<p>因为流网络 <span class="arithmatex">\(G\)</span> 中，不存在互相反向的边，所以上面三种情况只能满足其一。</p>
+<p><strong>值得注意的是，若 <span class="arithmatex">\(w_f(u, v) = 0\)</span>，我们认为残量网络中不存在边 <span class="arithmatex">\((u, v)\)</span>。</strong></p>
+<h2 id="_4">增广路径</h2>
+<p>若残量网络 <span class="arithmatex">\(G_f\)</span> 中存在源点 <span class="arithmatex">\(s\)</span> 到汇点 <span class="arithmatex">\(t\)</span> 的路径，则称这条路径为<strong>增广路径</strong>。设 <span class="arithmatex">\(\mathbf P\)</span> 为增广路径 <span class="arithmatex">\(p\)</span> 上边的集合，定义<strong>残存容量</strong> <span class="arithmatex">\(w(p) = \displaystyle\min_{(u, v) \in \mathbf P} w_f(u, v)\)</span>，增广路径上的每条边的流量都相同，且不大于 <span class="arithmatex">\(w(p)\)</span>。</p>
+<p>我们可以将增广路径看作一个流 <span class="arithmatex">\(f'\)</span>（<del>可以看出，</del><span class="arithmatex">\(f'\)</span> 满足流的两个性质），这样，增广的过程可以看作原流和增广路径相加。因为增广路径从源点 <span class="arithmatex">\(s\)</span> 出发，因此源点 <span class="arithmatex">\(s\)</span> 的出度一定比入度大 <span class="arithmatex">\(1\)</span>，根据 <span class="arithmatex">\(\mid f' \mid\)</span> 的定义，<span class="arithmatex">\(0 \leq \mid f' \mid \leq w(p)\)</span>。这样，<span class="arithmatex">\(\mid f + f' \mid = \mid f \mid + \mid f' \mid\)</span>。我们希望结果流的值尽可能大，因此需要将 <span class="arithmatex">\(\mid f' \mid\)</span> 取到上界，也就是 <span class="arithmatex">\(w(p)\)</span>。这样可以看出走增广路径可以使流的值增大。</p>
+<h2 id="_5">割</h2>
+<p>流网络 <span class="arithmatex">\(G = (\mathbf V, \mathbf E)\)</span> 的一个切割 <span class="arithmatex">\((\mathbf S, \mathbf T)\)</span> 将点集 <span class="arithmatex">\(\mathbf V\)</span> 划分成 <span class="arithmatex">\(\mathbf S, \mathbf T\)</span> 两个集合，且满足 <span class="arithmatex">\(\mathbf S \cup \mathbf T = \mathbf V, \mathbf S \cap \mathbf T = \varnothing, s \in \mathbf S, t \in \mathbf T\)</span>。若流 <span class="arithmatex">\(f\)</span> 是流网络 <span class="arithmatex">\(G\)</span> 的一个流 定义横跨切割 <span class="arithmatex">\((\mathbf S, \mathbf T)\)</span> 的<strong>净流量</strong> <span class="arithmatex">\(f(\mathbf S, \mathbf T)\)</span>：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+f(\mathbf S, \mathbf T) = \sum_{u \in \mathbf S} \sum_{v \in \mathbf T} f(u, v) - \sum_{u \in \mathbf S} \sum_{v \in \mathbf T} f(v, u) \\
+\end{aligned}
+\]</div>
+<p>切割 <span class="arithmatex">\((\mathbf S, \mathbf T)\)</span> 的容量 <span class="arithmatex">\(w(\mathbf S, \mathbf T)\)</span>：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+w(\mathbf S, \mathbf T) = w(u, v) \\
+\end{aligned}
+\]</div>
+<p>一个流网络的最小割是网络中容量最小的切割。</p>
+<blockquote>
+<p>若流 <span class="arithmatex">\(f\)</span> 为流网络 <span class="arithmatex">\(G\)</span> 的一个流，则任何横跨该流的切割的净流量都是相同的，且等于 <span class="arithmatex">\(\mid f \mid\)</span>。</p>
+</blockquote>
+<p>证明：因为流量守恒，所以对任意 <span class="arithmatex">\(u \in \mathbf V \setminus \{s, t\}\)</span>，有：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\sum_{v \in \mathbf V} f(u, v) - \sum_{v \in \mathbf V} f(v, u) = 0 \\
+\end{aligned}
+\]</div>
+<p>根据 <span class="arithmatex">\(\mid f \mid\)</span> 的定义，有：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mid f \mid
+&amp;= \sum_{v \in \mathbf V} f(s, v) - \sum_{v \in \mathbf V} f(v, s) \\
+&amp;= \sum_{v \in \mathbf V} f(s, v) - \sum_{v \in \mathbf V} f(v, s) + \sum_{u \in \mathbf S \setminus \{s\}} \left[\sum_{v \in \mathbf V} f(u, v) - \sum_{v \in \mathbf V} f(v, u) \right] \\
+&amp;= \sum_{v \in \mathbf V} f(s, v) + \sum_{u \in \mathbf S \setminus \{s\}} \sum_{v \in \mathbf V} f(u, v) - \sum_{v \in \mathbf V} f(v, s) - \sum_{u \in \mathbf S \setminus \{s\}} \sum_{v \in \mathbf V} f(v, u) \\
+&amp;= \sum_{v \in \mathbf V} \left[f(s, v) + \sum_{u \in \mathbf S \setminus \{s\}} f(u, v) \right] - \sum_{v \in \mathbf V} \left[f(v, s) + \sum_{u \in \mathbf S \setminus \{s\}} f(v, u) \right] \\
+&amp;= \sum_{v \in \mathbf V} \sum_{u \in \mathbf S} f(u, v) - \sum_{v \in \mathbf V} \sum_{u \in \mathbf S} f(v, u) \\
+\end{aligned}
+\]</div>
+<p>因为 <span class="arithmatex">\(\mathbf S \cup \mathbf T = \mathbf V, \mathbf S \cap \mathbf T = \varnothing\)</span>，所以有：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mid f \mid
+&amp;= \sum_{v \in \mathbf V} \sum_{u \in \mathbf S} f(u, v) - \sum_{v \in \mathbf V} \sum_{u \in \mathbf S} f(v, u) \\
+&amp;= \sum_{v \in \mathbf S} \sum_{u \in \mathbf S} f(u, v) + \sum_{v \in \mathbf T} \sum_{u \in \mathbf S} f(u, v) - \sum_{v \in \mathbf S} \sum_{u \in \mathbf S} f(v, u) - \sum_{v \in \mathbf T} \sum_{u \in \mathbf S} f(v, u) \\
+&amp;= \sum_{v \in \mathbf T} \sum_{u \in \mathbf S} f(u, v) - \sum_{v \in \mathbf T} \sum_{u \in \mathbf S} f(v, u) - \left[\sum_{v \in \mathbf S} \sum_{u \in \mathbf S} f(u, v) - \sum_{v \in \mathbf S} \sum_{u \in \mathbf S} f(v, u) \right] \\
+\end{aligned}
+\]</div>
+<p>因为后面中括号内的式子可以通过交换求和顺序转化为同一形式，因此两项相等，于是得到：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mid f \mid
+&amp;= \sum_{v \in \mathbf T} \sum_{u \in \mathbf S} f(u, v) - \sum_{v \in \mathbf T} \sum_{u \in \mathbf S} f(v, u) \\
+&amp;= f(\mathbf S, \mathbf T) \\
+\end{aligned}
+\]</div>
+<blockquote>
+<p>流网络 <span class="arithmatex">\(G\)</span> 中任意流的值不超过任意割的容量。</p>
+</blockquote>
+<p>证明：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mid f \mid
+&amp;= \sum_{u \in \mathbf S} \sum_{v \in \mathbf T} f(u, v) - \sum_{u \in \mathbf S} \sum_{v \in \mathbf T} f(v, u) \\
+&amp;\leq \sum_{u \in \mathbf S} \sum_{v \in \mathbf T} f(u, v) \\
+&amp;\leq \sum_{u \in \mathbf S} \sum_{v \in \mathbf T} w(u, v) \\
+&amp;= w(\mathbf S, \mathbf T) \\
+\end{aligned}
+\]</div>
+<h3 id="_6">最大流最小割定理</h3>
+<blockquote>
+<p>若 <span class="arithmatex">\(f\)</span> 为流网络 <span class="arithmatex">\(G\)</span> 的一个流，则下面的条件等价：
+1. 流 <span class="arithmatex">\(f\)</span> 是流网络 <span class="arithmatex">\(G\)</span> 的一个最大流。
+1. 残量网络 <span class="arithmatex">\(G_f\)</span> 没有增广路径。
+1. <span class="arithmatex">\((\mathbf S, \mathbf T)\)</span> 是流网络 <span class="arithmatex">\(G\)</span> 的一个割，且满足 <span class="arithmatex">\(\mid f \mid = w(\mathbf S, \mathbf T)\)</span>。</p>
+</blockquote>
+<p>证明：<span class="arithmatex">\((1) \Rightarrow (2)\)</span>：反证法。若流 <span class="arithmatex">\(f\)</span> 是流网络 <span class="arithmatex">\(G\)</span> 的一个最大流，且残量网络 <span class="arithmatex">\(G_f\)</span> 有增广路径，上面已经证明了走增广路径会使流的值增大，因此流 <span class="arithmatex">\(f\)</span> 不是最大流，与假设矛盾。</p>
+<p><span class="arithmatex">\((2) \Rightarrow (3)\)</span>：若残量网络 <span class="arithmatex">\(G_f\)</span> 没有增广路径，则残量网络 <span class="arithmatex">\(G_f\)</span> 中不存在源点 <span class="arithmatex">\(s\)</span> 到汇点 <span class="arithmatex">\(t\)</span> 的路径。定义 <span class="arithmatex">\(u \rightarrow v\)</span> 表示在残量网络 <span class="arithmatex">\(G_f\)</span> 中存在 <span class="arithmatex">\(u\)</span> 到 <span class="arithmatex">\(v\)</span> 的路径，且路径不经过容量为 <span class="arithmatex">\(0\)</span> 的边。令 <span class="arithmatex">\(\mathbf S = \{v \in \mathbf V : s \rightarrow v\}, \mathbf T = \mathbf V \setminus \mathbf S\)</span>。可以看出，<span class="arithmatex">\((\mathbf S, \mathbf V)\)</span> 是流网络 <span class="arithmatex">\(G\)</span> 的一个割。根据刚才的定义，有：<span class="arithmatex">\(u \in \mathbf S, v \in \mathbf T, f(u, v) = w(u, v)\)</span>（若 <span class="arithmatex">\(f(u, v) \ne w(u, v)\)</span>，则此时残量网络上存在边 <span class="arithmatex">\((u, v), s \rightarrow v\)</span>，与 <span class="arithmatex">\(\mathbf S\)</span> 的定义矛盾），<span class="arithmatex">\(u \in \mathbf T, v \in \mathbf S, f(u, v) = 0\)</span>（若 <span class="arithmatex">\(f(u, v) \ne 0\)</span>，残量网络中存在反边 <span class="arithmatex">\((v, u), u \rightarrow s\)</span>，与 <span class="arithmatex">\(\mathbf S\)</span> 的定义矛盾）。因此有：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\mid f \mid = f(\mathbf S, \mathbf T) = \sum_{u \in \mathbf S} \sum_{v \in \mathbf T} f(u, v) - \sum_{u \in \mathbf S} \sum_{v \in \mathbf T} f(v, u) = \sum_{u \in \mathbf S} \sum_{v \in \mathbf T} w(u, v) = w(\mathbf S, \mathbf T) \\
+\end{aligned}
+\]</div>
+<p>此时，<span class="arithmatex">\((\mathbf S, \mathbf T)\)</span> 是流网络 <span class="arithmatex">\(G\)</span> 的最小割。</p>
+<p><span class="arithmatex">\((3) \Rightarrow (1)\)</span>：因为 <span class="arithmatex">\(\mid f \mid \leq w(\mathbf S, \mathbf T)\)</span>，而此时 <span class="arithmatex">\(\mid f \mid\)</span> 已经取到上限，因此流 <span class="arithmatex">\(f\)</span> 是流网络 <span class="arithmatex">\(G\)</span> 的最大流。</p>
+<h3 id="_7">残量网络中不加反边的不正确性</h3>
+<p>对于流网络 <span class="arithmatex">\(G\)</span> 的一个切割 <span class="arithmatex">\(f\)</span>，定义其<strong>不正确的残量网络</strong> <span class="arithmatex">\(G_f'\)</span>：</p>
+<div class="arithmatex">\[
+w_f(u, v) =
+\begin{cases}
+w(u, v) - f(u, v), &amp;(u, v) \in \mathbf E \\
+0, &amp;\text{otherwise} \\
+\end{cases}
+\]</div>
+<p>因为在证明横跨流 <span class="arithmatex">\(f\)</span> 的切割的净流量时没有用到残量网络，所以结论依然成立，即 <span class="arithmatex">\(\mid f \mid = f(\mathbf S, \mathbf T)\)</span>。</p>
+<p>在证明上面 <span class="arithmatex">\((2) \Rightarrow (3)\)</span> 时，我们令 <span class="arithmatex">\(\mathbf S = \{v \in \mathbf V : s \rightarrow v\}, \mathbf T = \mathbf V \setminus \mathbf S\)</span>。若原图中存在边 <span class="arithmatex">\((v, u), u \in \mathbf S, v \in \mathbf T\)</span> 而不存在边 <span class="arithmatex">\((u, v)\)</span>，此时可能存在 <span class="arithmatex">\(f(v, u) &gt; 0\)</span> 的情况（因为不正确的残量网络中始终不存在反边 <span class="arithmatex">\((u, v)\)</span>，而正确的残量网络中因为反边的存在而不存在这种情况）。根据上面的结论 <span class="arithmatex">\(\mid f \mid = f(\mathbf S, \mathbf T) = \displaystyle\sum_{u \in \mathbf S} \sum_{v \in \mathbf T} f(u, v) - \sum_{u \in \mathbf S} \sum_{v \in \mathbf T} f(v, u)\)</span>，后面的一项可能大于 <span class="arithmatex">\(0\)</span>，因此 <span class="arithmatex">\(\mid f \mid\)</span> 可能小于最小割，不是最大流。</p>
+<h2 id="ek">EK 算法</h2>
+<p>使用 BFS 寻找增广路径，并更新，直到残量网络 <span class="arithmatex">\(G_f\)</span> 没有增广路径，时间复杂度 <span class="arithmatex">\(O(\mid \mathbf V \mid \mid \mathbf E \mid^2)\)</span>。</p>
+<p>时间复杂度的证明：咕。</p>
+<h2 id="dinic">Dinic 算法</h2>
+<p>我们可以一次 DFS 寻找到多条增广路径。首先对残量网络 <span class="arithmatex">\(G_f\)</span> 进行一遍 BFS，处理出每个点距源点 <span class="arithmatex">\(s\)</span> 的最短距离，并强制 DFS 每次只能往比当前结点距离多 <span class="arithmatex">\(1\)</span> 的结点走（即只能沿最短路增广）。这样避免了往回走并无限递归的情况发生。一直增广直至残量网络中源点和汇点不连通。</p>
+<h3 id="_8">正确性证明</h3>
+<p>当增广结束时，源点和汇点不连通，即残量网络中无增广路径，由最大流最小割定理，此时求出的是最大流。</p>
+<h3 id="_9">代码</h3>
+<details class="note">
+<summary>代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span>
+</span><span id="__span-0-2"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+</span><span id="__span-0-3"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;queue&gt;</span>
+</span><span id="__span-0-4"><span class="cp">#define TO(x) edge[x].to</span>
+</span><span id="__span-0-5"><span class="cp">#define W(x) edge[x].w</span>
+</span><span id="__span-0-6"><span class="cp">#define NXT(x) edge[x].nxt</span>
+</span><span id="__span-0-7"><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+</span><span id="__span-0-8"><span class="k">typedef</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">ll</span><span class="p">;</span>
+</span><span id="__span-0-9"><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAXN1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">205</span><span class="p">,</span><span class="w"> </span><span class="n">MAXN2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5005</span><span class="p">;</span>
+</span><span id="__span-0-10"><span class="k">const</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="n">INF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1l</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+</span><span id="__span-0-11"><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+</span><span id="__span-0-12"><span class="k">class</span><span class="w"> </span><span class="nc">Graph</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-13"><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-0-14"><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Edge</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-15"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">nxt</span><span class="p">;</span>
+</span><span id="__span-0-16"><span class="w">        </span><span class="n">Edge</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-17"><span class="w">        </span><span class="n">Edge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nxt</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">to</span><span class="p">(</span><span class="n">to</span><span class="p">),</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="n">w</span><span class="p">),</span><span class="w"> </span><span class="n">nxt</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-0-18"><span class="w">    </span><span class="p">};</span>
+</span><span id="__span-0-19"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tot</span><span class="p">,</span><span class="w"> </span><span class="n">cur</span><span class="p">[</span><span class="n">MAXN1</span><span class="p">],</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">MAXN1</span><span class="p">],</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">MAXN1</span><span class="p">];</span>
+</span><span id="__span-0-20"><span class="w">    </span><span class="n">Edge</span><span class="w"> </span><span class="n">edge</span><span class="p">[</span><span class="n">MAXN2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-0-21"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">bfs</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-22"><span class="w">        </span><span class="n">memset</span><span class="p">(</span><span class="n">dep</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">dep</span><span class="p">)),</span><span class="w"> </span><span class="n">memcpy</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">cur</span><span class="p">));</span>
+</span><span id="__span-0-23"><span class="w">        </span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span><span id="__span-0-24"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">dep</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">())</span>
+</span><span id="__span-0-25"><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">()];</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NXT</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</span><span id="__span-0-26"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">dep</span><span class="p">[</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-27"><span class="w">                    </span><span class="n">dep</span><span class="p">[</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">()]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">));</span>
+</span><span id="__span-0-28"><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+</span><span id="__span-0-29"><span class="w">                        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-0-30"><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-0-31"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+</span><span id="__span-0-32"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-33"><span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="n">flow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-34"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+</span><span id="__span-0-35"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">flow</span><span class="p">;</span>
+</span><span id="__span-0-36"><span class="w">        </span><span class="n">ll</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flow</span><span class="p">;</span>
+</span><span id="__span-0-37"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">[</span><span class="n">x</span><span class="p">];</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NXT</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</span><span id="__span-0-38"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-39"><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="mf">1l</span><span class="n">l</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">)));</span>
+</span><span id="__span-0-40"><span class="w">                </span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
+</span><span id="__span-0-41"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">now</span><span class="p">)</span>
+</span><span id="__span-0-42"><span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-0-43"><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-0-44"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+</span><span id="__span-0-45"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-46">
+</span><span id="__span-0-47"><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-0-48"><span class="w">    </span><span class="n">Graph</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">tot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-0-49"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">addEdge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-50"><span class="w">        </span><span class="n">edge</span><span class="p">[</span><span class="o">++</span><span class="n">tot</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Edge</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">u</span><span class="p">]),</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tot</span><span class="p">;</span>
+</span><span id="__span-0-51"><span class="w">        </span><span class="n">edge</span><span class="p">[</span><span class="o">++</span><span class="n">tot</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">v</span><span class="p">]),</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tot</span><span class="p">;</span>
+</span><span id="__span-0-52"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-53"><span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">solve</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-54"><span class="w">        </span><span class="n">ll</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-55"><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">bfs</span><span class="p">())</span>
+</span><span id="__span-0-56"><span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">INF</span><span class="p">);</span>
+</span><span id="__span-0-57"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+</span><span id="__span-0-58"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-59"><span class="p">}</span><span class="w"> </span><span class="n">graph</span><span class="p">;</span>
+</span><span id="__span-0-60"><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-61"><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">),</span><span class="w"> </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-0-62"><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+</span><span id="__span-0-63"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-0-64"><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="n">addEdge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">);</span>
+</span><span id="__span-0-65"><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="n">solve</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</span><span id="__span-0-66"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
+<h3 id="_10">一些细节</h3>
+<ul>
+<li>
+<p><code>dep</code> 记录结点所在层，<code>cur</code> 记录当前弧。<code>dfs</code> 中的 <code>flow</code> 记录残量网络中 <span class="arithmatex">\(s \rightarrow x\)</span> 的最大流量，<code>now</code> 记录增广后 <span class="arithmatex">\(s \rightarrow x\)</span> 剩余流量。</p>
+</li>
+<li>
+<p>连边时，对于同一条边，令原图中的边的编号为 <span class="arithmatex">\(2x\)</span>，反边的编号为 <span class="arithmatex">\(2x + 1\)</span>，这样原边和反边的编号正好是 <span class="arithmatex">\(\operatorname{xor} 1\)</span> 的关系，方便处理。<code>edge</code> 数组实际存的是残量网络中的边。</p>
+</li>
+<li>
+<p>每次 BFS 时，需要清空 <code>dep</code> 数组、队列（因为如果遇到了终点就会直接返回而不是继续循环直到队列空，所以下次 BFS 开始时队列不一定空）以及重置 <code>cur</code> 数组，还需将 <code>dep[s]</code> 赋为 <span class="arithmatex">\(1\)</span>（因为可能有流入 <span class="arithmatex">\(s\)</span> 的边，而如果不赋值，就会认为 <span class="arithmatex">\(s\)</span> 未到达过，并把 <span class="arithmatex">\(s\)</span> 分到一个奇怪的层中）。</p>
+</li>
+</ul>
+<h3 id="_11">当前弧优化</h3>
+<p>注意这段 DFS 代码：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="n">ll</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="n">flow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+</span><span id="__span-1-3"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">flow</span><span class="p">;</span>
+</span><span id="__span-1-4"><span class="w">    </span><span class="n">ll</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flow</span><span class="p">;</span>
+</span><span id="__span-1-5"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">[</span><span class="n">x</span><span class="p">];</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NXT</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</span><span id="__span-1-6"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">dep</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-7"><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="mf">1l</span><span class="n">l</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">)));</span>
+</span><span id="__span-1-8"><span class="w">            </span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">f</span><span class="p">;</span>
+</span><span id="__span-1-9"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">now</span><span class="p">)</span>
+</span><span id="__span-1-10"><span class="w">                </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-1-11"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-1-12"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+</span><span id="__span-1-13"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>代码中的 <code>cur</code> 数组记录的是当前弧。更新 <code>cur</code> 的操作只有在两种情况下会发生（令 <span class="arithmatex">\(v\)</span> 为当前边的终点）：</p>
+<ol>
+<li>在遍历 <span class="arithmatex">\(x\)</span> 的出边时，若这条边的权值为 <span class="arithmatex">\(0\)</span> 或 <span class="arithmatex">\(v\)</span> 不在 <span class="arithmatex">\(x\)</span> 的下一层，则这条边不可能成为增广路径的一部分，于是跳过。</li>
+<li><span class="arithmatex">\(v\)</span> 在 <span class="arithmatex">\(x\)</span> 的下一层，且边权大于 <span class="arithmatex">\(0\)</span>，于是继续 dfs，并返回这条增广路径的残存容量。这时可能出现两种情况，即 <span class="arithmatex">\(s \rightarrow x\)</span> 无法继续增广（代码中 <code>now</code> 等于 <span class="arithmatex">\(0\)</span>），此时 <span class="arithmatex">\(to \rightarrow t\)</span> 可能可以继续增广；或 <span class="arithmatex">\(s \rightarrow x\)</span> 可以继续增广，而 <span class="arithmatex">\(to \rightarrow t\)</span> 无法继续增广（代码中 <code>now</code> 大于 <span class="arithmatex">\(0\)</span>）。如果是其中的第一种，也就直接返回当前答案而不更新 <code>cur</code>；如果是第二种，<span class="arithmatex">\(to \rightarrow t\)</span> 无法继续增广，也就没必要枚举，于是改变 <code>cur</code> 的值。</li>
+</ol>
+<p>在实现时，可以选择枚举 <code>cur</code> 的引用，这样使用邻接表遍历边的时候会更新 <code>cur</code>。同时，DFS 下一个结点后应先判断 <code>now</code> 的值（单独使用 <code>if</code> 语句，而不是在循环条件中判断），如果为 <span class="arithmatex">\(0\)</span> 则直接返回，才能不更新 <code>cur</code>（如果更新会变慢很多）。</p>
+<h3 id="_12">时间复杂度</h3>
+<p><span class="arithmatex">\(O(\mid \mathbf V \mid ^2 \mid \mathbf E \mid)\)</span>。证明：咕</p>
+<h3 id="_13">动态建图</h3>
+<p>在不需要删边而只需要加边的情况下，如果需要对加边的每一阶段的最大流，可以使用动态建图的技巧。由于 Dinic 算法存的实际上是残量网络的边，当新加边时，可能再次使源点和汇点连通。此时若再求一遍最大流，相当于又增广了几条路径，因此原图中的最大流为之前求出的所有最大流之和。</p>
+<h1 id="_14">最小割</h1>
+<p>根据最大流最小割定理，图中两点的最小割可以转化为网络流中两点的最大流。注意求无向图的最小割时，原图中的一条无向边需要在流网络中连两条有向边。</p>
+<h1 id="_15">最小割树</h1>
+<p><del>为什么用的是一级标题？</del></p>
+<p><del>因为内容太多了</del></p>
+<p><del>最小割树占了一半的篇幅</del></p>
+<p>最小割树适用于无向图，通过构造 Gomory-Hu 树或等价流树，你可以快速求出图中任意两点间的最小割的值，甚至可以求出这个割的划分方案。</p>
+<h2 id="_16">一些定义</h2>
+<ul>
+<li>原图的点集 <span class="arithmatex">\(\mathbf V\)</span>，边集 <span class="arithmatex">\(\mathbf E\)</span> 沿用上文的定义。</li>
+<li>割表示<strong>划分出来的两个点集</strong>，割的值表示<strong>横跨切割的边的权值之和</strong>（与上文的割的容量定义类似 <del>无向图里面说容量感觉怪怪的</del>）。</li>
+<li>上文使用 <span class="arithmatex">\((\mathbf S, \mathbf T)\)</span> 来描述一个割，而这一章中只会使用一个点集（通常是 <span class="arithmatex">\(\mathbf W\)</span>）描述一个割，因为划分出来另一部分的点集一定是 <span class="arithmatex">\(\mathbf V \setminus \mathbf W\)</span>。</li>
+<li>定义 <span class="arithmatex">\(c(\mathbf U) = w(\mathbf U, \mathbf V \setminus \mathbf U)\)</span>（简化割的值的表示）。</li>
+<li>定义 <span class="arithmatex">\(c(u, v)\)</span> 为图中 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(v\)</span> 之间的最小割（下面的费用流也有同样的函数，不过这两者的定义不同，请注意这点）。</li>
+<li>我们对上文的 <span class="arithmatex">\(w(\mathbf S, \mathbf T)\)</span> 的定义做一些改变，上文中要求 <span class="arithmatex">\((\mathbf S, \mathbf T)\)</span> 是一个割，但本章中我们不要求这一点（值得注意的是，由于这是无向图，所以 <span class="arithmatex">\(w(\mathbf S, \mathbf T) = w(\mathbf T, \mathbf S)\)</span>）。</li>
+</ul>
+<h2 id="_17">前置知识</h2>
+<h3 id="_18">三角形不等式</h3>
+<p><del>并不是几何的那个三角形不等式</del></p>
+<blockquote>
+<p>对于任意三点 <span class="arithmatex">\(a, b, c\)</span>，有 <span class="arithmatex">\(c(a, b) \geq \min\{c(a, c), c(b, c)\}\)</span>。</p>
+</blockquote>
+<p>证明：对于任意三点 <span class="arithmatex">\(a, b, c\)</span>，因为 <span class="arithmatex">\(a, b, c\)</span> 等价，不妨假设 <span class="arithmatex">\(c(a, b) \leq c(a, c), c(b, c)\)</span>。接下来考虑 <span class="arithmatex">\(c\)</span> 在最小割中的哪一侧，因为 <span class="arithmatex">\(a, b\)</span> 的等价，所以不妨假设 <span class="arithmatex">\(c\)</span> 在最小割中 <span class="arithmatex">\(b\)</span> 那一侧，这样，<span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 的割同时也是 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(c\)</span> 的割，因此有 <span class="arithmatex">\(c(a, b) \geq c(a, c)\)</span>。因为假设 <span class="arithmatex">\(c(a, b) \leq c(a, c)\)</span>，所以 <span class="arithmatex">\(c(a, b) = c(a, c)\)</span>。因此，对于任意三点 <span class="arithmatex">\(a, b, c\)</span>，<span class="arithmatex">\(c(a, b), c(a, c), c(b, c)\)</span> 中，一定有两个相等的较小值，一个较大值。因此命题得证。</p>
+<h4 id="_19">推论</h4>
+<blockquote>
+<p>对于任意两点 <span class="arithmatex">\(u, v\)</span>，有 <span class="arithmatex">\(c(u, v) \geq \min\{c(u, w_1), c(w_1, w_2), \cdots, c(w_{k - 1}, w_k), c(w_k, v)\}\)</span>。</p>
+</blockquote>
+<p>根据三角形不等式，有 <span class="arithmatex">\(c(u, v) \geq \min\{c(u, w_1), c(w_1, v)\}\)</span>，然后反复将 <span class="arithmatex">\(c(w_i, v) \geq \min\{c(w_i, w_{i+1}), c(w_{i+1}, v)\}\)</span> 代入即可得到结论。</p>
+<h3 id="_20">子模函数、对称函数与反模函数</h3>
+<h4 id="_21">子模函数</h4>
+<p>对于全集 <span class="arithmatex">\(\mathbf V\)</span>，<span class="arithmatex">\(\mathbf U \subset \mathbf V\)</span>，<span class="arithmatex">\(f(\mathbf U)\)</span> 是一个关于集合的函数。若对于任意 <span class="arithmatex">\(\mathbf A, \mathbf B \subset \mathbf V\)</span>，有 <span class="arithmatex">\(f(\mathbf A) + f(\mathbf B) \geq f(\mathbf A \cap \mathbf B) + f(\mathbf A \cup \mathbf B)\)</span>，则称 <span class="arithmatex">\(f\)</span> 是一个<strong>子模函数</strong>。</p>
+<blockquote>
+<p>割的值函数 <span class="arithmatex">\(c\)</span> 是子模函数。</p>
+</blockquote>
+<p>证明：对于点集 <span class="arithmatex">\(\mathbf A, \mathbf B\)</span>，我们设 <span class="arithmatex">\(\mathbf C = \mathbf A \cap \mathbf B, \mathbf D = \mathbf V \setminus (\mathbf A \cup \mathbf B), \mathbf E = \mathbf A \setminus \mathbf B, \mathbf F = \mathbf B \setminus \mathbf A\)</span>，于是，<span class="arithmatex">\(\mathbf A = \mathbf C \cup \mathbf E, \mathbf B = \mathbf C \cup \mathbf F, \mathbf A \cap \mathbf B = \mathbf C, \mathbf A \cup \mathbf B = \mathbf C \cup \mathbf E \cup \mathbf F\)</span>。</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;c(\mathbf A) + c(\mathbf B) \\
+=&amp; [w(\mathbf C, \mathbf D) + w(\mathbf C, \mathbf F) + w(\mathbf E, \mathbf D) + w(\mathbf E, \mathbf F)] + [w(\mathbf C, \mathbf D) + w(\mathbf C, \mathbf E) + w(\mathbf F, \mathbf D) + w(\mathbf F, \mathbf E)] \\
+=&amp; w(\mathbf C, \mathbf E) + w(\mathbf C, \mathbf F) + w(\mathbf E, \mathbf D) + w(\mathbf F, \mathbf D) + 2w(\mathbf C, \mathbf D) + 2w(\mathbf E, \mathbf F) \\
+\geq&amp; w(\mathbf C, \mathbf E) + w(\mathbf C, \mathbf F) + w(\mathbf E, \mathbf D) + w(\mathbf F, \mathbf D) + 2w(\mathbf C, \mathbf D) \\
+=&amp; [w(\mathbf C, \mathbf D) + w(\mathbf C, \mathbf E) + w(\mathbf C, \mathbf F)] + [w(\mathbf D, \mathbf C) + w(\mathbf D, \mathbf E) + w(\mathbf D, \mathbf F)] \\
+=&amp; c(\mathbf C) + c(\mathbf C \cup \mathbf E \cup \mathbf F) \\
+=&amp; c(\mathbf A \cap \mathbf B) + c(\mathbf A \cup \mathbf B) \\
+\end{aligned}
+\]</div>
+<p>因此命题得证。</p>
+<h4 id="_22">对称函数</h4>
+<p>对于全集 <span class="arithmatex">\(\mathbf V\)</span>，<span class="arithmatex">\(\mathbf U \subset \mathbf V\)</span>，<span class="arithmatex">\(f(\mathbf U)\)</span> 是一个关于集合的函数。若对于任意 <span class="arithmatex">\(\mathbf U \subset \mathbf V\)</span>，有 <span class="arithmatex">\(f(\mathbf U) = f(\mathbf V \setminus \mathbf U)\)</span>，则称 <span class="arithmatex">\(f\)</span> 是一个<strong>对称函数</strong>。</p>
+<p>显然割的值函数是一个对称函数。</p>
+<h4 id="_23">反模函数</h4>
+<p>对于全集 <span class="arithmatex">\(\mathbf V\)</span>，<span class="arithmatex">\(\mathbf U \subset \mathbf V\)</span>，<span class="arithmatex">\(f(\mathbf U)\)</span> 是一个关于集合的函数。若对于任意 <span class="arithmatex">\(\mathbf A, \mathbf B \subset \mathbf V\)</span>，有 <span class="arithmatex">\(f(\mathbf A) + f(\mathbf B) \geq f(\mathbf A \setminus \mathbf B) + f(\mathbf B \setminus \mathbf A)\)</span>，则称 <span class="arithmatex">\(f\)</span> 是一个<strong>反模函数</strong>。</p>
+<blockquote>
+<p>若 <span class="arithmatex">\(f\)</span> 同时是子模函数和对称函数，那么 <span class="arithmatex">\(f\)</span> 也是反模函数。</p>
+</blockquote>
+<p>证明：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;f(\mathbf A) + f(\mathbf B) \\
+=&amp; f(\mathbf V \setminus \mathbf A) + f(\mathbf B) \\
+\geq&amp; f((\mathbf V \setminus \mathbf A) \cap \mathbf B) + f((\mathbf V \setminus \mathbf A) \cup \mathbf B) \\
+=&amp; f(\mathbf B \setminus \mathbf A) + f(\mathbf V \setminus (\mathbf A \setminus \mathbf B)) \\ 
+=&amp; f(\mathbf B \setminus \mathbf A) + f(\mathbf A \setminus \mathbf B) \\
+\end{aligned}
+\]</div>
+<p>因此，割的值函数也是反模函数。</p>
+<h2 id="_24">核心引理</h2>
+<p>对于两点 <span class="arithmatex">\(s, t\)</span> 间的最小割 <span class="arithmatex">\((\mathbf W, \mathbf V \setminus \mathbf W)\)</span>，则对于任意 <span class="arithmatex">\(u, v \in \mathbf W\)</span>，存在 <span class="arithmatex">\(u, v\)</span> 的最小割 <span class="arithmatex">\(\mathbf X, \mathbf V \setminus \mathbf X\)</span>，使得 <span class="arithmatex">\(\mathbf X \subset \mathbf W\)</span>。</p>
+<p>证明：不失一般性地，我们令 <span class="arithmatex">\(s \in \mathbf W, s \in \mathbf X, u \in \mathbf X\)</span>。然后进行分类讨论：</p>
+<ol>
+<li>若 <span class="arithmatex">\(t \notin \mathbf X\)</span>，因为 <span class="arithmatex">\(c\)</span> 是子模函数，所以有 <span class="arithmatex">\(c(\mathbf W) + c(\mathbf X) \geq c(\mathbf W \cap \mathbf X) + c(\mathbf W \cup \mathbf X)\)</span>。注意到 <span class="arithmatex">\(\mathbf W \cap \mathbf X\)</span> 也是 <span class="arithmatex">\(u, v\)</span> 的割，<span class="arithmatex">\(\mathbf W \cup \mathbf X\)</span> 也是 <span class="arithmatex">\(s, t\)</span> 的一个割，因此有 <span class="arithmatex">\(c(\mathbf W \cap \mathbf X) \geq c(\mathbf X), c(\mathbf W \cup \mathbf X) \geq c(\mathbf W)\)</span>，因此所有不等号都应该取等。也就是说，<span class="arithmatex">\(\mathbf W \cap \mathbf X\)</span> 也是 <span class="arithmatex">\(u, v\)</span> 的最小割。</li>
+<li>若 <span class="arithmatex">\(t \in \mathbf X\)</span>，因为 <span class="arithmatex">\(c\)</span> 是反模函数，所以有 <span class="arithmatex">\(c(\mathbf W) + c(\mathbf X) \geq c(\mathbf W \setminus \mathbf X) + c(\mathbf X \setminus \mathbf W)\)</span>。注意到 <span class="arithmatex">\(\mathbf W \setminus \mathbf X\)</span> 也是 <span class="arithmatex">\(u, v\)</span> 的一个割，<span class="arithmatex">\(\mathbf X \setminus \mathbf W\)</span> 也是 <span class="arithmatex">\(s, t\)</span> 的一个割，因此有 <span class="arithmatex">\(c(\mathbf W \setminus \mathbf X) \geq c(x), c(\mathbf X \setminus \mathbf W) \geq c(\mathbf W)\)</span>，因此所有不等号都应该取等。也就是说，<span class="arithmatex">\(\mathbf W \setminus \mathbf X\)</span> 也是 <span class="arithmatex">\(u, v\)</span> 的最小割。</li>
+</ol>
+<p>核心引理揭示了<strong>最小割可以不交叉</strong>，它是最小割树实现的基础。</p>
+<h2 id="gomory-hu">Gomory-Hu 树</h2>
+<p>定义一棵树 <span class="arithmatex">\(T = (\mathbf V, \mathbf E_T)\)</span>，若断开 <span class="arithmatex">\((s, t) \in \mathbf E_T\)</span>，若形成的其中一个连通块的点集为 <span class="arithmatex">\(\mathbf W\)</span>，则 <span class="arithmatex">\((\mathbf W, \mathbf V \setminus \mathbf W)\)</span> 是 <span class="arithmatex">\(s, t\)</span> 的一个最小割，且这条边的边权为最小割的值。这样的树称为 Gomory-Hu 树。<span class="arithmatex">\(val(u, v)\)</span> 表示树上 <span class="arithmatex">\(u, v\)</span> 两点之间的边权（<span class="arithmatex">\((u, v) \in \mathbf E_T\)</span>）</p>
+<blockquote>
+<p>对于所有 <span class="arithmatex">\(u, v \in \mathbf V\)</span>，令 <span class="arithmatex">\((s, t)\)</span> 为树上 <span class="arithmatex">\(u, v\)</span> 的路径上权值最小的边，那么 <span class="arithmatex">\(s, t\)</span> 的最小割就是 <span class="arithmatex">\(u, v\)</span> 的最小割。</p>
+</blockquote>
+<p>证明：由三角形不等式，<span class="arithmatex">\(c(u, v) \geq c(s, t)\)</span>，又因为 <span class="arithmatex">\(s, t\)</span> 的最小割也是 <span class="arithmatex">\(u, v\)</span> 的割，因此 <span class="arithmatex">\(c(u, v) \leq c(s, t)\)</span>。因此 <span class="arithmatex">\(c(u, v) = c(s, t)\)</span>。</p>
+<h3 id="_25">递归建树</h3>
+<p>令图 <span class="arithmatex">\(G = (\mathbf V, \mathbf E)\)</span>，点集 <span class="arithmatex">\(\mathbf R \subset \mathbf V\)</span>。定义 <span class="arithmatex">\(\mathbf R\)</span> 在 <span class="arithmatex">\(G\)</span> 中的 Gomory-Hu 树为一个二元组 <span class="arithmatex">\(T, \mathbf C\)</span>，其中 <span class="arithmatex">\(T = (\mathbf R, \mathbf E_T)\)</span>，<span class="arithmatex">\(\mathbf C = (\mathbf C_r | r \in \mathbf R)\)</span>，是一个对 <span class="arithmatex">\(\mathbf V\)</span> 的划分。这个划分有三个性质：</p>
+<ul>
+<li>对于 <span class="arithmatex">\(u \in \mathbf V\)</span>，存在<strong>唯一</strong>的 <span class="arithmatex">\(r\)</span> 使 <span class="arithmatex">\(u \in \mathbf C_r\)</span>。</li>
+<li>对于 <span class="arithmatex">\(r \in \mathbf R\)</span>，<span class="arithmatex">\(r \in \mathbf C_r\)</span>。</li>
+<li>对于所有的边 <span class="arithmatex">\((s, t) \in \mathbf E_T\)</span>，设删掉 <span class="arithmatex">\((s, t)\)</span> 后形成的其中一个连通块为 <span class="arithmatex">\(\mathbf X\)</span>，则 <span class="arithmatex">\(s, t\)</span> 在 原图 <span class="arithmatex">\(G\)</span> 中的最小割是 <span class="arithmatex">\(\bigcup_{r \in \mathbf X} \mathbf C_r\)</span>。</li>
+</ul>
+<p><del>看起来很抽象</del></p>
+<p><del>比 LCT 抽象 40 倍</del></p>
+<p>如何理解这个集合的划分呢？</p>
+<p>每个 <span class="arithmatex">\(\mathbf C_r\)</span> 都是一个集合。点集 <span class="arithmatex">\(\mathbf R\)</span> 为这次递归处理的点集，而这次递归会处理出来一个 <span class="arithmatex">\(\mathbf C\)</span>，你可以将 <span class="arithmatex">\(\mathbf C\)</span> 理解为所有 <span class="arithmatex">\(\mathbf C_r\)</span> 构成的集合，所有在 <span class="arithmatex">\(\mathbf R\)</span> 内的点都是一个其中一个集合的代表点。每个点只能在其中一个集合中出现。这次递归同样会处理出来一个点集为 <span class="arithmatex">\(\mathbf R\)</span> 的 Gomory-Hu 树 <span class="arithmatex">\(T\)</span>，对于 <span class="arithmatex">\(T\)</span> 中的每一条边 <span class="arithmatex">\((s, t)\)</span>，其在原图中的最小割一定可以用若干个 <span class="arithmatex">\(\mathbf C_r\)</span> 的并集表示出来。</p>
+<h4 id="_26">伪代码</h4>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\text{Gomory-Hu} (G, \mathbf R) \\
+&amp;\textbf{if } |\mathbf R| = 1 \textbf{ then} \\
+&amp;\qquad T = (\mathbf R, \varnothing, val) \\
+&amp;\qquad \mathbf C_r = \mathbf V \\
+&amp;\qquad \textbf{return }(T, \mathbf C) \\
+&amp;\textbf{end if} \\
+&amp;\text{任选两点 } r_1, r_2 \in \mathbf R, r1 \ne r2 \text{，令 } \mathbf W \text{ 为 } G \text{ 中 } r_1, r_2 \text{ 的最小割，由于 } r_1, r_2 \text{ 等价，不妨设 } r_1 \in \mathbf W \\
+&amp;\text{令 } G_1 \text{ 为将 } G \text{ 中 } \mathbf V \setminus \mathbf W \text{ 缩成一个点 } v_1 \text{ 之后的图，} \mathbf R_1 \gets \mathbf R \cap \mathbf W \\
+&amp;\text{令 } G_2 \text{ 为将 } G \text{ 中 } \mathbf W \text{ 缩成一个点 } v_2 \text{ 之后的图，} \mathbf R_2 \gets \mathbf R \setminus \mathbf W \\
+&amp;\text{令 } (T_1, (\mathbf C_r^1 | r \in \mathbf R_1)) \gets \text{Gomory-Hu} (G_1, \mathbf R_1) \\
+&amp;\text{令 } (T_2, (\mathbf C_r^2 | r \in \mathbf R_2)) \gets \text{Gomory-Hu} (G_2, \mathbf R_2) \\
+&amp;\text{令 } r' \text{ 为满足} v_1 \in \mathbf C_{r'}^1 \text{ 的点} \\
+&amp;\text{令 } r'' \text{ 为满足} v_2 \in \mathbf C_{r''}^2 \text{ 的点} \\
+&amp;val(r', r'') \gets c(r_1, r_2) \\
+&amp;T = (\mathbf R, \mathbf E_{T_1} \cup \mathbf E_{T_2} \cup (r', r''), val) \\
+&amp;\textbf{for all } r \in \mathbf R_1 \textbf{ do} \\
+&amp;\qquad \mathbf C_r \gets \mathbf C_r^1 \\
+&amp;\textbf{end for} \\
+&amp;\textbf{for all } r \in \mathbf R_2 \textbf{ do} \\
+&amp;\qquad \mathbf C_r \gets \mathbf C_r^2 \\
+&amp;\textbf{end for} \\
+&amp;\mathbf C_{r'} \gets \mathbf C_{r'} \setminus \{v_1\} \\
+&amp;\mathbf C_{r''} \gets \mathbf C_{r''} \setminus \{v_2\} \\
+&amp;\textbf{return } (T, \mathbf C) \\
+\end{aligned}
+\]</div>
+<p>注：<span class="arithmatex">\((\mathbf C_r^1 | r \in \mathbf R_1), (\mathbf C_r^2 | r \in \mathbf R_2)\)</span> 中的上标表示的是编号。</p>
+<p>对于当前处理的点集 <span class="arithmatex">\(\mathbf R\)</span> 和上一层递归传进来的图 <span class="arithmatex">\(G\)</span>，首先任选两点 <span class="arithmatex">\(r_1, r_2\)</span>，求出一个 <span class="arithmatex">\(r_1, r_2\)</span> 在图 <span class="arithmatex">\(G\)</span> 中的最小割（<strong>注意不是原图</strong>）。然后进行缩点，并以<strong>缩点之后的</strong> <span class="arithmatex">\(G_1, G_2\)</span> 为基础求两个 Gomory-Hu 树。最后进行划分的合并（具体合并方法的解释在下文）。</p>
+<p><del>越来越抽象了</del></p>
+<p><del>比 LCT 抽象 45 倍</del></p>
+<h4 id="_27">正确性证明</h4>
+<p>我们先说明建树过程中集合划分的前两条性质是怎么保证的。对于 <span class="arithmatex">\(|\mathbf R| = 1\)</span> 的情况，这两条性质显然成立。接着使用归纳法，假设当前得到的 <span class="arithmatex">\((\mathbf C_r^1 | r \in \mathbf R_1)\)</span> 和 <span class="arithmatex">\((\mathbf C_r^2 | r \in \mathbf R_2)\)</span> 都满足这两条性质，在处理 <span class="arithmatex">\((\mathbf C_r | r \in \mathbf R)\)</span> 时，我们先将以 <span class="arithmatex">\(\mathbf R_1\)</span> 和 <span class="arithmatex">\(\mathbf R_2\)</span> 中的点为代表点的集合平凡地赋值给 <span class="arithmatex">\((\mathbf C_r | r \in \mathbf R)\)</span>，这样，每个元素在划分中都被包含了两次。接着，我们找到了 <span class="arithmatex">\(r' \in \mathbf R_1, r'' \in \mathbf R_2\)</span>，使 <span class="arithmatex">\(v_1, v_2\)</span> 中包含的点分别属于 <span class="arithmatex">\(\mathbf C_{r'}^1, \mathbf C_{r''}^2\)</span>。因为 <span class="arithmatex">\(G_1\)</span> 是把一些点缩成 <span class="arithmatex">\(v_1\)</span> 之后的图，因此一定存在且仅存在一个 <span class="arithmatex">\(r'\)</span> 满足 <span class="arithmatex">\(v_1 \in \mathbf C_{r'}^1\)</span>。同理，一定也存在 <span class="arithmatex">\(r''\)</span> 使 <span class="arithmatex">\(v_2 \in \mathbf C_{r''}^2\)</span>。同时，因为 <span class="arithmatex">\(v_1, v_2\)</span> 包含的点恰好覆盖了 <span class="arithmatex">\(\mathbf V\)</span> 中的所有点，因此 <span class="arithmatex">\(\mathbf C_{r'}, \mathbf C_{r''}\)</span> 去掉 <span class="arithmatex">\(v_1, v_2\)</span> 中包含的点之后就满足了这两条性质。</p>
+<p>划分的第三个性质看起来非常像最小割树的性质，因此我们一起证明。对于 <span class="arithmatex">\(|\mathbf R| = 1\)</span> 的情况，这两条性质显然成立。接着使用归纳法，假设当前得到的 <span class="arithmatex">\((T_1, (\mathbf C_r^1 | r \in \mathbf R_1))\)</span> 和 <span class="arithmatex">\((T_2, (\mathbf C_r^2 | r \in \mathbf R_2))\)</span> 都满足这两条性质。由核心引理，<span class="arithmatex">\(\mathbf R_1, \mathbf R_2\)</span> 内部的点都满足 Gomory-Hu 树的定义。同时 <span class="arithmatex">\(r_1, r_2\)</span> 的割也是 <span class="arithmatex">\(r', r''\)</span> 的割，也就是说，我们仅需要证明 <span class="arithmatex">\(c(r', r'') \geq c(r_1, r_2)\)</span> 即可。接下来，分三种情况：</p>
+<ul>
+<li><span class="arithmatex">\(r' = r_1, r'' = r_2\)</span>，显然成立。</li>
+<li><span class="arithmatex">\(r' = r_1, r'' \ne r_2\)</span> 或 <span class="arithmatex">\(r' \ne r_1, r'' = r_2\)</span>，我们讨论 <span class="arithmatex">\(r' \ne r_1, r'' = r_2\)</span> 的情况，另一种情况同理。因为 <span class="arithmatex">\(G_1\)</span> 中，<span class="arithmatex">\(\mathbf V \setminus \mathbf W\)</span> 被缩成一个点 <span class="arithmatex">\(v_1\)</span>，同时 <span class="arithmatex">\(r_2 \in \mathbf V \setminus \mathbf W, v_1 \in \mathbf C_{r'}^1\)</span>，因为 <span class="arithmatex">\(\mathbf C^1\)</span> 满足划分的第三条性质，因此 <span class="arithmatex">\(r', r_1\)</span> 的割同时也是 <span class="arithmatex">\(r_1, r_2\)</span> 的割，因此有 <span class="arithmatex">\(c(r', r_1) \geq c(r_1, r_2)\)</span>。根据三角形不等式，有 <span class="arithmatex">\(c(r', r'') \geq \min\{c(r', r_1), c(r_1, r_2)\}\)</span>，所以 <span class="arithmatex">\(c(r', r'') \geq c(r_1, r_2)\)</span>。因此成立。</li>
+<li><span class="arithmatex">\(r' \ne r_1, r'' \ne r_2\)</span>，这种情况的证明与上一种类似。我们通过同样的方法求出 <span class="arithmatex">\(c(r', r_1) \geq c(r_1, r_2), c(r'', r_2) \geq c(r_1, r_2)\)</span>。根据三角形不等式，有 <span class="arithmatex">\(c(r', r'') \geq \min\{c(r', r_1), c(r_1, r_2), c(r_2, r'')\}\)</span>，所以 <span class="arithmatex">\(c(r', r'') \geq c(r_1, r_2)\)</span>。因此成立。</li>
+</ul>
+<p>关于划分的第三条性质，因为 <span class="arithmatex">\(T\)</span> 此时已经是 Gomory-Hu 树，所以 <span class="arithmatex">\(\mathbf R\)</span> 中任意两点 <span class="arithmatex">\(u, v\)</span> 的最小割就是两者路径上边权最小的边 <span class="arithmatex">\((s, t)\)</span>，然后进行分类讨论：</p>
+<ul>
+<li>若 <span class="arithmatex">\(s, t\)</span> 就是 <span class="arithmatex">\(r', r''\)</span>，最小割就是 <span class="arithmatex">\(\mathbf W, \mathbf V \setminus \mathbf W\)</span>，可以用划分表示。</li>
+<li>若 <span class="arithmatex">\(s, t\)</span> 都在 <span class="arithmatex">\(\mathbf R_1\)</span> 或 <span class="arithmatex">\(\mathbf R_2\)</span> 中，因为 <span class="arithmatex">\(\mathbf C^1, \mathbf C^2\)</span> 都是满足第三条性质的，因此也可以用划分表示。</li>
+</ul>
+<p>因此最小割树的正确性得证。</p>
+<h3 id="_28">非递归建树</h3>
+<p>在递归建树时我们需要记录划分 <span class="arithmatex">\(\mathbf C\)</span>，而这看起来就不好实现。考虑到集合划分的顺序是无关紧要的，于是我们可以使用非递归建树。</p>
+<h4 id="_29">伪代码</h4>
+<p>我们将一个集合内编号最小的点记为这个集合的代表点。我们对每一个结点记一个 <span class="arithmatex">\(fa_i\)</span>，若 <span class="arithmatex">\(i\)</span> 是所在集合的代表点，那么 <span class="arithmatex">\(fa_i\)</span> 代表一条树边，表示 <span class="arithmatex">\(i\)</span> 所在集合和 <span class="arithmatex">\(fa_i\)</span> 所在集合之间有一条边（建树结束之后所有集合都将只有一个元素，也就变成点与点之间的边）；若 <span class="arithmatex">\(i\)</span> 不是所在集合的代表点，那么 <span class="arithmatex">\(fa_i\)</span> 指向这个集合的代表点。</p>
+<p>我们定义 <span class="arithmatex">\(w_i\)</span> 为 <span class="arithmatex">\(i\)</span> 向 <span class="arithmatex">\(fa_i\)</span> 连边的权值。</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\text{Gomory-Hu}(G) \\
+&amp;n \gets |\mathbf V| \\
+&amp;w_i \gets \textbf{NULL}, i \in [1, n] \\
+&amp;fa_1 \gets \textbf{NULL} \\
+&amp;fa_i \gets 1, i \in [2, n] \\
+&amp;\textbf{for } u = 2 \textbf{ to } n \textbf{ do} \\
+&amp;\qquad v \gets fa_u \\
+&amp;\qquad \text{在图 } G \text{ 中将其他点集缩点之后的图上计算 } u, v \text{ 的最小割 } (\mathbf W, \mathbf V \setminus \mathbf W) \text{ 且 } v \in \mathbf W \\
+&amp;\qquad \textbf{for } x = 1 \textbf{ to } n \textbf{ do} \\
+&amp;\qquad\qquad \textbf{if } x \ne u \textbf{ and } fa_x = v \textbf{ and } x \in \mathbf W \textbf{ then} \\
+&amp;\qquad\qquad\qquad fa_x \gets u \\
+&amp;\qquad\qquad \textbf{end if} \\
+&amp;\qquad \textbf{end for} \\
+&amp;\qquad \textbf{if } fa_v \notin \mathbf W \textbf{ then} \\ 
+&amp;\qquad\qquad fa_u \gets fa_v \\
+&amp;\qquad\qquad w_u \gets w_v \\
+&amp;\qquad\qquad fa_v \gets u \\
+&amp;\qquad\qquad w_v \gets c(u, v) \\
+&amp;\qquad \textbf{else} \\
+&amp;\qquad\qquad w_u \gets c(u, v) \\
+&amp;\qquad \textbf{end if} \\
+&amp;\textbf{end for} \\
+&amp;\mathbf E \gets \varnothing \\
+&amp;\textbf{for } u = 1 \textbf{ to } n \textbf{ do} \\
+&amp;\qquad \textbf{if } fa_u \ne \textbf{NULL then} \\
+&amp;\qquad\qquad \mathbf E_T \gets \mathbf E_T \cup \{(fa_u, u)\} \\
+&amp;\qquad\qquad val(fa_u, u) = w_u \\
+&amp;\qquad \textbf{end if} \\
+&amp;\textbf{end for} \\
+&amp;T \gets (\mathbf V, \mathbf E_T, val) \\
+&amp;\textbf{return } T \\
+\end{aligned}
+\]</div>
+<p><del>比 LCT 抽象 50 倍</del></p>
+<p>开始时所有结点在同一个集合里，代表点是 <span class="arithmatex">\(1\)</span>。然后从 <span class="arithmatex">\(u = 2\)</span> 开始枚举点，将 <span class="arithmatex">\(u\)</span> 从所在集合中划分出去，并成为新集合的代表点。记 <span class="arithmatex">\(v = fa_u\)</span>，具体方法是：将当前集合外的所有集合缩点之后求 <span class="arithmatex">\(u, v\)</span> 之间的最小割，同时因为编号在 <span class="arithmatex">\(u\)</span> 之前的点已经分离出去；且由于 <span class="arithmatex">\(u\)</span> 是编号最小的非代表点，所以 <span class="arithmatex">\(u\)</span> 一定会成为新集合的代表点。</p>
+<p>我们设 <span class="arithmatex">\(u\)</span> 所在的集合为 <span class="arithmatex">\(\mathbf R\)</span>，<span class="arithmatex">\(u, v\)</span> 的最小割为 <span class="arithmatex">\((\mathbf W, \mathbf V \setminus \mathbf W)\)</span>，且 <span class="arithmatex">\(u \in \mathbf W\)</span>。对于 <span class="arithmatex">\(\mathbf V \setminus {u}\)</span> 的所有点 <span class="arithmatex">\(x\)</span>，如果 <span class="arithmatex">\(x \in \mathbf W, fa_x = v\)</span>，分两种情况讨论：</p>
+<ul>
+<li>如果编号比 <span class="arithmatex">\(u\)</span> 小，也就是说这是一条 <span class="arithmatex">\((x, v)\)</span> 的树边，我们将 <span class="arithmatex">\(fa_x \gets u\)</span>，也就是将 <span class="arithmatex">\(x\)</span> 代表的集合连到 <span class="arithmatex">\(u\)</span> 代表的集合上。</li>
+<li>如果编号比 <span class="arithmatex">\(u\)</span> 大，我们将 <span class="arithmatex">\(fa_x \gets u\)</span>，也就是将 <span class="arithmatex">\(x\)</span> 划分进 <span class="arithmatex">\(u\)</span> 代表的集合中。</li>
+</ul>
+<p>因此，无论哪种情况，我们都只需要将 <span class="arithmatex">\(fa_x \gets u\)</span>。</p>
+<p>接下来，我们需要处理 <span class="arithmatex">\(fa_v\)</span>。如果 <span class="arithmatex">\(fa_v \in \mathbf W\)</span>，因为我们需要让在最小割同一侧的几个集合相邻（参考递归实现），所以我们需要将 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(v\)</span> 交换位置；否则平凡地连边即可。</p>
+<h4 id="_30">正确性证明</h4>
+<p>因为 <span class="arithmatex">\(fa_i\)</span> 的定义，集合的划分显然符合前两条性质。由于集合划分的方式和递归实现的相同，因此也符合第三条性质。关于连边，我们可以将递归实现看成一步到位地按照割的划分得到了连边的两个点（因为递归实现是先处理出来划分后的点集的 Gomory-Hu 树，因此可以直接找出连边的两个点，但非递归实现是逐渐划分的集合，所以边的端点也需要在不断划分中确定），因此非递归实现也可以建出 Gomory-Hu 树。</p>
+<h2 id="_31">等价流树</h2>
+<p>有时我们并不需要求出最小割的具体方案，而是只需要求出最小割的值，因此我们可以使用建树更加容易的等价流树。等价流树要求若 <span class="arithmatex">\((u, v) \in \mathbf E_T\)</span>，<span class="arithmatex">\(val(u, v) = c(u, v)\)</span>。它的性质为任意两点间的最小割等于这两点在树上的路径上的权值最小值。</p>
+<p><strong>函数定义同 Gomory-Hu 树。</strong></p>
+<h3 id="_32">递归建树</h3>
+<h4 id="_33">伪代码</h4>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\text{Equivalent Flow Tree} (\mathbf R) \\
+&amp;\textbf{if } |\mathbf R| = 1 \textbf{ then} \\
+&amp;\qquad T \gets (\{r\}, \varnothing) \\
+&amp;\qquad \textbf{return } T \\
+&amp;\textbf{end if} \\
+&amp;\text{任选两点 } s, t \in \mathbf R, s \ne t \text{，令 } (\mathbf W, \mathbf V \setminus \mathbf W) \text{ 为原图中 } s, t \text{ 的最小割} \\
+&amp;T_1 \gets \text{Equivalent Flow Tree} (\mathbf R \cap \mathbf W) \\
+&amp;T_2 \gets \text{Equivalent Flow Tree} (\mathbf R \setminus \mathbf W) \\
+&amp;val(s, t) \gets c(s, t) \\
+&amp;T \gets (\mathbf R, \mathbf E_{T_1} \cup \mathbf E_{T_2} \cup \{(s, t)\}, val) \\
+&amp;\textbf{return } T \\
+\end{aligned}
+\]</div>
+<h4 id="_34">正确性证明</h4>
+<p>我们发现，根据核心引理，若求出来的 <span class="arithmatex">\(\mathbf W \not \subset \mathbf R\)</span>，有 <span class="arithmatex">\(\mathbf R \cap \mathbf W\)</span> 或 <span class="arithmatex">\(\mathbf R \setminus \mathbf W\)</span> 是 <span class="arithmatex">\(s, t\)</span> 的最小割。但是无论是哪一种都不影响要递归处理的点集，因此我们不需要进行缩点。</p>
+<p>若 <span class="arithmatex">\((s, t) \in \mathbf E_T\)</span>，虽然断开 <span class="arithmatex">\(s, t\)</span> 之间的边形成的两个连通块不一定是 <span class="arithmatex">\(s, t\)</span> 之间的最小割。但因为核心引理，若 <span class="arithmatex">\(s, t\)</span> 的最小割为 <span class="arithmatex">\((\mathbf W, \mathbf V \setminus \mathbf W)\)</span>，那么 <span class="arithmatex">\(\mathbf R \cap \mathbf W\)</span> 或 <span class="arithmatex">\(\mathbf R \setminus \mathbf W\)</span> 是 <span class="arithmatex">\(s, t\)</span> 的最小割。因此 <span class="arithmatex">\(s, t\)</span> 间的最小割是能将递归处理的两个集合中的点割开的。</p>
+<p>对于 <span class="arithmatex">\(|\mathbf R| = 1\)</span> 的情况，等价流树的性质显然成立。接着使用归纳法，假设当前得到的 <span class="arithmatex">\(T_1\)</span> 和 <span class="arithmatex">\(T_2\)</span> 都满足性质。令 <span class="arithmatex">\(\mathbf R_1 = \mathbf R \cap \mathbf W, \mathbf R_2 = \mathbf R \setminus \mathbf W\)</span>，对于任意两点 <span class="arithmatex">\(u, v \in \mathbf R\)</span>，进行分类讨论：</p>
+<ul>
+<li>若 <span class="arithmatex">\(u, v \in \mathbf R_1\)</span> 或 <span class="arithmatex">\(u, v \in \mathbf R_2\)</span>，<span class="arithmatex">\(u, v\)</span> 之间的路径也在 <span class="arithmatex">\(T_1\)</span> 或 <span class="arithmatex">\(T_2\)</span> 中，因此成立。</li>
+<li>
+<p>因为 <span class="arithmatex">\(u, v\)</span> 等价，因此不妨假设 <span class="arithmatex">\(u \in \mathbf R_1, v \in \mathbf R_2\)</span>。此时 <span class="arithmatex">\(s, t\)</span> 的割同时也是 <span class="arithmatex">\(u, v\)</span> 的一个割，因此有 <span class="arithmatex">\(c(u, v) \leq c(s, t)\)</span>。对于 <span class="arithmatex">\(u, s\)</span> 路径上的边权最小的边 <span class="arithmatex">\((r_1, r_2)\)</span> 所对应的最小割，<span class="arithmatex">\(t\)</span> 要么在 <span class="arithmatex">\(s\)</span> 侧，要么在 <span class="arithmatex">\(u\)</span> 侧。</p>
+<ul>
+<li>如果 <span class="arithmatex">\(t\)</span> 在 <span class="arithmatex">\(s\)</span> 的一侧，由核心引理，<span class="arithmatex">\(v\)</span> 也在 <span class="arithmatex">\(s\)</span> 侧，因此 <span class="arithmatex">\(r_1, r_2\)</span> 的割也是 <span class="arithmatex">\(u, v\)</span> 的割，<span class="arithmatex">\(c(u, v) \leq c(r_1, r_2)\)</span>。</li>
+<li>如果 <span class="arithmatex">\(t\)</span> 在 <span class="arithmatex">\(u\)</span> 的一侧，<span class="arithmatex">\(r_1, r_2\)</span> 的割也是 <span class="arithmatex">\(s, t\)</span> 的割，<span class="arithmatex">\(c(s, t) \leq c(r_1, r_2)\)</span>。</li>
+</ul>
+<p>对于 <span class="arithmatex">\(t, v\)</span>，同理。因为三角形不等式，<span class="arithmatex">\(c(u, v) \geq \min\{(u, s)\text{ 路径上最小的边权}, c(s, t), (t, v)\text{ 路径上最小的边权}\}\)</span>。结合上面的结论，有 <span class="arithmatex">\(c(u, v)\)</span> 等于 <span class="arithmatex">\(u, v\)</span> 路径上最小的边权。</p>
+</li>
+</ul>
+<h3 id="_35">非递归建树</h3>
+<h4 id="_36">伪代码</h4>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp;\text{Equivalent Flow Tree} (G) \\
+&amp;n \gets |\mathbf V| \\
+&amp;fa_1 \gets \textbf{NULL} \\
+&amp;fa_i \gets 1, i \in [2, n] \\
+&amp;\mathbf E_T \gets \varnothing \\
+&amp;\textbf{for } u = 2 \textbf{ to } n \textbf{ do} \\
+&amp;\qquad v \gets fa_u \\
+&amp;\qquad \text{求出原图中 } u, v \text{ 的最小割 } (\mathbf W, \mathbf V \setminus \mathbf W), u \in \mathbf W \\
+&amp;\qquad \mathbf E_T \gets \mathbf E_T \cup \{(u, v)\} \\
+&amp;\qquad val(u, v) = c(u, v) \\
+&amp;\qquad \textbf{for } x = u + 1 \textbf{ to } n \textbf{ do} \\
+&amp;\qquad\qquad \textbf{if } fa_x = v \textbf{ and } x \in \mathbf W \textbf{ then} \\
+&amp;\qquad\qquad\qquad fa_x \gets u \\
+&amp;\qquad\qquad \textbf{end if} \\
+&amp;\qquad \textbf{end for} \\
+&amp;\textbf{end for} \\
+&amp;T \gets (\mathbf V, \mathbf E, val) \\
+&amp;\textbf{return } T \\
+\end{aligned}
+\]</div>
+<p><span class="arithmatex">\(fa_i\)</span> 与 Gomory-Hu 树的非递归实现有同样的用处，不过若 <span class="arithmatex">\(u\)</span> 是集合的代表点，<span class="arithmatex">\((u, fa_u)\)</span> 的含义不再是集合之间的连边，而是 <span class="arithmatex">\(u\)</span> 和 <span class="arithmatex">\(fa_u\)</span> 两点之间的连边。因为等价流树只需要划分集合并连边，因此实现简单了许多。对于当前处理的点 <span class="arithmatex">\(u\)</span>，它是集合的代表点，集合中所有的其他点的编号一定比 <span class="arithmatex">\(u\)</span> 大，且不需要改变已有的树边，因此从 <span class="arithmatex">\(u + 1\)</span> 开始找即可。</p>
+<h2 id="_37">一些结论</h2>
+<ul>
+<li>要构造 Gomory-Hu 树或等价流树，需要做 <span class="arithmatex">\(|\mathbf V| - 1\)</span> 次最小割。</li>
+<li>无向图最小割最多有 <span class="arithmatex">\(|\mathbf V| - 1\)</span> 种取值。</li>
+</ul>
+<h1 id="_38">费用流</h1>
+<p>不同于普通最大流的流网络，费用流的流网络中每条边还有一个费用 <span class="arithmatex">\(c(u, v)\)</span>，一个流 <span class="arithmatex">\(f\)</span> 的费用定义为 <span class="arithmatex">\(c(f) = \displaystyle\sum_{u \in \mathbf V}\sum_{v \in \mathbf V} f(u, v) c(u, v)\)</span>。我们要求出流是最大流时的最小（大）费用（下文仅说明最小费用流，最大费用流可以将所有边的费用变为相反数，转化为求最小费用流，再将答案变为相反数）。</p>
+<h2 id="ssp">SSP 算法</h2>
+<p>SSP 算法类似于增广路径求最大流的算法。我们定义残量网络中的费用：</p>
+<div class="arithmatex">\[
+c_f(u, v) =
+\begin{cases}
+c(u, v), &amp;(u, v) \in \mathbf E \\
+-c(u, v), &amp;(v, u) \in \mathbf E \\
+0, &amp;\text{otherwise} \\
+\end{cases}
+\]</div>
+<p>如果基于 Dinic 求最大流，那么需要将每次 BFS 分层改成求残量网络中的最短路，其中以 <span class="arithmatex">\(c_f(u, v)\)</span> 为边权（注意我们认为 <span class="arithmatex">\(w_f(u, v) = 0\)</span> 的边不在残量网络中）。增广的过程中只能增广最短路。</p>
+<h3 id="_39">消圈定理</h3>
+<p>定义负圈为残量网络中的负环。<del>我也不知道为什么这么叫</del></p>
+<p>对于两个流 <span class="arithmatex">\(f_1, f_2\)</span>，定义 <span class="arithmatex">\((f_1 - f_2)(u, v) = f_1(u, v) - f_2(u, v)\)</span>。同时 <span class="arithmatex">\(f_1 - f_2\)</span> 满足流量守恒。</p>
+<blockquote>
+<p>流 <span class="arithmatex">\(f\)</span> 是流量为 <span class="arithmatex">\(\mid f \mid\)</span> 的最小费用流 <span class="arithmatex">\(\iff\)</span> 残量网络 <span class="arithmatex">\(G_f\)</span> 中不存在负圈</p>
+</blockquote>
+<p>证明：充分性：使用反证法。若流 <span class="arithmatex">\(f\)</span> 是流量为 <span class="arithmatex">\(\mid f \mid\)</span> 的最小费用流，且残量网络 <span class="arithmatex">\(G_f\)</span> 中存在负圈，那么可以在不增加流量的情况下增加负圈上的权值，同时费用减少，与假设矛盾。</p>
+<p>必要性：考虑证明其逆否命题，即若流 <span class="arithmatex">\(f\)</span> 不是流量为 <span class="arithmatex">\(\mid f \mid\)</span> 的最小费用流时，残量网络 <span class="arithmatex">\(G_f\)</span> 中存在负圈。若存在 <span class="arithmatex">\(f'\)</span> 使 <span class="arithmatex">\(c(f') &lt; c(f), \mid f \mid = \mid f' \mid\)</span>。因为 <span class="arithmatex">\(\mid f \mid = \mid f' \mid\)</span>，所以 <span class="arithmatex">\(f' - f\)</span> 中源、汇点的流量都是 <span class="arithmatex">\(0\)</span>。因为 <span class="arithmatex">\(f' - f\)</span> 也满足流量守恒，且 <span class="arithmatex">\(f', f\)</span> 一定不同，所以 <span class="arithmatex">\(f' - f\)</span> 一定是由若干环组成（如果有链，因为源、汇点的流量为 <span class="arithmatex">\(0\)</span>，链的端点一定不满足流量守恒）。同时，因为 <span class="arithmatex">\(c(f') &lt; c(f)\)</span>，<span class="arithmatex">\(f' - f\)</span> 中一定至少存在一个负圈。因此 <span class="arithmatex">\(f\)</span> 中存在负圈（可以用 <span class="arithmatex">\(f' = f + (f' - f)\)</span> 来理解，能在 <span class="arithmatex">\(f\)</span> 上增广 <span class="arithmatex">\(f' - f\)</span>，就说明 <span class="arithmatex">\(f\)</span> 中也有 <span class="arithmatex">\(f' - f\)</span> 中的负圈 <del>当然如果你没理解这个解释你可以当我没说</del>）。</p>
+<h3 id="_40">正确性证明</h3>
+<p>因为 SSP 算法仍然使用增广路径求最大流，由最大流最小割定理，SSP 算法能求出最大流。</p>
+<p>接下来证明能求出最小费用。使用数学归纳法和反证法。设最大流为 <span class="arithmatex">\(F\)</span>，假设已知 <span class="arithmatex">\(f_i\)</span> 为 <span class="arithmatex">\(\mid f_i \mid = i\)</span> 时的最小费用流，其中 <span class="arithmatex">\(0 \leq i &lt; F\)</span>。已知 <span class="arithmatex">\(c(f_0) = 0\)</span>，且此时残量网络中不存在负圈。</p>
+<p>令 <span class="arithmatex">\(f_{i + 1}\)</span> 为 <span class="arithmatex">\(f_i\)</span> 增广一条残量网络中的最短路径后的流，其中增广的流量为 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(c(f_{i + 1}) - c(f_i)\)</span> 为这条最短路径的长度。若存在一个流 <span class="arithmatex">\(f'\)</span> 使 <span class="arithmatex">\(\mid f' \mid = \mid f_{i + 1} \mid, c(f') &lt; c(f_{i + 1})\)</span>，<span class="arithmatex">\(f' - f_i\)</span> 中一定有负圈（因为 <span class="arithmatex">\(c(f') &lt; c(f_{i + 1})\)</span>，也就是说 <span class="arithmatex">\(f'\)</span> 只能是由 <span class="arithmatex">\(f_i\)</span> 增广一条路径后再增广负圈得到），也就是说 <span class="arithmatex">\(f_i\)</span> 中一定有负圈。由消圈定理，与假设 <span class="arithmatex">\(f_i\)</span> 为最小费用流矛盾，因此 <span class="arithmatex">\(f_{i + 1}\)</span> 就是最小费用流。</p>
+<p>如果当前次增广并没有将这条最短增广路径的流量流满，则没有改变残量网络的形态。也就是说，下一次增广寻找到的最短路径仍然是这条，因此 Dinic 算法每次增广都将增广路径上的流量流满的操作是正确的。</p>
+<h3 id="_41">负圈</h3>
+<p>在使用 SSP 算法求费用流时，由于每次增广出来的都是最小费用流，所以在求解过程中不会出现负圈。唯一出现负圈的情况是原网络中有负圈，在第一次 SPFA 时会陷入死循环。因此 SSP 算法只能处理原图中没有负圈的费用流。</p>
+<h3 id="_42">时间复杂度</h3>
+<p>若最大流为 <span class="arithmatex">\(f\)</span>，则时间复杂度为 <span class="arithmatex">\(O(\mid \mathbf V \mid \mid \mathbf E \mid \mid f \mid)\)</span>，是伪多项式时间，但在 OI 中几乎不可能达到这个上界。<del>当然我不会证</del></p>
+<h3 id="_43">代码</h3>
+<details class="note">
+<summary>代码</summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstring&gt;</span>
+</span><span id="__span-2-2"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+</span><span id="__span-2-3"><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;queue&gt;</span>
+</span><span id="__span-2-4"><span class="cp">#define TO(x) edge[x].to</span>
+</span><span id="__span-2-5"><span class="cp">#define W(x) edge[x].w</span>
+</span><span id="__span-2-6"><span class="cp">#define C(x) edge[x].c</span>
+</span><span id="__span-2-7"><span class="cp">#define NXT(x) edge[x].nxt</span>
+</span><span id="__span-2-8"><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+</span><span id="__span-2-9"><span class="k">typedef</span><span class="w"> </span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pii</span><span class="p">;</span>
+</span><span id="__span-2-10"><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">MAXN1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5005</span><span class="p">,</span><span class="w"> </span><span class="n">MAXN2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5e4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">INF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">1l</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">31</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-2-11"><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+</span><span id="__span-2-12"><span class="k">class</span><span class="w"> </span><span class="nc">Graph</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-13"><span class="k">private</span><span class="o">:</span>
+</span><span id="__span-2-14"><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Edge</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-15"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">nxt</span><span class="p">;</span>
+</span><span id="__span-2-16"><span class="w">        </span><span class="n">Edge</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-2-17"><span class="w">        </span><span class="n">Edge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">to</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nxt</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">to</span><span class="p">(</span><span class="n">to</span><span class="p">),</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="n">w</span><span class="p">),</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="n">c</span><span class="p">),</span><span class="w"> </span><span class="n">nxt</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-2-18"><span class="w">    </span><span class="p">};</span>
+</span><span id="__span-2-19"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tot</span><span class="p">,</span><span class="w"> </span><span class="n">cost</span><span class="p">,</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">MAXN1</span><span class="p">],</span><span class="w"> </span><span class="n">cur</span><span class="p">[</span><span class="n">MAXN1</span><span class="p">],</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">MAXN1</span><span class="p">];</span>
+</span><span id="__span-2-20"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">vis</span><span class="p">[</span><span class="n">MAXN1</span><span class="p">];</span>
+</span><span id="__span-2-21"><span class="w">    </span><span class="n">Edge</span><span class="w"> </span><span class="n">edge</span><span class="p">[</span><span class="n">MAXN2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-2-22"><span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">spfa</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-23"><span class="w">        </span><span class="n">memcpy</span><span class="p">(</span><span class="n">cur</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">cur</span><span class="p">));</span>
+</span><span id="__span-2-24"><span class="w">        </span><span class="n">queue</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span><span id="__span-2-25"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-2-26"><span class="w">            </span><span class="n">dis</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">INF</span><span class="p">;</span>
+</span><span id="__span-2-27"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">dis</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="o">!</span><span class="n">q</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span><span class="w"> </span><span class="n">vis</span><span class="p">[</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">()]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">())</span>
+</span><span id="__span-2-28"><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">()];</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NXT</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</span><span id="__span-2-29"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">()]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">e</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-30"><span class="w">                    </span><span class="n">dis</span><span class="p">[</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">()]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-2-31"><span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">vis</span><span class="p">[</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)])</span>
+</span><span id="__span-2-32"><span class="w">                        </span><span class="n">q</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)),</span><span class="w"> </span><span class="n">vis</span><span class="p">[</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-2-33"><span class="w">                </span><span class="p">}</span>
+</span><span id="__span-2-34"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">INF</span><span class="p">;</span>
+</span><span id="__span-2-35"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-36"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-37"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+</span><span id="__span-2-38"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">flow</span><span class="p">;</span>
+</span><span id="__span-2-39"><span class="w">        </span><span class="n">vis</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+</span><span id="__span-2-40"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flow</span><span class="p">;</span>
+</span><span id="__span-2-41"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cur</span><span class="p">[</span><span class="n">x</span><span class="p">];</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NXT</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</span><span id="__span-2-42"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">vis</span><span class="p">[</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">)]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">dis</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">e</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-43"><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">TO</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="w"> </span><span class="n">min</span><span class="p">(</span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">),</span><span class="w"> </span><span class="n">now</span><span class="p">));</span>
+</span><span id="__span-2-44"><span class="w">                </span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">W</span><span class="p">(</span><span class="n">e</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">cost</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+</span><span id="__span-2-45"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">now</span><span class="p">)</span>
+</span><span id="__span-2-46"><span class="w">                    </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-2-47"><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-2-48"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">vis</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="n">flow</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+</span><span id="__span-2-49"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-50">
+</span><span id="__span-2-51"><span class="k">public</span><span class="o">:</span>
+</span><span id="__span-2-52"><span class="w">    </span><span class="n">Graph</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">tot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-53"><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">addEdge</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-54"><span class="w">        </span><span class="n">edge</span><span class="p">[</span><span class="o">++</span><span class="n">tot</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Edge</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">u</span><span class="p">]),</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tot</span><span class="p">;</span>
+</span><span id="__span-2-55"><span class="w">        </span><span class="n">edge</span><span class="p">[</span><span class="o">++</span><span class="n">tot</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">v</span><span class="p">]),</span><span class="w"> </span><span class="n">head</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tot</span><span class="p">;</span>
+</span><span id="__span-2-56"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-57"><span class="w">    </span><span class="n">pii</span><span class="w"> </span><span class="n">solve</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-58"><span class="w">        </span><span class="n">cost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-59"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-60"><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">spfa</span><span class="p">())</span>
+</span><span id="__span-2-61"><span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">INF</span><span class="p">);</span>
+</span><span id="__span-2-62"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">cost</span><span class="p">};</span>
+</span><span id="__span-2-63"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-64"><span class="p">}</span><span class="w"> </span><span class="n">graph</span><span class="p">;</span>
+</span><span id="__span-2-65"><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-66"><span class="w">    </span><span class="n">ios</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">),</span><span class="w"> </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-2-67"><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">t</span><span class="p">;</span>
+</span><span id="__span-2-68"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-2-69"><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="n">addEdge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">);</span>
+</span><span id="__span-2-70"><span class="w">    </span><span class="n">pii</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">graph</span><span class="p">.</span><span class="n">solve</span><span class="p">();</span>
+</span><span id="__span-2-71"><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</span><span id="__span-2-72"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
+<h3 id="_44">注意事项</h3>
+<ul>
+<li>最短路算法需要用 SPFA，因为有负权边；且每次 SPFA 需要跑完，而不是松弛到汇点就结束。</li>
+<li>为了处理 <span class="arithmatex">\(0\)</span> 环，需要记录 <code>vis</code> 数组，防止在一条增广路上出现一个点多次。同时为了使当前弧优化发挥作用，需要在 DFS 结束时将 <code>vis</code> 设为 <code>false</code>。</li>
+</ul>
+<h3 id="_45">当前弧优化的奇妙事实</h3>
+<p>在下面的讨论中，我们将不在 DFS 结束时恢复 <code>vis</code> 数组的实现称为 vis 优化。在使用 vis 优化的时候，当前弧优化无法发挥作用，所以在 vis 优化时不需要写当前弧。</p>
+<p>一般情况下，当前弧优化和 vis 优化耗时差不多，但在 <a href="https://loj.ac/p/102">loj 的模板题</a>中，使用 vis 优化耗时比当前弧优化耗时少 <span class="arithmatex">\(200 \text{ms}\)</span> 左右，但经过大样例的测试，发现当前弧优化的 SPFA 次数、DFS 次数和邻接表跳边次数均比 vis 优化少。</p>
+<h3 id="_46">动态建图</h3>
+<p>在<a href="https://www.luogu.com.cn/problem/P2050">美食节</a>中，我们需要使用动态建图，但这道题的动态建图需要我们增广完一条路径之后加边，而不是跑完一次费用流之后再加边。在这种情况下，我们不能使用 Dinic，只能使用 EK，即每次 SPFA 之后只能增广一条路径。</p>
+<p>为了解释，我们假设走完增广路 A 后需要加边 C，走完增广路 B 后需要加边 D，且 A 是当前最短路，B 是当前次短路。如果使用 Dinic，可能会出现增广完 AB 后一起加边 CD 的情况。如果增广完 A 并加边 C 后，B 不再是当前最短路（即现在的最短路经过 C），此时增广 B 之后不再是最小费用流，根据消圈定理，当前残量网络里有负圈，因此必须走完增广路之后立刻加边并重跑 SPFA。</p>
+<p>对于最大流的问题，如果当前增广的不是最短路并不会使结果错误，也不会运行错误；但对于费用流，每次必须增广最短路，否则残量网络中就会存在负圈，把 SPFA 卡住，因此在费用流的动态建图问题中需要注意这点。</p>
+<h1 id="_47">上下界网络流</h1>
+<h2 id="_48">无源汇上下界可行流</h2>
+<p>给定一个流网络，无源汇（即所有点都需要满足流量守恒），每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求可行流。</p>
+<p>考虑先将所有边流设为下界，然后再进行调整。对于原图中的边 <span class="arithmatex">\((u, v)\)</span>，连边 <span class="arithmatex">\((u, v, b(u, v) - a(u, v))\)</span>。定义 <span class="arithmatex">\(g(u) = \displaystyle\sum_{(v, u) \in \mathbf E} a(v, u) - \sum_{(u, v) \in \mathbf E} a(u, v)\)</span>，即每个点流入与流出的流量之差。若 <span class="arithmatex">\(g(u) &gt; 0\)</span>，说明流入 <span class="arithmatex">\(u\)</span> 的流量比流出的流量多 <span class="arithmatex">\(g(u)\)</span>，连边 <span class="arithmatex">\((s, u, g(u))\)</span>；若 <span class="arithmatex">\(g(u) &lt; 0\)</span>，说明流入 <span class="arithmatex">\(u\)</span> 的流量比流出的流量少 <span class="arithmatex">\(-g(u)\)</span>，连边 <span class="arithmatex">\((u, t, -g(u))\)</span>。对新图求最大流，因为增广需要遵循流量守恒，如果从 <span class="arithmatex">\(s\)</span> 出发和到达 <span class="arithmatex">\(t\)</span> 的流量都流满，那么对应与其相连的点在原图中也满足流量守恒了。实际上，只需要检验最大流是否等于从 <span class="arithmatex">\(s\)</span> 流出的流量上限之和即可。因为 <span class="arithmatex">\(a(u, v)\)</span> 给 <span class="arithmatex">\(g(u)\)</span> 和 <span class="arithmatex">\(g(v)\)</span> 的贡献是相反数，所以 <span class="arithmatex">\(\displaystyle\sum_{u \in \mathbf V} g(u) = 0\)</span>，也就是说从 <span class="arithmatex">\(s\)</span> 流出和流入 <span class="arithmatex">\(t\)</span> 的流量上限之和是一样的，所以使用从 <span class="arithmatex">\(s\)</span> 流出和流入 <span class="arithmatex">\(t\)</span> 的流量检验都是可以的。</p>
+<p>每条边的下界加上在新图中的流量即为一个可行流。</p>
+<h2 id="_49">有源汇上下界可行流</h2>
+<p>给定一个流网络，有源汇，每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求可行流。</p>
+<p><strong>注意下面说的 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 与无源汇上下界可行流中的 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 不一样，为了区分，我们称无源汇上下界可行流中的源点和汇点为超级源点 <span class="arithmatex">\(S\)</span> 和超级汇点 <span class="arithmatex">\(T\)</span>。</strong></p>
+<p>对于一个普通的流网络，从 <span class="arithmatex">\(s\)</span> 流出的净流量与流入 <span class="arithmatex">\(t\)</span> 的净流量相等，所以我们可以在原图中加一条从 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span>，下界为 <span class="arithmatex">\(0\)</span>，上界为 <span class="arithmatex">\(\infty\)</span> 的流，这样就转化为无源汇上下界可行流了，流的值即为新图中 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的流量。</p>
+<h2 id="_50">有源汇上下界最小流</h2>
+<p>给定一个流网络，有源汇，每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求最小流。</p>
+<p>先求出可行流，再只保留原图中的边，求 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的最大流（即尽可能多的退回流量），用可行流的值减去求出的最大值即为答案。在实现时只需要删掉 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的边。</p>
+<h2 id="_51">有源汇上下界最大流</h2>
+<p>给定一个流网络，有源汇，每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求最小流。</p>
+<p>先求出可行流，再只保留原图中的边，求 <span class="arithmatex">\(s\)</span> 到 <span class="arithmatex">\(t\)</span> 的最大流（即尽可能多的添加流量），用可行流的值加上求出的最大值即为答案。实际上，因为 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的流量为可行流的值，从 <span class="arithmatex">\(s\)</span> 出发可以通过这条边流到 <span class="arithmatex">\(t\)</span> 的流量上界也是可行流的值（也就是可以将这条边上所有已有的流量退回），因此直接在新图跑 <span class="arithmatex">\(s\)</span> 到 <span class="arithmatex">\(t\)</span> 的最大流即为有源汇上下界最大流。</p>
+<h2 id="_52">上下界费用流</h2>
+<p>直接将上面对应问题的最大流改为最小/大费用流即可。</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
