@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#ssp" class="md-skip">
           跳转至
         </a>
       
@@ -278,8 +278,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           费用流
@@ -295,8 +293,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -314,56 +310,56 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     消圈定理
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     正确性证明
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     负圈
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     时间复杂度
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     代码
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     注意事项
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     当前弧优化的奇妙事实
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     动态建图
   </a>
   
@@ -511,8 +507,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -529,56 +523,56 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     消圈定理
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     正确性证明
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     负圈
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     时间复杂度
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     代码
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     注意事项
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     当前弧优化的奇妙事实
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     动态建图
   </a>
   
@@ -604,7 +598,8 @@
                   
 
 
-<h1 id="_1">费用流</h1>
+  <h1>费用流</h1>
+
 <p>不同于普通最大流的流网络，费用流的流网络中每条边还有一个费用 <span class="arithmatex">\(c(u, v)\)</span>，一个流 <span class="arithmatex">\(f\)</span> 的费用定义为 <span class="arithmatex">\(c(f) = \displaystyle\sum_{u \in \mathbf V}\sum_{v \in \mathbf V} f(u, v) c(u, v)\)</span>。我们要求出流是最大流时的最小（大）费用（下文仅说明最小费用流，最大费用流可以将所有边的费用变为相反数，转化为求最小费用流，再将答案变为相反数）。</p>
 <h2 id="ssp">SSP 算法</h2>
 <p>SSP 算法类似于增广路径求最大流的算法。我们定义残量网络中的费用：</p>
@@ -617,7 +612,7 @@ c(u, v), &amp;(u, v) \in \mathbf E \\
 \end{cases}
 \]</div>
 <p>如果基于 Dinic 求最大流，那么需要将每次 BFS 分层改成求残量网络中的最短路，其中以 <span class="arithmatex">\(c_f(u, v)\)</span> 为边权（我们认为 <span class="arithmatex">\(w_f(u, v) = 0\)</span> 的边不在残量网络中）。增广的过程中只能增广最短路。</p>
-<h3 id="_2">消圈定理</h3>
+<h3 id="_1">消圈定理</h3>
 <p>定义负圈为残量网络中的负环。</p>
 <p>对于两个流 <span class="arithmatex">\(f_1, f_2\)</span>，定义 <span class="arithmatex">\((f_1 - f_2)(u, v) = f_1(u, v) - f_2(u, v)\)</span>。可以看出，<span class="arithmatex">\(f_1 - f_2\)</span> 满足流量守恒。</p>
 <div class="admonition abstract">
@@ -629,7 +624,7 @@ c(u, v), &amp;(u, v) \in \mathbf E \\
 <p>充分性：使用反证法。若流 <span class="arithmatex">\(f\)</span> 是流量为 <span class="arithmatex">\(\mid f \mid\)</span> 的最小费用流，且残量网络 <span class="arithmatex">\(G_f\)</span> 中存在负圈，那么可以在不增加流量的情况下增加负圈上的权值，同时费用减少，与假设矛盾。</p>
 <p>必要性：考虑证明其逆否命题，即若流 <span class="arithmatex">\(f\)</span> 不是流量为 <span class="arithmatex">\(\mid f \mid\)</span> 的最小费用流时，残量网络 <span class="arithmatex">\(G_f\)</span> 中存在负圈。若存在 <span class="arithmatex">\(f'\)</span> 使 <span class="arithmatex">\(c(f') &lt; c(f), \mid f \mid = \mid f' \mid\)</span>。因为 <span class="arithmatex">\(\mid f \mid = \mid f' \mid\)</span>，所以 <span class="arithmatex">\(f' - f\)</span> 中源、汇点的流量都是 <span class="arithmatex">\(0\)</span>。因为 <span class="arithmatex">\(f' - f\)</span> 也满足流量守恒，且 <span class="arithmatex">\(f', f\)</span> 一定不同，所以 <span class="arithmatex">\(f' - f\)</span> 一定是由若干环组成（如果有链，因为源、汇点的流量为 <span class="arithmatex">\(0\)</span>，链的端点一定不满足流量守恒）。同时，因为 <span class="arithmatex">\(c(f') &lt; c(f)\)</span>，<span class="arithmatex">\(f' - f\)</span> 中一定至少存在一个负圈。因此 <span class="arithmatex">\(f\)</span> 中存在负圈（可以用 <span class="arithmatex">\(f' = f + (f' - f)\)</span> 来理解，能在 <span class="arithmatex">\(f\)</span> 上增广 <span class="arithmatex">\(f' - f\)</span>，就说明 <span class="arithmatex">\(f\)</span> 中也有 <span class="arithmatex">\(f' - f\)</span> 中的负圈）。</p>
 </div>
-<h3 id="_3">正确性证明</h3>
+<h3 id="_2">正确性证明</h3>
 <div class="admonition info">
 <p class="admonition-title">证明</p>
 <p>因为 SSP 算法仍然使用增广路径求最大流，由最大流最小割定理，SSP 算法能求出最大流。</p>
@@ -640,15 +635,15 @@ c(u, v), &amp;(u, v) \in \mathbf E \\
 <p class="admonition-title">Bug</p>
 <p>Dinic 费用流的正确性证明待完善。</p>
 </div>
-<h3 id="_4">负圈</h3>
+<h3 id="_3">负圈</h3>
 <p>在使用 SSP 算法求费用流时，由于每次增广出来的都是最小费用流，所以在求解过程中不会出现负圈。唯一出现负圈的情况是原网络中有负圈，在第一次 SPFA 时会陷入死循环。因此 SSP 算法只能处理原图中没有负圈的费用流。</p>
-<h3 id="_5">时间复杂度</h3>
+<h3 id="_4">时间复杂度</h3>
 <p>若最大流为 <span class="arithmatex">\(f\)</span>，则时间复杂度为 <span class="arithmatex">\(O(\mid \mathbf V \mid \mid \mathbf E \mid \mid f \mid)\)</span>，是伪多项式时间，但在 OI 中几乎不可能达到这个上界。</p>
 <div class="admonition bug">
 <p class="admonition-title">Bug</p>
 <p>当前内容待完善。</p>
 </div>
-<h3 id="_6">代码</h3>
+<h3 id="_5">代码</h3>
 <details class="note">
 <summary>代码</summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -796,7 +791,7 @@ c(u, v), &amp;(u, v) \in \mathbf E \\
 </span><span id="__span-0-72"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 </details>
-<h3 id="_7">注意事项</h3>
+<h3 id="_6">注意事项</h3>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul>
@@ -804,10 +799,10 @@ c(u, v), &amp;(u, v) \in \mathbf E \\
 <li>为了处理 <span class="arithmatex">\(0\)</span> 环，需要记录 <code>vis</code> 数组，防止在一条增广路上出现一个点多次。同时为了使当前弧优化发挥作用，需要在 DFS 结束时将 <code>vis</code> 设为 <code>false</code>。</li>
 </ul>
 </div>
-<h3 id="_8">当前弧优化的奇妙事实</h3>
+<h3 id="_7">当前弧优化的奇妙事实</h3>
 <p>在下面的讨论中，我们将不在 DFS 结束时恢复 <code>vis</code> 数组的实现称为 vis 优化。在使用 vis 优化的时候，当前弧优化无法发挥作用，所以在 vis 优化时不需要写当前弧。</p>
 <p>一般情况下，当前弧优化和 vis 优化耗时差不多，但在 <a href="https://loj.ac/p/102">loj 的模板题</a>中，使用 vis 优化耗时比当前弧优化耗时少 <span class="arithmatex">\(200 \text{ms}\)</span> 左右，但经过大样例的测试，发现当前弧优化的 SPFA 次数、DFS 次数和链式前向星跳边次数均比 vis 优化少。</p>
-<h3 id="_9">动态建图</h3>
+<h3 id="_8">动态建图</h3>
 <p>在<a href="https://www.luogu.com.cn/problem/P2050">美食节</a>中，我们需要使用动态建图，但这道题的动态建图需要我们增广完一条路径之后加边，而不是跑完一次费用流之后再加边。在这种情况下，我们不能使用 Dinic，只能使用 EK，即每次 SPFA 之后只能增广一条路径。</p>
 <p>为了解释，我们假设走完增广路 A 后需要加边 C，走完增广路 B 后需要加边 D，且 A 是当前最短路，B 是当前次短路。如果使用 Dinic，可能会出现增广完 AB 后一起加边 CD 的情况。如果增广完 A 并加边 C 后，B 不再是当前最短路（即现在的最短路经过 C），此时增广 B 之后不再是最小费用流，根据消圈定理，当前残量网络里有负圈，因此必须走完增广路之后立刻加边并重跑 SPFA。</p>
 <p>对于最大流的问题，如果当前增广的不是最短路并不会使结果错误，也不会运行错误；但对于费用流，每次必须增广最短路，否则残量网络中就会存在负圈，把 SPFA 卡住，同时也意味着当前流不是最小费用流，因此在费用流的动态建图问题中需要注意这点。</p>

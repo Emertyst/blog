@@ -292,8 +292,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           上下界网络流
@@ -310,8 +308,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -320,35 +316,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     无源汇上下界可行流
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     有源汇上下界可行流
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     有源汇上下界最小流
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     有源汇上下界最大流
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     上下界费用流
   </a>
   
@@ -477,8 +473,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -487,35 +481,35 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     无源汇上下界可行流
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     有源汇上下界可行流
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     有源汇上下界最小流
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     有源汇上下界最大流
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     上下界费用流
   </a>
   
@@ -536,15 +530,16 @@
                   
 
 
-<h1 id="_1">上下界网络流</h1>
-<h2 id="_2">无源汇上下界可行流</h2>
+  <h1>上下界网络流</h1>
+
+<h2 id="_1">无源汇上下界可行流</h2>
 <div class="admonition note">
 <p class="admonition-title">无源汇上下界可行流</p>
 <p>给定一个流网络，无源汇（即所有点都需要满足流量守恒），每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求可行流。</p>
 </div>
 <p>考虑先将所有边流设为下界，然后再进行调整。对于原图中的边 <span class="arithmatex">\((u, v)\)</span>，连边 <span class="arithmatex">\((u, v, b(u, v) - a(u, v))\)</span>。定义 <span class="arithmatex">\(g(u) = \displaystyle\sum_{(v, u) \in \mathbf E} a(v, u) - \sum_{(u, v) \in \mathbf E} a(u, v)\)</span>，即每个点流入与流出的流量之差。我们新建超级源点 <span class="arithmatex">\(S\)</span> 和超级汇点 <span class="arithmatex">\(T\)</span>。若 <span class="arithmatex">\(g(u) &gt; 0\)</span>，说明流入 <span class="arithmatex">\(u\)</span> 的流量比流出的流量多 <span class="arithmatex">\(g(u)\)</span>，连边 <span class="arithmatex">\((S, u, g(u))\)</span>；若 <span class="arithmatex">\(g(u) &lt; 0\)</span>，说明流入 <span class="arithmatex">\(u\)</span> 的流量比流出的流量少 <span class="arithmatex">\(-g(u)\)</span>，连边 <span class="arithmatex">\((u, T, -g(u))\)</span>。对新图求最大流，因为增广需要遵循流量守恒，如果从 <span class="arithmatex">\(S\)</span> 出发和到达 <span class="arithmatex">\(T\)</span> 的流量都流满，那么对应与其相连的点在原图中也满足流量守恒了。实际上，检验其中任意一个即可。</p>
 <p>每条边的下界加上在新图中的流量即为一个可行流。</p>
-<h2 id="_3">有源汇上下界可行流</h2>
+<h2 id="_2">有源汇上下界可行流</h2>
 <div class="admonition note">
 <p class="admonition-title">有源汇上下界可行流</p>
 <p>给定一个流网络，有源汇，每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求可行流。</p>
@@ -554,19 +549,19 @@
 <p>下面说的 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 与无源汇上下界可行流中的 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(T\)</span> 不同。</p>
 </div>
 <p>对于一个普通的流网络，从 <span class="arithmatex">\(s\)</span> 流出的净流量与流入 <span class="arithmatex">\(t\)</span> 的净流量相等，所以我们可以在原图中加一条从 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span>，下界为 <span class="arithmatex">\(0\)</span>，上界为 <span class="arithmatex">\(\infty\)</span> 的流，这样就转化为无源汇上下界可行流了，流的值即为新图中 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的流量。</p>
-<h2 id="_4">有源汇上下界最小流</h2>
+<h2 id="_3">有源汇上下界最小流</h2>
 <div class="admonition note">
 <p class="admonition-title">有源汇上下界最小流</p>
 <p>给定一个流网络，有源汇，每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求最小流。</p>
 </div>
 <p>先求出可行流，再只保留原图中的边，求 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的最大流（即尽可能多的退回流量），用可行流的值减去求出的最大值即为答案。在实现时只需要删掉 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的边（因为只有这一条边会对接下来求的最大流有影响），然后跑最大流即可。</p>
-<h2 id="_5">有源汇上下界最大流</h2>
+<h2 id="_4">有源汇上下界最大流</h2>
 <div class="admonition note">
 <p class="admonition-title">有源汇上下界最大流</p>
 <p>给定一个流网络，有源汇，每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求最小流。</p>
 </div>
 <p>先求出可行流，再只保留原图中的边，求 <span class="arithmatex">\(s\)</span> 到 <span class="arithmatex">\(t\)</span> 的最大流（即尽可能多的添加流量），用可行流的值加上求出的最大值即为答案。实际上，因为当前 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的流量为可行流的值，将这条边的流量全部退回对于这次最大流的影响即为可行流的值。因此直接在新图跑 <span class="arithmatex">\(s\)</span> 到 <span class="arithmatex">\(t\)</span> 的最大流即为有源汇上下界最大流。</p>
-<h2 id="_6">上下界费用流</h2>
+<h2 id="_5">上下界费用流</h2>
 <p>直接将上面对应问题的最大流改为最小/大费用流即可。</p>
 
 
