@@ -963,11 +963,11 @@
 <li><span class="arithmatex">\(r' \ne r_1, r'' \ne r_2\)</span>，这种情况的证明与上一种类似。我们通过同样的方法求出 <span class="arithmatex">\(c(r', r_1) \geq c(r_1, r_2), c(r'', r_2) \geq c(r_1, r_2)\)</span>。根据三角形不等式，有 <span class="arithmatex">\(c(r', r'') \geq \min\{c(r', r_1), c(r_1, r_2), c(r_2, r'')\}\)</span>，所以 <span class="arithmatex">\(c(r', r'') \geq c(r_1, r_2)\)</span>。因此成立。</li>
 </ul>
 <p>关于划分的第三条性质，因为 <span class="arithmatex">\(T\)</span> 此时已经是 Gomory-Hu 树，所以 <span class="arithmatex">\(\mathbf R\)</span> 中任意两点 <span class="arithmatex">\(u, v\)</span> 的最小割就是两者路径上边权最小的边 <span class="arithmatex">\((s, t)\)</span>，然后进行分类讨论：</p>
-</div>
 <ul>
 <li>若 <span class="arithmatex">\(s, t\)</span> 就是 <span class="arithmatex">\(r', r''\)</span>，最小割就是 <span class="arithmatex">\(\mathbf W, \mathbf V \setminus \mathbf W\)</span>，可以用划分表示。</li>
 <li>若 <span class="arithmatex">\(s, t\)</span> 都在 <span class="arithmatex">\(\mathbf R_1\)</span> 或 <span class="arithmatex">\(\mathbf R_2\)</span> 中，因为 <span class="arithmatex">\(\mathbf C^1, \mathbf C^2\)</span> 都是满足第三条性质的，因此也可以用划分表示。</li>
 </ul>
+</div>
 <p>因此最小割树的正确性得证。</p>
 <h3 id="_14">非递归建树</h3>
 <p>在递归建树时我们需要记录划分 <span class="arithmatex">\(\mathbf C\)</span>，而这看起来就不好实现。考虑到集合划分的顺序是无关紧要的，于是我们可以使用非递归建树。</p>
