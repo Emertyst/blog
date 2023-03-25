@@ -9,13 +9,17 @@
       
       
       
+        <link rel="prev" href="../../notes/network-flows/4/">
+      
+      
+        <link rel="next" href="../2/">
       
       <link rel="icon" href="../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
     
     
       
-        <title>1 - Emertyst 的博客</title>
+        <title>fhq-Treap 合并的技巧 - Emertyst 的博客</title>
       
     
     
@@ -92,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              1
+              fhq-Treap 合并的技巧
             
           </span>
         </div>
@@ -295,14 +299,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
@@ -311,7 +317,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           cymrain07 的宝藏
@@ -322,11 +328,19 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../notes/cymrain07/1.md" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         fhq-Treap 合并的技巧
       </a>
+      
     </li>
   
 
@@ -338,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notes/cymrain07/2.md" class="md-nav__link">
+      <a href="../2/" class="md-nav__link">
         Splay 的 Finger-Search 优化启发式合并
       </a>
     </li>
@@ -352,7 +366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notes/cymrain07/3.md" class="md-nav__link">
+      <a href="../3/" class="md-nav__link">
         多项式公式总结
       </a>
     </li>
@@ -366,7 +380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notes/cymrain07/4.md" class="md-nav__link">
+      <a href="../4/" class="md-nav__link">
         二逼平衡树的各种神奇的数据结构的时空及代码长度
       </a>
     </li>
@@ -411,7 +425,7 @@
                   
 
 
-  <h1>1</h1>
+  <h1>fhq-Treap 合并的技巧</h1>
 
 <p>我们使用现场随机：</p>
 <p>设 <span class="arithmatex">\(x,y\)</span> 为两棵树的根，我们以 <span class="arithmatex">\(\dfrac{siz(x)}{siz(x)+siz(y)}\)</span> 的概率将 <span class="arithmatex">\(y\)</span> 合并到 <span class="arithmatex">\(x\)</span> 上，否则将 <span class="arithmatex">\(x\)</span> 合并到 <span class="arithmatex">\(y\)</span> 上。</p>
