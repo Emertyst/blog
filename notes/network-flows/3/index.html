@@ -543,8 +543,11 @@ c(u, v), &amp;(u, v) \in \mathbf E \\
 <p class="admonition-title">证明</p>
 <p>因为 SSP 算法仍然使用增广路径求最大流，由最大流最小割定理，SSP 算法能求出最大流。</p>
 <p>接下来证明能求出最小费用。使用数学归纳法和反证法。设最大流为 <span class="arithmatex">\(F\)</span>，假设已知 <span class="arithmatex">\(f_i\)</span> 为 <span class="arithmatex">\(\mid f_i \mid = i\)</span> 时的最小费用流，其中 <span class="arithmatex">\(0 \leq i &lt; F\)</span>。已知 <span class="arithmatex">\(c(f_0) = 0\)</span>，且此时残量网络中不存在负圈。</p>
-<p>令 <span class="arithmatex">\(f_{i + 1}\)</span> 为 <span class="arithmatex">\(f_i\)</span> 增广一条残量网络中的最短路径后的流，其中增广的流量为 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(c(f_{i + 1}) - c(f_i)\)</span> 为这条最短路径的长度。若存在一个流 <span class="arithmatex">\(f'\)</span> 使 <span class="arithmatex">\(\mid f' \mid = \mid f_{i + 1} \mid, c(f') &lt; c(f_{i + 1})\)</span>，<span class="arithmatex">\(f' - f_i\)</span> 中一定有负圈（因为 <span class="arithmatex">\(c(f') &lt; c(f_{i + 1})\)</span>，也就是说 <span class="arithmatex">\(f'\)</span> 只能是由 <span class="arithmatex">\(f_i\)</span> 增广一条路径后再增广负圈得到），也就是说 <span class="arithmatex">\(f_i\)</span> 中一定有负圈。由消圈定理，与假设 <span class="arithmatex">\(f_i\)</span> 为最小费用流矛盾，因此 <span class="arithmatex">\(f_{i + 1}\)</span> 就是最小费用流。</p>
-<p>如果当前次增广并没有将这条最短增广路径的流量流满，则没有改变残量网络的形态。也就是说，下一次增广寻找到的最短路径仍然是这条，因此 Dinic 算法每次增广都将增广路径上的流量流满的操作是正确的。</p>
+<p>令 <span class="arithmatex">\(f_{i + 1}\)</span> 为 <span class="arithmatex">\(f_i\)</span> 增广一条残量网络中的最短路径后的流。若存在一个流 <span class="arithmatex">\(f'\)</span> 使 <span class="arithmatex">\(\mid f' \mid = \mid f_{i + 1} \mid, c(f') &lt; c(f_{i + 1})\)</span>，<span class="arithmatex">\(f' - f_i\)</span> 中一定有负圈（因为 <span class="arithmatex">\(c(f') &lt; c(f_{i + 1})\)</span>，也就是说 <span class="arithmatex">\(f'\)</span> 只能是由 <span class="arithmatex">\(f_i\)</span> 增广一条路径后再增广负圈得到），也就是说 <span class="arithmatex">\(f_i\)</span> 中一定有负圈。由消圈定理，与假设 <span class="arithmatex">\(f_i\)</span> 为最小费用流矛盾，因此 <span class="arithmatex">\(f_{i + 1}\)</span> 就是最小费用流。</p>
+</div>
+<div class="admonition bug">
+<p class="admonition-title">Bug</p>
+<p>Dinic 费用流的正确性证明待完善。</p>
 </div>
 <h3 id="_4">负圈</h3>
 <p>在使用 SSP 算法求费用流时，由于每次增广出来的都是最小费用流，所以在求解过程中不会出现负圈。唯一出现负圈的情况是原网络中有负圈，在第一次 SPFA 时会陷入死循环。因此 SSP 算法只能处理原图中没有负圈的费用流。</p>
