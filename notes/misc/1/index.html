@@ -411,6 +411,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ubuntu_1" class="md-nav__link">
+    Ubuntu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#windows10" class="md-nav__link">
     Windows10
   </a>
@@ -611,6 +618,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#ubuntu_1" class="md-nav__link">
+    Ubuntu
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#windows10" class="md-nav__link">
     Windows10
   </a>
@@ -652,6 +666,7 @@
 
 
 <h1 id="io">关于文件 IO 的效率</h1>
+<p><strong>Ubuntu 和 Windows10 使用的是同一台电脑，但 NOI Linux 用的是另一台。</strong></p>
 <h2 id="_1">输入</h2>
 <h3 id="ubuntu">Ubuntu</h3>
 <table>
@@ -666,9 +681,9 @@
 <tbody>
 <tr>
 <td align="center"><code>cin</code></td>
-<td align="center"><span class="arithmatex">\(3002 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(3181 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1786 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(3002 \text{ms}\)</span></font></td>
+<td align="center"><font color=red><span class="arithmatex">\(3181 \text{ms}\)</span></font></td>
+<td align="center"><font color=red><span class="arithmatex">\(1786 \text{ms}\)</span></font></td>
 </tr>
 <tr>
 <td align="center"><code>cin</code> 取消同步</td>
@@ -697,17 +712,17 @@
 <tr>
 <td align="center"><code>scanf</code></td>
 <td align="center"><span class="arithmatex">\(840 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(921 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(921 \text{ms}\)</span></font></td>
 <td align="center"><span class="arithmatex">\(1322 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>getchar</code></td>
-<td align="center"><span class="arithmatex">\(300 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(300 \text{ms}\)</span></font></td>
 <td align="center">--</td>
-<td align="center"><span class="arithmatex">\(160 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(160 \text{ms}\)</span></font></td>
 </tr>
 <tr>
-<td align="center"><code>ifstream.get</code></td>
+<td align="center"><code>ifstream::get</code></td>
 <td align="center"><span class="arithmatex">\(651 \text{ms}\)</span></td>
 <td align="center">--</td>
 <td align="center"><span class="arithmatex">\(366 \text{ms}\)</span></td>
@@ -727,51 +742,51 @@
 <tbody>
 <tr>
 <td align="center"><code>cin</code></td>
-<td align="center"><span class="arithmatex">\(3532 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(4655 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(2311 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(2010 \text{ms}\)</span></font></td>
+<td align="center"><font color=red><span class="arithmatex">\(3497 \text{ms}\)</span></font></td>
+<td align="center"><span class="arithmatex">\(1462 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>cin</code> 取消同步</td>
-<td align="center"><span class="arithmatex">\(558 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(3196 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(358 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(311 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(2357 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(209 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>cin</code> 取消绑定</td>
-<td align="center"><span class="arithmatex">\(546 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(3127 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(282 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(303 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(2359 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(160 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>cin</code> 取消同步、绑定</td>
-<td align="center"><span class="arithmatex">\(561 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(3219 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(287 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(302 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(2352 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(164 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>ifstream</code></td>
-<td align="center"><span class="arithmatex">\(583 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(3201 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(292 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(311 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(2340 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(163 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>scanf</code></td>
-<td align="center"><span class="arithmatex">\(1425 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1022 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(2870 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(836 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(819 \text{ms}\)</span></font></td>
+<td align="center"><font color=red><span class="arithmatex">\(1589 \text{ms}\)</span></font></td>
 </tr>
 <tr>
 <td align="center"><code>getchar</code></td>
-<td align="center"><span class="arithmatex">\(536 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(344 \text{ms}\)</span></td>
 <td align="center">--</td>
-<td align="center"><span class="arithmatex">\(528 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(360 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>ifstream::get</code></td>
-<td align="center"><span class="arithmatex">\(301 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(151 \text{ms}\)</span></font></td>
 <td align="center">--</td>
-<td align="center"><span class="arithmatex">\(262 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(141 \text{ms}\)</span></font></td>
 </tr>
 </tbody>
 </table>
@@ -788,9 +803,9 @@
 <tbody>
 <tr>
 <td align="center"><code>cin</code></td>
-<td align="center"><span class="arithmatex">\(2094 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(2878 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1766 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(2094 \text{ms}\)</span></font></td>
+<td align="center"><font color=red><span class="arithmatex">\(2878 \text{ms}\)</span></font></td>
+<td align="center"><font color=red><span class="arithmatex">\(1766 \text{ms}\)</span></font></td>
 </tr>
 <tr>
 <td align="center"><code>cin</code> 取消同步</td>
@@ -819,14 +834,14 @@
 <tr>
 <td align="center"><code>scanf</code></td>
 <td align="center"><span class="arithmatex">\(642 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(914 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(914 \text{ms}\)</span></font></td>
 <td align="center"><span class="arithmatex">\(1372 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>getchar</code></td>
-<td align="center"><span class="arithmatex">\(243 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(243 \text{ms}\)</span></font></td>
 <td align="center">--</td>
-<td align="center"><span class="arithmatex">\(168 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(168 \text{ms}\)</span></font></td>
 </tr>
 <tr>
 <td align="center"><code>ifstream::get</code></td>
@@ -837,6 +852,121 @@
 </tbody>
 </table>
 <h2 id="_2">输出</h2>
+<h3 id="ubuntu_1">Ubuntu</h3>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"><span class="arithmatex">\(5 \times 10^6\)</span> 个 <code>int</code></th>
+<th align="center"><span class="arithmatex">\(2 \times 10^6\)</span> 个 <code>double</code></th>
+<th align="center"><span class="arithmatex">\(5 \times 10^6\)</span> 个 <code>char</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>cout(endl)</code></td>
+<td align="center"><span class="arithmatex">\(3892 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(2227 \text{ms}\)</span></font></td>
+<td align="center"><font color=red><span class="arithmatex">\(3767 \text{ms}\)</span></font></td>
+</tr>
+<tr>
+<td align="center"><code>cout('\n')</code></td>
+<td align="center"><span class="arithmatex">\(211 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(566 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(121 \text{ms}\)</span></td>
+</tr>
+<tr>
+<td align="center"><code>cout(endl)</code> 取消同步</td>
+<td align="center"><font color=red><span class="arithmatex">\(3905 \text{ms}\)</span></font></td>
+<td align="center"><span class="arithmatex">\(2201 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(3651 \text{ms}\)</span></td>
+</tr>
+<tr>
+<td align="center"><code>cout('\n')</code> 取消同步</td>
+<td align="center"><span class="arithmatex">\(196 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(544 \text{ms}\)</span></font></td>
+<td align="center"><span class="arithmatex">\(97 \text{ms}\)</span></td>
+</tr>
+<tr>
+<td align="center"><code>fout(endl)</code></td>
+<td align="center"><span class="arithmatex">\(3850 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(2168 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(3642 \text{ms}\)</span></td>
+</tr>
+<tr>
+<td align="center"><code>fout('\n')</code></td>
+<td align="center"><span class="arithmatex">\(185 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(548 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(95 \text{ms}\)</span></td>
+</tr>
+<tr>
+<td align="center"><code>printf</code></td>
+<td align="center"><span class="arithmatex">\(199 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(655 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(101 \text{ms}\)</span></td>
+</tr>
+<tr>
+<td align="center"><code>putchar</code></td>
+<td align="center"><font color=green><span class="arithmatex">\(145 \text{ms}\)</span></font></td>
+<td align="center">--</td>
+<td align="center"><font color=green><span class="arithmatex">\(21 \text{ms}\)</span></font></td>
+</tr>
+<tr>
+<td align="center"><code>fout.put</code></td>
+<td align="center"><span class="arithmatex">\(270 \text{ms}\)</span></td>
+<td align="center">--</td>
+<td align="center"><span class="arithmatex">\(45 \text{ms}\)</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"><span class="arithmatex">\(2 \times 10^7\)</span> 个 <code>int</code></th>
+<th align="center"><span class="arithmatex">\(5 \times 10^6\)</span> 个 <code>double</code></th>
+<th align="center"><span class="arithmatex">\(5 \times 10^7\)</span> 个 <code>char</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>cout('\n')</code></td>
+<td align="center"><span class="arithmatex">\(832 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(1409 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(1210 \text{ms}\)</span></font></td>
+</tr>
+<tr>
+<td align="center"><code>cout('\n')</code> 取消同步</td>
+<td align="center"><span class="arithmatex">\(764 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(1360 \text{ms}\)</span></font></td>
+<td align="center"><span class="arithmatex">\(984 \text{ms}\)</span></td>
+</tr>
+<tr>
+<td align="center"><code>fout('\n')</code></td>
+<td align="center"><span class="arithmatex">\(738 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(1647 \text{ms}\)</span></font></td>
+<td align="center"><span class="arithmatex">\(931 \text{ms}\)</span></td>
+</tr>
+<tr>
+<td align="center"><code>printf</code></td>
+<td align="center"><span class="arithmatex">\(791 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(1592 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(982 \text{ms}\)</span></td>
+</tr>
+<tr>
+<td align="center"><code>putchar</code></td>
+<td align="center"><font color=green><span class="arithmatex">\(578 \text{ms}\)</span></font></td>
+<td align="center">--</td>
+<td align="center"><font color=green><span class="arithmatex">\(195 \text{ms}\)</span></font></td>
+</tr>
+<tr>
+<td align="center"><code>fout.put</code></td>
+<td align="center"><font color=red><span class="arithmatex">\(1017 \text{ms}\)</span></font></td>
+<td align="center">--</td>
+<td align="center"><span class="arithmatex">\(434 \text{ms}\)</span></td>
+</tr>
+</tbody>
+</table>
 <h3 id="windows10">Windows10</h3>
 <table>
 <thead>
@@ -850,57 +980,57 @@
 <tbody>
 <tr>
 <td align="center"><code>cout(endl)</code></td>
-<td align="center"><span class="arithmatex">\(5752 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(4074 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(10582 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(2869 \text{ms}\)</span></font></td>
+<td align="center"><font color=red><span class="arithmatex">\(1946 \text{ms}\)</span></font></td>
+<td align="center"><span class="arithmatex">\(5513 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>cout('\n')</code></td>
-<td align="center"><span class="arithmatex">\(170 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(616 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(196 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(100 \text{ms}\)</span></font></td>
+<td align="center"><font color=green><span class="arithmatex">\(376 \text{ms}\)</span></font></td>
+<td align="center"><span class="arithmatex">\(99 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>cout(endl)</code> 取消同步</td>
-<td align="center"><span class="arithmatex">\(5181 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(3511 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(9653 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(2796 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(1895 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(5418 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>cout('\n')</code> 取消同步</td>
-<td align="center"><span class="arithmatex">\(326 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(777 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(179 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(178 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(443 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(98 \text{ms}\)</span></td>
 </tr>
 <tr>
-<td align="center"><code>ofstream(endl)</code></td>
-<td align="center"><span class="arithmatex">\(5293 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(3639 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(10259 \text{ms}\)</span></td>
+<td align="center"><code>fout(endl)</code></td>
+<td align="center"><span class="arithmatex">\(2781 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(1893 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(5648 \text{ms}\)</span></font></td>
 </tr>
 <tr>
-<td align="center"><code>ofstream('\n')</code></td>
-<td align="center"><span class="arithmatex">\(332 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(751 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(183 \text{ms}\)</span></td>
+<td align="center"><code>fout('\n')</code></td>
+<td align="center"><span class="arithmatex">\(166 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(440 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(103 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>printf</code></td>
-<td align="center"><span class="arithmatex">\(479 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(777 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(248 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(209 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(455 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(138 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>putchar</code></td>
-<td align="center"><span class="arithmatex">\(349 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(202 \text{ms}\)</span></td>
 <td align="center">--</td>
-<td align="center"><span class="arithmatex">\(145 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(88 \text{ms}\)</span></td>
 </tr>
 <tr>
-<td align="center"><code>ofstream::put</code></td>
-<td align="center"><span class="arithmatex">\(259 \text{ms}\)</span></td>
+<td align="center"><code>fout.put</code></td>
+<td align="center"><span class="arithmatex">\(125 \text{ms}\)</span></td>
 <td align="center">--</td>
-<td align="center"><span class="arithmatex">\(100 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(62 \text{ms}\)</span></font></td>
 </tr>
 </tbody>
 </table>
@@ -916,39 +1046,39 @@
 <tbody>
 <tr>
 <td align="center"><code>cout('\n')</code></td>
-<td align="center"><span class="arithmatex">\(942 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1418 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(989 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(439 \text{ms}\)</span></font></td>
+<td align="center"><font color=green><span class="arithmatex">\(752 \text{ms}\)</span></font></td>
+<td align="center"><span class="arithmatex">\(475 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>cout('\n')</code> 取消同步</td>
-<td align="center"><span class="arithmatex">\(1732 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1783 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(951 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(874 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(904 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(493 \text{ms}\)</span></td>
 </tr>
 <tr>
-<td align="center"><code>ofstream('\n')</code></td>
-<td align="center"><span class="arithmatex">\(1818 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1737 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1139 \text{ms}\)</span></td>
+<td align="center"><code>fout('\n')</code></td>
+<td align="center"><span class="arithmatex">\(841 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(895 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(547 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>printf</code></td>
-<td align="center"><span class="arithmatex">\(1812 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1714 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1611 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(997 \text{ms}\)</span></font></td>
+<td align="center"><font color=red><span class="arithmatex">\(922 \text{ms}\)</span></font></td>
+<td align="center"><font color=red><span class="arithmatex">\(695 \text{ms}\)</span></font></td>
 </tr>
 <tr>
 <td align="center"><code>putchar</code></td>
-<td align="center"><span class="arithmatex">\(1577 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(963 \text{ms}\)</span></td>
 <td align="center">--</td>
-<td align="center"><span class="arithmatex">\(1395 \text{ms}\)</span></td>
+<td align="center"><span class="arithmatex">\(424 \text{ms}\)</span></td>
 </tr>
 <tr>
-<td align="center"><code>ofstream::put</code></td>
-<td align="center"><span class="arithmatex">\(1372 \text{ms}\)</span></td>
+<td align="center"><code>fout.put</code></td>
+<td align="center"><span class="arithmatex">\(600 \text{ms}\)</span></td>
 <td align="center">--</td>
-<td align="center"><span class="arithmatex">\(495 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(226 \text{ms}\)</span></font></td>
 </tr>
 </tbody>
 </table>
@@ -965,9 +1095,9 @@
 <tbody>
 <tr>
 <td align="center"><code>cout(endl)</code></td>
-<td align="center"><span class="arithmatex">\(5912 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(5912 \text{ms}\)</span></font></td>
 <td align="center"><span class="arithmatex">\(4363 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(11246 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(11246 \text{ms}\)</span></font></td>
 </tr>
 <tr>
 <td align="center"><code>cout('\n')</code></td>
@@ -978,7 +1108,7 @@
 <tr>
 <td align="center"><code>cout(endl)</code> 取消同步</td>
 <td align="center"><span class="arithmatex">\(5872 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(4401 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(4401 \text{ms}\)</span></font></td>
 <td align="center"><span class="arithmatex">\(11056 \text{ms}\)</span></td>
 </tr>
 <tr>
@@ -988,15 +1118,15 @@
 <td align="center"><span class="arithmatex">\(192 \text{ms}\)</span></td>
 </tr>
 <tr>
-<td align="center"><code>ofstream(endl)</code></td>
+<td align="center"><code>fout(endl)</code></td>
 <td align="center"><span class="arithmatex">\(5729 \text{ms}\)</span></td>
 <td align="center"><span class="arithmatex">\(4308 \text{ms}\)</span></td>
 <td align="center"><span class="arithmatex">\(11054 \text{ms}\)</span></td>
 </tr>
 <tr>
-<td align="center"><code>ofstream('\n')</code></td>
+<td align="center"><code>fout('\n')</code></td>
 <td align="center"><span class="arithmatex">\(200 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(823 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(823 \text{ms}\)</span></font></td>
 <td align="center"><span class="arithmatex">\(190 \text{ms}\)</span></td>
 </tr>
 <tr>
@@ -1007,12 +1137,12 @@
 </tr>
 <tr>
 <td align="center"><code>putchar</code></td>
-<td align="center"><span class="arithmatex">\(184 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(184 \text{ms}\)</span></font></td>
 <td align="center">--</td>
-<td align="center"><span class="arithmatex">\(58 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(58 \text{ms}\)</span></font></td>
 </tr>
 <tr>
-<td align="center"><code>ofstream::put</code></td>
+<td align="center"><code>fout.put</code></td>
 <td align="center"><span class="arithmatex">\(268 \text{ms}\)</span></td>
 <td align="center">--</td>
 <td align="center"><span class="arithmatex">\(86 \text{ms}\)</span></td>
@@ -1033,16 +1163,16 @@
 <td align="center"><code>cout('\n')</code></td>
 <td align="center"><span class="arithmatex">\(1254 \text{ms}\)</span></td>
 <td align="center"><span class="arithmatex">\(1680 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1249 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(1249 \text{ms}\)</span></font></td>
 </tr>
 <tr>
 <td align="center"><code>cout('\n')</code> 取消同步</td>
 <td align="center"><span class="arithmatex">\(1011 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(1647 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(1647 \text{ms}\)</span></font></td>
 <td align="center"><span class="arithmatex">\(961 \text{ms}\)</span></td>
 </tr>
 <tr>
-<td align="center"><code>ofstream('\n')</code></td>
+<td align="center"><code>fout('\n')</code></td>
 <td align="center"><span class="arithmatex">\(1016 \text{ms}\)</span></td>
 <td align="center"><span class="arithmatex">\(1649 \text{ms}\)</span></td>
 <td align="center"><span class="arithmatex">\(965 \text{ms}\)</span></td>
@@ -1050,18 +1180,18 @@
 <tr>
 <td align="center"><code>printf</code></td>
 <td align="center"><span class="arithmatex">\(1197 \text{ms}\)</span></td>
-<td align="center"><span class="arithmatex">\(2415 \text{ms}\)</span></td>
+<td align="center"><font color=red><span class="arithmatex">\(2415 \text{ms}\)</span></font></td>
 <td align="center"><span class="arithmatex">\(1132 \text{ms}\)</span></td>
 </tr>
 <tr>
 <td align="center"><code>putchar</code></td>
-<td align="center"><span class="arithmatex">\(963 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(963 \text{ms}\)</span></font></td>
 <td align="center">--</td>
-<td align="center"><span class="arithmatex">\(273 \text{ms}\)</span></td>
+<td align="center"><font color=green><span class="arithmatex">\(273 \text{ms}\)</span></font></td>
 </tr>
 <tr>
-<td align="center"><code>ofstream::put</code></td>
-<td align="center"><span class="arithmatex">\(1344 \text{ms}\)</span></td>
+<td align="center"><code>fout.put</code></td>
+<td align="center"><font color=red><span class="arithmatex">\(1344 \text{ms}\)</span></font></td>
 <td align="center">--</td>
 <td align="center"><span class="arithmatex">\(424 \text{ms}\)</span></td>
 </tr>
@@ -1069,8 +1199,10 @@
 </table>
 <h2 id="_3">结论</h2>
 <ul>
+<li>Ubuntu 和 NOI Linux 的测试结果差不多 <del>毕竟 NOI Linux 就是魔改的 Ubuntu</del>，而 Windows10 的测试结果看起来很玄学。</li>
+<li><code>cin</code>/<code>cout</code> 最好取消同步和绑定。</li>
 <li>文件 IO 用 <code>freopen</code>+<code>cin</code>/<code>cout</code> 或 <code>ifstream</code>/<code>ofstream</code> 均可。</li>
-<li>如果想要更快的 IO，可以使用 <code>putchar</code>。</li>
+<li>如果想要更快的 IO，可以使用 <code>getchar</code>/<code>putchar</code>。</li>
 </ul>
 
 

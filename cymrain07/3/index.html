@@ -843,23 +843,33 @@ f_{i}=\sum ^{k}_{j=1}a_{j}f_{i-j}
 x^{n}\bmod(x^{k}-\sum ^{k-1}_{j=0}a_{k-j}x^{j})
 \]</div>
 <h2 id="_13">重要恒等式</h2>
-<p>$$
+<div class="arithmatex">\[
 \begin{aligned}
-    &amp;\text{等比求和}:&amp;&amp;\sum_{i=0}^{n-1} x^i &amp;&amp;=&amp; &amp;\dfrac {1-x^n}{1-x}\
-    &amp;\text{等比级数 1}:&amp;&amp;\sum_{n=0}^{\infty} x^n &amp;&amp;=&amp; &amp;\dfrac 1{1-x}\
-    &amp;\text{等比级数 2}:&amp;&amp;\sum_{n=0}^{\infty} (n+1)x^n &amp;&amp;=&amp; &amp;\dfrac 1{(1-x)^2}\
-    &amp;\text{等比级数 3}:&amp;&amp;\sum_{n=0}^{\infty} \dbinom {n+k-1}{k-1} x^n &amp;&amp;=&amp; &amp;\dfrac 1{(1-x)^k}\
-    &amp;\text{指数函数}:&amp;&amp;\sum_{n=0}^{\infty} \dfrac {1}{n!} x^n &amp;&amp;=&amp;&amp; \exp{x}\
-    &amp;\text{幂函数}:&amp;&amp;\sum_{n=0}^{\infty} \dbinom \alpha n a^nb^{\alpha-n} x^n &amp;&amp;=&amp; &amp;(ax+b)^\alpha\
-    &amp;\text{对数函数}:&amp;&amp;\sum_{n=1}^{\infty} \dfrac {1}{n} x^n &amp;&amp;=&amp;&amp; -\ln(1-x)\
+    &amp;\text{等比求和}:&amp;&amp;\sum_{i=0}^{n-1} x^i &amp;&amp;=&amp; &amp;\dfrac {1-x^n}{1-x}\\
+    &amp;\text{等比级数 1}:&amp;&amp;\sum_{n=0}^{\infty} x^n &amp;&amp;=&amp; &amp;\dfrac 1{1-x}\\
+    &amp;\text{等比级数 2}:&amp;&amp;\sum_{n=0}^{\infty} (n+1)x^n &amp;&amp;=&amp; &amp;\dfrac 1{(1-x)^2}\\
+    &amp;\text{等比级数 3}:&amp;&amp;\sum_{n=0}^{\infty} \dbinom {n+k-1}{k-1} x^n &amp;&amp;=&amp; &amp;\dfrac 1{(1-x)^k}\\
+    &amp;\text{指数函数}:&amp;&amp;\sum_{n=0}^{\infty} \dfrac {1}{n!} x^n &amp;&amp;=&amp;&amp; \exp\{x\}\\
+    &amp;\text{幂函数}:&amp;&amp;\sum_{n=0}^{\infty} \dbinom \alpha n a^nb^{\alpha-n} x^n &amp;&amp;=&amp; &amp;(ax+b)^\alpha\\
+    &amp;\text{对数函数}:&amp;&amp;\sum_{n=1}^{\infty} \dfrac {1}{n} x^n &amp;&amp;=&amp;&amp; -\ln(1-x)\\
     &amp;\text{上升幂转普通幂}:&amp;&amp;\sum_{i=0}^{n} \begin{bmatrix}
- n\
+ n\\
 i
-\end{bmatrix}x^i &amp;&amp;=&amp;&amp; x^\overline n\
+\end{bmatrix}x^i &amp;&amp;=&amp;&amp; x^\overline n\\
     &amp;\text{下降幂转普通幂}:&amp;&amp;\sum_{i=0}^{n} (-1)^i\begin{bmatrix}
- n\
+ n\\
 i
-\end{bmatrix}</p>
+\end{bmatrix}x^i &amp;&amp;=&amp;&amp; x^\underline n\\
+    &amp;\text{普通幂转上升幂}:&amp;&amp;\sum_{i=0}^{n} (-1)^i\begin{Bmatrix}
+ n\\
+i
+\end{Bmatrix}x^\overline i &amp;&amp;=&amp;&amp; x^n\\
+    &amp;\text{普通幂转下降幂}:&amp;&amp;\sum_{i=0}^{n} \begin{Bmatrix}
+ n\\
+i
+\end{Bmatrix}x^\underline i &amp;&amp;=&amp;&amp; x^n\\
+\end{aligned}
+\]</div>
 
 
 
