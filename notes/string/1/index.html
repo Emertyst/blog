@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../../math/2/">
+        <link rel="prev" href="../">
       
       
         <link rel="next" href="../2/">
@@ -494,6 +494,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -554,6 +568,13 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     字符串匹配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    周期
   </a>
   
 </li>
@@ -801,6 +822,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    周期
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -823,13 +851,12 @@
 
 <h1 id="kmp">KMP 算法</h1>
 <h2 id="_1">定义</h2>
-<p>对于一个字符串 <span class="arithmatex">\(s\)</span>，约定<strong>下标从 <span class="arithmatex">\(0\)</span> 开始</strong>，定义 <span class="arithmatex">\(n\)</span> 为其长度，<span class="arithmatex">\(s_i\)</span> 为 <span class="arithmatex">\(s\)</span> 的第 <span class="arithmatex">\(i\)</span> 个字符，<span class="arithmatex">\(s(i, j)\)</span> 为从 <span class="arithmatex">\(i\)</span> 开始到 <span class="arithmatex">\(j\)</span> 的子串（<strong>注意：两个端点都包含</strong>）。</p>
 <p>定义 <span class="arithmatex">\(\pi(i)\)</span> 为 <span class="arithmatex">\(s(0, i)\)</span> 的最长公共前后缀长度（也叫 border），值得注意的是，这里的前后缀是<strong>真前后缀</strong>，即这个前后缀不能是字符串本身。（有很多地方将这个数组记为 <span class="arithmatex">\(nxt(i)\)</span>，二者其实是同一个东西，不过在公式中用 <span class="arithmatex">\(nxt\)</span> 感觉有点怪，因此这里使用 <span class="arithmatex">\(\pi\)</span>）</p>
 <h2 id="kmp_1">KMP 算法</h2>
 <p>KMP 算法能够在 <span class="arithmatex">\(O(n)\)</span> 的时间内求出 <span class="arithmatex">\(\pi(i)\)</span>。</p>
-<p>首先，<span class="arithmatex">\(\pi(0) = 0\)</span>。假设现在已经求出 <span class="arithmatex">\(\pi(i - 1)\)</span>，要求 <span class="arithmatex">\(\pi(i)\)</span>。根据 <span class="arithmatex">\(\pi\)</span> 的定义，有 <span class="arithmatex">\(s(0, \pi(i - 1) - 1) = s(i - \pi(i - 1), i - 1)\)</span>。</p>
+<p>首先，<span class="arithmatex">\(\pi(0) = 0\)</span>。假设现在已经求出 <span class="arithmatex">\(\pi(i - 1)\)</span>，要求 <span class="arithmatex">\(\pi(i)\)</span>。根据 <span class="arithmatex">\(\pi\)</span> 的定义，有 <span class="arithmatex">\(s(0, \pi(i - 1) - 1) = s(i - \pi(i - 1), i - 1)\)</span>。对于要求的 <span class="arithmatex">\(\pi(i)\)</span>，我们希望尽可能地利用之前求过的 <span class="arithmatex">\(\pi\)</span> 来更新 <span class="arithmatex">\(\pi(i)\)</span>。</p>
 <p>一种很理想的情况是 <span class="arithmatex">\(s_{\pi(i - 1)} = s_i\)</span>，因为 <span class="arithmatex">\(\pi(i - 1)\)</span> 对应的前后缀已经是最长的了，因此 <span class="arithmatex">\(\pi(i) = \pi(i - 1) + 1\)</span>。</p>
-<p>如果 <span class="arithmatex">\(s_{\pi(i - 1)} \ne s_i\)</span>，我们就不能使用 <span class="arithmatex">\(\pi(i - 1)\)</span> 更新 <span class="arithmatex">\(\pi(i)\)</span> 了。因此，我们希望找到一个 <span class="arithmatex">\(s(0, i - 1)\)</span> 的公共前后缀长度仅次于 <span class="arithmatex">\(\pi(i - 1)\)</span> 的公共前后缀长度 <span class="arithmatex">\(\pi'(i - 1)\)</span>。因为 <span class="arithmatex">\(s(0, \pi(i - 1) - 1) = s(i - \pi(i - 1), i - 1)\)</span>，我们要找的 <span class="arithmatex">\(\pi'(i - 1)\)</span> 一定满足 <span class="arithmatex">\(s(0, \pi'(i - 1) - 1) = s(i - \pi'(i - 1), i - 1) = s(\pi(i - 1) - \pi'(i - 1), \pi(i - 1) - 1)\)</span>，同时我们希望 <span class="arithmatex">\(\pi'(i - 1)\)</span> 是仅次于 <span class="arithmatex">\(\pi(i - 1)\)</span> 的最大值。可以发现，<span class="arithmatex">\(\pi'(i - 1) = \pi(\pi(i - 1) - 1)\)</span>。其中，「仅次于」与 <span class="arithmatex">\(\pi\)</span> 定义中的「真前后缀」对应，「最大值」与定义中的「最长」对应。如果此时有 <span class="arithmatex">\(s_{\pi'(i - 1)} = s_i\)</span>，那么 <span class="arithmatex">\(\pi(i) = \pi'(i - 1)\)</span>，否则，我们需要继续找 <span class="arithmatex">\(\pi''(i - 1), \pi^{(3)}(i - 1), \cdots\)</span>，直到 <span class="arithmatex">\(\pi^{(k)}(i - 1) = 0\)</span>，此时 <span class="arithmatex">\(\pi(i)\)</span> 不能利用之前求过的 <span class="arithmatex">\(\pi\)</span> 更新了。</p>
+<p>如果 <span class="arithmatex">\(s_{\pi(i - 1)} \ne s_i\)</span>，我们就不能使用 <span class="arithmatex">\(\pi(i - 1)\)</span> 更新 <span class="arithmatex">\(\pi(i)\)</span> 了。因此，我们希望找到一个 <span class="arithmatex">\(s(0, i - 1)\)</span> 的公共前后缀长度仅次于 <span class="arithmatex">\(\pi(i - 1)\)</span> 的公共前后缀长度 <span class="arithmatex">\(\pi'(i - 1)\)</span>。因为 <span class="arithmatex">\(s(0, \pi(i - 1) - 1) = s(i - \pi(i - 1), i - 1)\)</span>，我们要找的 <span class="arithmatex">\(\pi'(i - 1)\)</span> 一定满足 <span class="arithmatex">\(s(0, \pi'(i - 1) - 1) = s(i - \pi'(i - 1), i - 1) = s(\pi(i - 1) - \pi'(i - 1), \pi(i - 1) - 1)\)</span>，同时我们希望 <span class="arithmatex">\(\pi'(i - 1)\)</span> 是仅次于 <span class="arithmatex">\(\pi(i - 1)\)</span> 的最大值。可以发现，<span class="arithmatex">\(\pi'(i - 1) = \pi(\pi(i - 1) - 1)\)</span>。其中，「仅次于」与 <span class="arithmatex">\(\pi\)</span> 定义中的「真前后缀」对应，「最大值」与定义中的「最长」对应（这也是 <span class="arithmatex">\(\pi\)</span> 数组「失配指针」名字的由来）。如果此时有 <span class="arithmatex">\(s_{\pi'(i - 1)} = s_i\)</span>，那么 <span class="arithmatex">\(\pi(i) = \pi'(i - 1)\)</span>，否则，我们需要继续找 <span class="arithmatex">\(\pi''(i - 1), \pi^{(3)}(i - 1), \cdots\)</span>，直到 <span class="arithmatex">\(\pi^{(k)}(i - 1) = 0\)</span>，此时 <span class="arithmatex">\(\pi(i)\)</span> 不能利用之前求过的 <span class="arithmatex">\(\pi\)</span> 更新了。</p>
 <div class="admonition notes">
 <p class="admonition-title">代码</p>
 <p>代码中 <code>nxt</code> 数组即为上文 <span class="arithmatex">\(pi\)</span>。</p>
@@ -915,6 +942,17 @@
 </span></code></pre></div></td></tr></table></div>
 <p>代码中 <span class="arithmatex">\(n = |a|, m = |b|\)</span>。</p>
 </div>
+<h3 id="_4">周期</h3>
+<div class="admonition notes">
+<p class="admonition-title">最小周期 1</p>
+<p>给定一个字符串 <span class="arithmatex">\(s\)</span>，求 <span class="arithmatex">\(s\)</span> 的最小周期，<strong>最后一个周期可以不完整</strong>。</p>
+</div>
+<p>因为 <span class="arithmatex">\(\pi(n - 1)\)</span> 是 <span class="arithmatex">\(s\)</span> 最长公共前后缀的长度，根据简介中的结论，<span class="arithmatex">\(n - \pi(n - 1)\)</span> 是最小周期。</p>
+<div class="admonition notes">
+<p class="admonition-title">最小周期 2</p>
+<p>给定一个字符串 <span class="arithmatex">\(s\)</span>，求 <span class="arithmatex">\(s\)</span> 的最小周期，<strong>最后一个周期必须完整</strong>。</p>
+</div>
+<p>此时，最小周期一定是 <span class="arithmatex">\(n\)</span> 的因数。因为 <span class="arithmatex">\(n - \pi(n - 1)\)</span> 可能不是 <span class="arithmatex">\(n\)</span> 的因数，因此我们找到次小周期 <span class="arithmatex">\(n - \pi'(n - 1)\)</span>，第三小周期 <span class="arithmatex">\(n - \pi^{(2)}(n - 1)\)</span> 等等逐一判断，直到找到一个长度是 <span class="arithmatex">\(n\)</span> 因数的周期。</p>
 
 
 
