@@ -43,6 +43,8 @@ nav:
     - 多项式全家桶: notes/math/1.md
     - Miller Rabin: notes/math/2.md
   - 字符串:
+    - 简介: notes/string/index.md
+    - KMP: notes/string/1.md
     - Z 函数: notes/string/2.md
   - 杂项:
     - 文件 IO: notes/misc/1.md

@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../1/">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../../misc/1/">
+        <link rel="next" href="../2/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
-        <title>Z 函数 - Emertyst 的博客</title>
+        <title>KMP - Emertyst 的博客</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#z" class="md-skip">
+        <a href="#kmp" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Z 函数
+              KMP
             
           </span>
         </div>
@@ -508,20 +508,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../1/" class="md-nav__link">
-        KMP
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -534,12 +520,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Z 函数
+          KMP
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Z 函数
+        KMP
       </a>
       
         
@@ -565,21 +551,14 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#kmp_1" class="md-nav__link">
+    KMP 算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    暴力算法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    线性算法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
     应用
   </a>
   
@@ -587,14 +566,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    子串匹配
+  <a href="#_3" class="md-nav__link">
+    字符串匹配
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     周期
   </a>
   
@@ -609,6 +588,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2/" class="md-nav__link">
+        Z 函数
+      </a>
     </li>
   
 
@@ -808,21 +801,14 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#kmp_1" class="md-nav__link">
+    KMP 算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    暴力算法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    线性算法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
     应用
   </a>
   
@@ -830,14 +816,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    子串匹配
+  <a href="#_3" class="md-nav__link">
+    字符串匹配
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     周期
   </a>
   
@@ -863,32 +849,63 @@
                   
 
 
-<h1 id="z">Z 函数</h1>
-<p><del>似乎比 KMP 好理解</del></p>
+<h1 id="kmp">KMP 算法</h1>
 <h2 id="_1">定义</h2>
-<p>定义 <span class="arithmatex">\(z(i)\)</span> 为 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(s(i, n-1)\)</span> 的最长公共前缀长度，定义 <span class="arithmatex">\(i\)</span> 的匹配段为 <span class="arithmatex">\([l, r]\)</span>。</p>
-<h2 id="_2">暴力算法</h2>
-<p>对于每一个 <span class="arithmatex">\(i\)</span>，暴力枚举后面的字符，时间复杂度 <span class="arithmatex">\(O(n^2)\)</span>。</p>
+<p>定义 <span class="arithmatex">\(\pi(i)\)</span> 为 <span class="arithmatex">\(s(0, i)\)</span> 的最长公共前后缀长度（也叫 border），值得注意的是，这里的前后缀是<strong>真前后缀</strong>，即这个前后缀不能是字符串本身。（有很多地方将这个数组记为 <span class="arithmatex">\(nxt(i)\)</span>，二者其实是同一个东西，不过在公式中用 <span class="arithmatex">\(nxt\)</span> 感觉有点怪，因此这里使用 <span class="arithmatex">\(\pi\)</span>）</p>
+<h2 id="kmp_1">KMP 算法</h2>
+<p>KMP 算法能够在 <span class="arithmatex">\(O(n)\)</span> 的时间内求出 <span class="arithmatex">\(\pi(i)\)</span>。</p>
+<p>首先，<span class="arithmatex">\(\pi(0) = 0\)</span>。假设现在已经求出 <span class="arithmatex">\(\pi(i - 1)\)</span>，要求 <span class="arithmatex">\(\pi(i)\)</span>。根据 <span class="arithmatex">\(\pi\)</span> 的定义，有 <span class="arithmatex">\(s(0, \pi(i - 1) - 1) = s(i - \pi(i - 1), i - 1)\)</span>。对于要求的 <span class="arithmatex">\(\pi(i)\)</span>，我们希望尽可能地利用之前求过的 <span class="arithmatex">\(\pi\)</span> 来更新 <span class="arithmatex">\(\pi(i)\)</span>。</p>
+<p>一种很理想的情况是 <span class="arithmatex">\(s_{\pi(i - 1)} = s_i\)</span>，因为 <span class="arithmatex">\(\pi(i - 1)\)</span> 对应的前后缀已经是最长的了，因此 <span class="arithmatex">\(\pi(i) = \pi(i - 1) + 1\)</span>。</p>
+<p>如果 <span class="arithmatex">\(s_{\pi(i - 1)} \ne s_i\)</span>，我们就不能使用 <span class="arithmatex">\(\pi(i - 1)\)</span> 更新 <span class="arithmatex">\(\pi(i)\)</span> 了。因此，我们希望找到一个 <span class="arithmatex">\(s(0, i - 1)\)</span> 的公共前后缀长度仅次于 <span class="arithmatex">\(\pi(i - 1)\)</span> 的公共前后缀长度 <span class="arithmatex">\(\pi'(i - 1)\)</span>。因为 <span class="arithmatex">\(s(0, \pi(i - 1) - 1) = s(i - \pi(i - 1), i - 1)\)</span>，我们要找的 <span class="arithmatex">\(\pi'(i - 1)\)</span> 一定满足 <span class="arithmatex">\(s(0, \pi'(i - 1) - 1) = s(i - \pi'(i - 1), i - 1) = s(\pi(i - 1) - \pi'(i - 1), \pi(i - 1) - 1)\)</span>，同时我们希望 <span class="arithmatex">\(\pi'(i - 1)\)</span> 是仅次于 <span class="arithmatex">\(\pi(i - 1)\)</span> 的最大值。可以发现，<span class="arithmatex">\(\pi'(i - 1) = \pi(\pi(i - 1) - 1)\)</span>。其中，「仅次于」与 <span class="arithmatex">\(\pi\)</span> 定义中的「真前后缀」对应，「最大值」与定义中的「最长」对应（这也是 <span class="arithmatex">\(\pi\)</span> 数组「失配指针」名字的由来）。如果此时有 <span class="arithmatex">\(s_{\pi'(i - 1)} = s_i\)</span>，那么 <span class="arithmatex">\(\pi(i) = \pi'(i - 1)\)</span>，否则，我们需要继续找 <span class="arithmatex">\(\pi''(i - 1), \pi^{(3)}(i - 1), \cdots\)</span>，直到 <span class="arithmatex">\(\pi^{(k)}(i - 1) = 0\)</span>，此时 <span class="arithmatex">\(\pi(i)\)</span> 不能利用之前求过的 <span class="arithmatex">\(\pi\)</span> 更新了。</p>
+<div class="admonition notes">
+<p class="admonition-title">代码</p>
+<p>代码中 <code>nxt</code> 数组即为上文 <span class="arithmatex">\(pi\)</span>。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">    </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-0-3"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+</span><span id="__span-0-4"><span class="w">        </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-0-5"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+</span><span id="__span-0-6"><span class="w">        </span><span class="o">++</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-0-7"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">时间复杂度证明</p>
+<p>上面的写法并不利于证明时间复杂度，因此我们稍微改变一下形式。</p>
 <div class="admonition notes">
 <p class="admonition-title">代码</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
-</span><span id="__span-0-2"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
-</span><span id="__span-0-3"><span class="w">        </span><span class="o">++</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</span><span id="__span-1-3"><span class="w">        </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-1-4"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</span><span id="__span-1-5"><span class="w">        </span><span class="o">++</span><span class="n">j</span><span class="p">;</span>
+</span><span id="__span-1-6"><span class="w">    </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+</span><span id="__span-1-7"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 </div>
-<h2 id="_3">线性算法</h2>
-<p>虽然 <span class="arithmatex">\(z(0)\)</span> 显然等于 <span class="arithmatex">\(n\)</span>，但我们先令其为 <span class="arithmatex">\(0\)</span>。</p>
-<p>我们从 <span class="arithmatex">\(1\)</span> 开始枚举 <span class="arithmatex">\(i\)</span> 计算 <span class="arithmatex">\(z(i)\)</span>（原因在下文解释）。令匹配段 <span class="arithmatex">\([l, r]\)</span> 为 <span class="arithmatex">\(0 \sim i-1\)</span> 中 <span class="arithmatex">\(r\)</span> 最大的匹配段。根据定义 <span class="arithmatex">\(s(0, r - l) = s(l, r)\)</span>。</p>
-<ul>
-<li>若 <span class="arithmatex">\(i \leq r\)</span>，那么有 <span class="arithmatex">\(s(i, r) = s(i - l, r - l)\)</span> 且 <span class="arithmatex">\(s_{i + z(i - l)} = s_{i - l + z(i - l)} = s_{z(i - l)}\)</span>。<ul>
-<li>若 <span class="arithmatex">\(z(i - l) &lt; r - i + 1\)</span>，根据 <span class="arithmatex">\(z\)</span> 函数的定义，<span class="arithmatex">\(s_{i - l + z(i - l) + 1} = s_{i + z(i - l) + 1} \ne s_{z(i - l) + 1}\)</span>，因此 <span class="arithmatex">\(z(i) = z(i - l)\)</span>。</li>
-<li>若 <span class="arithmatex">\(z(i - l) \geq r - i + 1\)</span>，也就是说，<span class="arithmatex">\(s(i, r)\)</span> 是 <span class="arithmatex">\(s\)</span> 的一个前缀，但不一定是最长前缀，此时我们令 <span class="arithmatex">\(z(i) = r - i + 1\)</span> 并暴力地更新 <span class="arithmatex">\(z(i)\)</span>。</li>
-</ul>
-</li>
-<li>若 <span class="arithmatex">\(i &gt; r\)</span>，直接暴力算 <span class="arithmatex">\(z(i)\)</span>。</li>
-</ul>
+<p>可以看出，我们只是新增了一个变量 <code>j</code>，算法的执行过程和之前等价。</p>
+<p><code>j</code> 只会在第 <span class="arithmatex">\(4 \sim 5\)</span> 行增加，最多增加 <span class="arithmatex">\(n\)</span> 次；<code>j</code> 只会在第 <span class="arithmatex">\(2 \sim 3\)</span> 行减少，因为最多增加 <span class="arithmatex">\(n\)</span> 次，因此最多减少 <span class="arithmatex">\(n\)</span> 次。所以内层 <code>while</code> 循环最多执行 <span class="arithmatex">\(n\)</span> 次，对于外层循环，只会遍历字符串一次。因此时间复杂度 <span class="arithmatex">\(O(n)\)</span>。</p>
+</div>
+<h2 id="_2">应用</h2>
+<h3 id="_3">字符串匹配</h3>
+<div class="admonition notes">
+<p class="admonition-title">子串匹配</p>
+<p>给定两个字符串 <span class="arithmatex">\(a, b\)</span>，求 <span class="arithmatex">\(a\)</span> 在 <span class="arithmatex">\(b\)</span> 中所有出现的位置。</p>
+</div>
+<p>构造一个字符串 <span class="arithmatex">\(s = a + \texttt{#} + b\)</span>，其中 <span class="arithmatex">\(\texttt{#}\)</span> 是一个 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 中都没有的字符。求出 <span class="arithmatex">\(s\)</span> 的 <span class="arithmatex">\(\pi\)</span> 数组。接下来从 <span class="arithmatex">\(i = 2|a|\)</span> 开始枚举，若 <span class="arithmatex">\(\pi(i) = |a|\)</span>，说明 <span class="arithmatex">\(a\)</span> 在 <span class="arithmatex">\(b\)</span> 的 <span class="arithmatex">\(i - 2|a|\)</span> 处出现了。</p>
+<p>但是我们发现，由于 <span class="arithmatex">\(s_{|a|} = \texttt{#}\)</span>，因此所有的 <span class="arithmatex">\(\pi(i)\)</span> 都不会超过 <span class="arithmatex">\(|a|\)</span>。由于在匹配过程中，我们仅需要用到 <span class="arithmatex">\(\pi(i - 1)\)</span> 和所有 <span class="arithmatex">\(i &lt; |a|\)</span> 的 <span class="arithmatex">\(\pi(i)\)</span>，因此，我们没必要保存 <span class="arithmatex">\(i \geq |a|\)</span> 的 <span class="arithmatex">\(\pi(i)\)</span>。具体来说，我们不必显式地将 <span class="arithmatex">\(a\)</span> 与 <span class="arithmatex">\(b\)</span> 连接起来，只需要先求出 <span class="arithmatex">\(|a|\)</span> 的 <span class="arithmatex">\(\pi\)</span>，然后使用上文证明时间复杂度时所用的写法求 <span class="arithmatex">\(b\)</span> 的 <span class="arithmatex">\(\pi\)</span>，只不过不需要保存。如果遇到当前的 <span class="arithmatex">\(\pi\)</span> 等于 <span class="arithmatex">\(|a|\)</span>，则匹配到了模式串。</p>
 <div class="admonition notes">
 <p class="admonition-title">代码</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -901,43 +918,41 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-2"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-1-3"><span class="w">        </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">l</span><span class="p">];</span>
-</span><span id="__span-1-4"><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-5"><span class="w">        </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-</span><span id="__span-1-6"><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
-</span><span id="__span-1-7"><span class="w">            </span><span class="o">++</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span><span id="__span-1-8"><span class="w">        </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-1-9"><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-1-10"><span class="p">}</span>
-</span><span id="__span-1-11"><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><span class="w">    </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-2-3"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+</span><span id="__span-2-4"><span class="w">        </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-2-5"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+</span><span id="__span-2-6"><span class="w">        </span><span class="o">++</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-2-7"><span class="p">}</span>
+</span><span id="__span-2-8"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-9"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">tmp</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">tmp</span><span class="p">])</span>
+</span><span id="__span-2-10"><span class="w">        </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">tmp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-2-11"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">tmp</span><span class="p">])</span>
+</span><span id="__span-2-12"><span class="w">        </span><span class="o">++</span><span class="n">tmp</span><span class="p">;</span>
+</span><span id="__span-2-13"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tmp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-14"><span class="w">        </span><span class="c1">// do something</span>
+</span><span id="__span-2-15"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-16"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
+<p>代码中 <span class="arithmatex">\(n = |a|, m = |b|\)</span>。</p>
 </div>
-<p>在实现时，可以发现第一种情况的第二类可以和第二种情况合并，且 <span class="arithmatex">\(l\)</span> 和 <span class="arithmatex">\(r\)</span> 的更新一定会发生在暴力更新后。</p>
-<p><span class="arithmatex">\(i\)</span> 不能从 <span class="arithmatex">\(0\)</span> 开始枚举，因为 <span class="arithmatex">\(z(0) = n\)</span>，如果 <span class="arithmatex">\(i\)</span> 从 <span class="arithmatex">\(0\)</span> 开始，那么第一次循环后 <span class="arithmatex">\(l = 0, r = n - 1\)</span>。我们使用匹配段是为了用已匹配的字串更新当前 <span class="arithmatex">\(z\)</span> 函数值，而 <span class="arithmatex">\([0, n - 1]\)</span> 这个匹配段就是原串，因此会使后面所有的 <span class="arithmatex">\(z(i) = 0\)</span>。</p>
-<div class="admonition info">
-<p class="admonition-title">时间复杂度证明</p>
-<p>对于内层循环，因为一定会使 <span class="arithmatex">\(r\)</span> 增加，因此最多执行 <span class="arithmatex">\(n\)</span> 次；对于外层循环，只会遍历字符串一次。因此时间复杂度 <span class="arithmatex">\(O(n)\)</span>。</p>
-</div>
-<h2 id="_4">应用</h2>
-<h3 id="_5">子串匹配</h3>
-<div class="admonition notes">
-<p class="admonition-title">子串匹配</p>
-<p>给定两个字符串 <span class="arithmatex">\(a, b\)</span>，求 <span class="arithmatex">\(a\)</span> 在 <span class="arithmatex">\(b\)</span> 中所有出现的位置。</p>
-</div>
-<p>构造一个字符串 <span class="arithmatex">\(s = a + \texttt{#} + b\)</span>，其中 <span class="arithmatex">\(\texttt{#}\)</span> 是一个 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 中都没有的字符。求出 <span class="arithmatex">\(s\)</span> 的 <span class="arithmatex">\(z\)</span> 函数。接下来从 <span class="arithmatex">\(i = |a| + 1\)</span> 开始枚举，若 <span class="arithmatex">\(z(i) = |a|\)</span>，说明 <span class="arithmatex">\(a\)</span> 在 <span class="arithmatex">\(b\)</span> 的 <span class="arithmatex">\(i - |a| - 1\)</span> 处出现了。时间复杂度 <span class="arithmatex">\(O(|a| + |b|)\)</span>，空间复杂度 <span class="arithmatex">\(O(|a| + |b|)\)</span>。</p>
-<h3 id="_6">周期</h3>
+<h3 id="_4">周期</h3>
 <div class="admonition notes">
 <p class="admonition-title">最小周期 1</p>
 <p>给定一个字符串 <span class="arithmatex">\(s\)</span>，求 <span class="arithmatex">\(s\)</span> 的最小周期，<strong>最后一个周期可以不完整</strong>。</p>
 </div>
-<p>我们从 <span class="arithmatex">\(1\)</span> 开始枚举 <span class="arithmatex">\(i\)</span>，根据 <span class="arithmatex">\(z(i)\)</span> 的定义有 <span class="arithmatex">\(s(0, z(i) - 1) = s(n - z(i), n - 1)\)</span>，若 <span class="arithmatex">\(i + z(i) = n\)</span>，那么 <span class="arithmatex">\(s(0, n - i - 1) = s(i, n - 1)\)</span>，根据简介中的结论，<span class="arithmatex">\(i\)</span> 是 <span class="arithmatex">\(s\)</span> 的一个周期。因为 <span class="arithmatex">\(i\)</span> 从小到大枚举，因此找到的第一个周期即为最小周期。</p>
+<p>因为 <span class="arithmatex">\(\pi(n - 1)\)</span> 是 <span class="arithmatex">\(s\)</span> 最长公共前后缀的长度，根据简介中的结论，<span class="arithmatex">\(n - \pi(n - 1)\)</span> 是最小周期。</p>
 <div class="admonition notes">
 <p class="admonition-title">最小周期 2</p>
 <p>给定一个字符串 <span class="arithmatex">\(s\)</span>，求 <span class="arithmatex">\(s\)</span> 的最小周期，<strong>最后一个周期必须完整</strong>。</p>
 </div>
-<p>此时，最小周期一定是 <span class="arithmatex">\(n\)</span> 的因数。因此，只判断 <span class="arithmatex">\(n\)</span> 的因数符不符合 <span class="arithmatex">\(i + z(i) = n\)</span> 即可。</p>
+<p>此时，最小周期一定是 <span class="arithmatex">\(n\)</span> 的因数。因为 <span class="arithmatex">\(n - \pi(n - 1)\)</span> 可能不是 <span class="arithmatex">\(n\)</span> 的因数，因此我们找到次小周期 <span class="arithmatex">\(n - \pi'(n - 1)\)</span>，第三小周期 <span class="arithmatex">\(n - \pi^{(2)}(n - 1)\)</span> 等等逐一判断，直到找到一个长度是 <span class="arithmatex">\(n\)</span> 因数的周期。</p>
 
 
 
