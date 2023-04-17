@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../../math/2/">
+        <link rel="prev" href="../1/">
       
       
         <link rel="next" href="../../misc/1/">
@@ -494,6 +494,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../1/" class="md-nav__link">
+        KMP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -838,7 +852,7 @@
 <h1 id="z">Z 函数</h1>
 <p><del>似乎比 KMP 好理解</del></p>
 <h2 id="_1">定义</h2>
-<p>对于一个字符串 <span class="arithmatex">\(s\)</span>，约定<strong>下标从 <span class="arithmatex">\(0\)</span> 开始</strong>（从 <span class="arithmatex">\(1\)</span> 开始也不是不行，但很麻烦），定义 <span class="arithmatex">\(n\)</span> 为其长度，<span class="arithmatex">\(s_i\)</span> 为 <span class="arithmatex">\(s\)</span> 的第 <span class="arithmatex">\(i\)</span> 个字符，<span class="arithmatex">\(s(i, j)\)</span> 为从 <span class="arithmatex">\(i\)</span> 开始到 <span class="arithmatex">\(j\)</span> 的字串（<strong>注意：两个端点都包含</strong>）。</p>
+<p>对于一个字符串 <span class="arithmatex">\(s\)</span>，约定<strong>下标从 <span class="arithmatex">\(0\)</span> 开始</strong>（从 <span class="arithmatex">\(1\)</span> 开始也不是不行，但很麻烦），定义 <span class="arithmatex">\(n\)</span> 为其长度，<span class="arithmatex">\(s_i\)</span> 为 <span class="arithmatex">\(s\)</span> 的第 <span class="arithmatex">\(i\)</span> 个字符，<span class="arithmatex">\(s(i, j)\)</span> 为从 <span class="arithmatex">\(i\)</span> 开始到 <span class="arithmatex">\(j\)</span> 的子串（<strong>注意：两个端点都包含</strong>）。</p>
 <p>定义 <span class="arithmatex">\(z(i)\)</span> 为 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(s(i, n-1)\)</span> 的最长公共前缀长度，定义 <span class="arithmatex">\(i\)</span> 的匹配段为 <span class="arithmatex">\([l, r]\)</span>。</p>
 <h2 id="_2">暴力算法</h2>
 <p>对于每一个 <span class="arithmatex">\(i\)</span>，暴力枚举后面的字符，时间复杂度 <span class="arithmatex">\(O(n^2)\)</span>。</p>
@@ -899,7 +913,7 @@
 <p class="admonition-title">子串匹配</p>
 <p>给定两个字符串 <span class="arithmatex">\(a, b\)</span>，求 <span class="arithmatex">\(a\)</span> 在 <span class="arithmatex">\(b\)</span> 中所有出现的位置。</p>
 </div>
-<p>构造一个字符串 <span class="arithmatex">\(s = a + \texttt{#} + b\)</span>，其中 <span class="arithmatex">\(\texttt{#}\)</span> 是一个 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 中都没有的字符。求出 <span class="arithmatex">\(s\)</span> 的 <span class="arithmatex">\(z\)</span> 函数。接下来从 <span class="arithmatex">\(i = |a| + 1\)</span> 开始枚举，若 <span class="arithmatex">\(z(i) = |a|\)</span>，说明 <span class="arithmatex">\(a\)</span> 在 <span class="arithmatex">\(b\)</span> 的 <span class="arithmatex">\(i - |a| - 1\)</span> 处出现了。</p>
+<p>构造一个字符串 <span class="arithmatex">\(s = a + \texttt{#} + b\)</span>，其中 <span class="arithmatex">\(\texttt{#}\)</span> 是一个 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 中都没有的字符。求出 <span class="arithmatex">\(s\)</span> 的 <span class="arithmatex">\(z\)</span> 函数。接下来从 <span class="arithmatex">\(i = |a| + 1\)</span> 开始枚举，若 <span class="arithmatex">\(z(i) = |a|\)</span>，说明 <span class="arithmatex">\(a\)</span> 在 <span class="arithmatex">\(b\)</span> 的 <span class="arithmatex">\(i - |a| - 1\)</span> 处出现了。时间复杂度 <span class="arithmatex">\(O(|a| + |b|)\)</span>，空间复杂度 <span class="arithmatex">\(O(|a| + |b|)\)</span>。</p>
 <h3 id="_6">循环节</h3>
 <div class="admonition notes">
 <p class="admonition-title">最小循环节</p>

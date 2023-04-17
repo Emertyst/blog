@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../3/">
+        <link rel="prev" href="../../math/2/">
       
       
-        <link rel="next" href="../../data-structure/1/">
+        <link rel="next" href="../2/">
       
       <link rel="icon" href="../../../assets/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
-        <title>上下界网络流 - Emertyst 的博客</title>
+        <title>KMP - Emertyst 的博客</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#kmp" class="md-skip">
           跳转至
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              上下界网络流
+              KMP
             
           </span>
         </div>
@@ -199,16 +199,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
@@ -217,7 +215,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           网络流
@@ -230,7 +228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../network-flows/" class="md-nav__link">
         简介
       </a>
     </li>
@@ -244,7 +242,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1/" class="md-nav__link">
+      <a href="../../network-flows/1/" class="md-nav__link">
         最大流与最小割
       </a>
     </li>
@@ -258,7 +256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2/" class="md-nav__link">
+      <a href="../../network-flows/2/" class="md-nav__link">
         最小割树
       </a>
     </li>
@@ -272,7 +270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3/" class="md-nav__link">
+      <a href="../../network-flows/3/" class="md-nav__link">
         费用流
       </a>
     </li>
@@ -284,76 +282,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          上下界网络流
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../network-flows/4/" class="md-nav__link">
         上下界网络流
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    无源汇上下界可行流
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    有源汇上下界可行流
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    有源汇上下界最小流
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    有源汇上下界最大流
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    上下界费用流
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -532,14 +465,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
       
       
       
@@ -548,7 +483,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           字符串
@@ -559,11 +494,79 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../string/1/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          KMP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         KMP
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmp_1" class="md-nav__link">
+    KMP 算法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    应用
+  </a>
+  
+    <nav class="md-nav" aria-label="应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    字符串匹配
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -575,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../string/2/" class="md-nav__link">
+      <a href="../2/" class="md-nav__link">
         Z 函数
       </a>
     </li>
@@ -760,6 +763,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -769,36 +774,35 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    无源汇上下界可行流
+    定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kmp_1" class="md-nav__link">
+    KMP 算法
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    有源汇上下界可行流
+    应用
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    有源汇上下界最小流
+    字符串匹配
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    有源汇上下界最大流
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    上下界费用流
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -817,39 +821,64 @@
                   
 
 
-  <h1>上下界网络流</h1>
-
-<h2 id="_1">无源汇上下界可行流</h2>
-<div class="admonition note">
-<p class="admonition-title">无源汇上下界可行流</p>
-<p>给定一个流网络，无源汇（即所有点都需要满足流量守恒），每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求可行流。</p>
+<h1 id="kmp">KMP 算法</h1>
+<h2 id="_1">定义</h2>
+<p>对于一个字符串 <span class="arithmatex">\(s\)</span>，约定<strong>下标从 <span class="arithmatex">\(0\)</span> 开始</strong>，定义 <span class="arithmatex">\(n\)</span> 为其长度，<span class="arithmatex">\(s_i\)</span> 为 <span class="arithmatex">\(s\)</span> 的第 <span class="arithmatex">\(i\)</span> 个字符，<span class="arithmatex">\(s(i, j)\)</span> 为从 <span class="arithmatex">\(i\)</span> 开始到 <span class="arithmatex">\(j\)</span> 的子串（<strong>注意：两个端点都包含</strong>）。</p>
+<p>定义 <span class="arithmatex">\(\pi(i)\)</span> 为 <span class="arithmatex">\(s(0, i)\)</span> 的最长公共前后缀长度（也叫 border），值得注意的是，这里的前后缀是<strong>真前后缀</strong>，即这个前后缀不能是字符串本身。（有很多地方将这个数组记为 <span class="arithmatex">\(nxt(i)\)</span>，二者其实是同一个东西，不过在公式中用 <span class="arithmatex">\(nxt\)</span> 感觉有点怪，因此这里使用 <span class="arithmatex">\(\pi\)</span>）</p>
+<h2 id="kmp_1">KMP 算法</h2>
+<p>KMP 算法能够在 <span class="arithmatex">\(O(n)\)</span> 的时间内求出 <span class="arithmatex">\(\pi(i)\)</span>。</p>
+<p>首先，<span class="arithmatex">\(\pi(0) = 0\)</span>。假设现在已经求出 <span class="arithmatex">\(\pi(i - 1)\)</span>，要求 <span class="arithmatex">\(\pi(i)\)</span>。根据 <span class="arithmatex">\(\pi\)</span> 的定义，有 <span class="arithmatex">\(s(0, \pi(i - 1) - 1) = s(i - \pi(i - 1), i - 1)\)</span>。</p>
+<p>一种很理想的情况是 <span class="arithmatex">\(s_{\pi(i - 1)} = s_i\)</span>，因为 <span class="arithmatex">\(\pi(i - 1)\)</span> 对应的前后缀已经是最长的了，因此 <span class="arithmatex">\(\pi(i) = \pi(i - 1) + 1\)</span>。</p>
+<p>如果 <span class="arithmatex">\(s_{\pi(i - 1)} \ne s_i\)</span>，我们就不能使用 <span class="arithmatex">\(\pi(i - 1)\)</span> 更新 <span class="arithmatex">\(\pi(i)\)</span> 了。因此，我们希望找到一个 <span class="arithmatex">\(s(0, i - 1)\)</span> 的公共前后缀长度仅次于 <span class="arithmatex">\(\pi(i - 1)\)</span> 的公共前后缀长度 <span class="arithmatex">\(\pi'(i - 1)\)</span>。因为 <span class="arithmatex">\(s(0, \pi(i - 1) - 1) = s(i - \pi(i - 1), i - 1)\)</span>，我们要找的 <span class="arithmatex">\(\pi'(i - 1)\)</span> 一定满足 <span class="arithmatex">\(s(0, \pi'(i - 1) - 1) = s(i - \pi'(i - 1), i - 1) = s(\pi(i - 1) - \pi'(i - 1), \pi(i - 1) - 1)\)</span>，同时我们希望 <span class="arithmatex">\(\pi'(i - 1)\)</span> 是仅次于 <span class="arithmatex">\(\pi(i - 1)\)</span> 的最大值。可以发现，<span class="arithmatex">\(\pi'(i - 1) = \pi(\pi(i - 1) - 1)\)</span>。其中，「仅次于」与 <span class="arithmatex">\(\pi\)</span> 定义中的「真前后缀」对应，「最大值」与定义中的「最长」对应。如果此时有 <span class="arithmatex">\(s_{\pi'(i - 1)} = s_i\)</span>，那么 <span class="arithmatex">\(\pi(i) = \pi'(i - 1)\)</span>，否则，我们需要继续找 <span class="arithmatex">\(\pi''(i - 1), \pi^{(3)}(i - 1), \cdots\)</span>，直到 <span class="arithmatex">\(\pi^{(k)}(i - 1) = 0\)</span>，此时 <span class="arithmatex">\(\pi(i)\)</span> 不能利用之前求过的 <span class="arithmatex">\(\pi\)</span> 更新了。</p>
+<div class="admonition notes">
+<p class="admonition-title">代码</p>
+<p>代码中 <code>nxt</code> 数组即为上文 <span class="arithmatex">\(pi\)</span>。</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">    </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-0-3"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+</span><span id="__span-0-4"><span class="w">        </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-0-5"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+</span><span id="__span-0-6"><span class="w">        </span><span class="o">++</span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-0-7"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
-<p>考虑先将所有边流设为下界，然后再进行调整。对于原图中的边 <span class="arithmatex">\((u, v)\)</span>，连边 <span class="arithmatex">\((u, v, b(u, v) - a(u, v))\)</span>。定义 <span class="arithmatex">\(g(u) = \displaystyle\sum_{(v, u) \in \mathbf E} a(v, u) - \sum_{(u, v) \in \mathbf E} a(u, v)\)</span>，即每个点流入与流出的流量之差。我们新建超级源点 <span class="arithmatex">\(S\)</span> 和超级汇点 <span class="arithmatex">\(T\)</span>。若 <span class="arithmatex">\(g(u) &gt; 0\)</span>，说明流入 <span class="arithmatex">\(u\)</span> 的流量比流出的流量多 <span class="arithmatex">\(g(u)\)</span>，连边 <span class="arithmatex">\((S, u, g(u))\)</span>；若 <span class="arithmatex">\(g(u) &lt; 0\)</span>，说明流入 <span class="arithmatex">\(u\)</span> 的流量比流出的流量少 <span class="arithmatex">\(-g(u)\)</span>，连边 <span class="arithmatex">\((u, T, -g(u))\)</span>。对新图求最大流，因为增广需要遵循流量守恒，如果从 <span class="arithmatex">\(S\)</span> 出发和到达 <span class="arithmatex">\(T\)</span> 的流量都流满，那么对应与其相连的点在原图中也满足流量守恒了。实际上，检验其中任意一个即可。</p>
-<p>每条边的下界加上在新图中的流量即为一个可行流。</p>
-<h2 id="_2">有源汇上下界可行流</h2>
-<div class="admonition note">
-<p class="admonition-title">有源汇上下界可行流</p>
-<p>给定一个流网络，有源汇，每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求可行流。</p>
+<div class="admonition info">
+<p class="admonition-title">时间复杂度证明</p>
+<p>上面的写法并不利于证明时间复杂度，因此我们稍微改变一下形式。</p>
+<div class="admonition notes">
+<p class="admonition-title">代码</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</span><span id="__span-1-3"><span class="w">        </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nxt</span><span class="p">[</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-1-4"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</span><span id="__span-1-5"><span class="w">        </span><span class="o">++</span><span class="n">j</span><span class="p">;</span>
+</span><span id="__span-1-6"><span class="w">    </span><span class="n">nxt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">;</span>
+</span><span id="__span-1-7"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>下面说的 <span class="arithmatex">\(s\)</span> 和 <span class="arithmatex">\(t\)</span> 与无源汇上下界可行流中的 <span class="arithmatex">\(S\)</span> 和 <span class="arithmatex">\(T\)</span> 不同。</p>
+<p>可以看出，我们只是新增了一个变量 <code>j</code>，算法的执行过程和之前等价。</p>
+<p><code>j</code> 只会在第 <span class="arithmatex">\(4 \sim 5\)</span> 行增加，最多增加 <span class="arithmatex">\(n\)</span> 次；<code>j</code> 只会在第 <span class="arithmatex">\(2 \sim 3\)</span> 行减少，因为最多增加 <span class="arithmatex">\(n\)</span> 次，因此最多减少 <span class="arithmatex">\(n\)</span> 次。所以内层 <code>while</code> 循环最多执行 <span class="arithmatex">\(n\)</span> 次，对于外层循环，只会遍历字符串一次。因此时间复杂度 <span class="arithmatex">\(O(n)\)</span>。</p>
 </div>
-<p>对于一个普通的流网络，从 <span class="arithmatex">\(s\)</span> 流出的净流量与流入 <span class="arithmatex">\(t\)</span> 的净流量相等，所以我们可以在原图中加一条从 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span>，下界为 <span class="arithmatex">\(0\)</span>，上界为 <span class="arithmatex">\(\infty\)</span> 的流，这样就转化为无源汇上下界可行流了，流的值即为新图中 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的流量。</p>
-<h2 id="_3">有源汇上下界最小流</h2>
-<div class="admonition note">
-<p class="admonition-title">有源汇上下界最小流</p>
-<p>给定一个流网络，有源汇，每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求最小流。</p>
+<h2 id="_2">应用</h2>
+<h3 id="_3">字符串匹配</h3>
+<div class="admonition notes">
+<p class="admonition-title">子串匹配</p>
+<p>给定两个字符串 <span class="arithmatex">\(a, b\)</span>，求 <span class="arithmatex">\(a\)</span> 在 <span class="arithmatex">\(b\)</span> 中所有出现的位置。</p>
 </div>
-<p>先求出可行流，再只保留原图中的边，求 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的最大流（即尽可能多的退回流量），用可行流的值减去求出的最大值即为答案。在实现时只需要删掉 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的边（因为只有这一条边会对接下来求的最大流有影响），然后跑最大流即可。</p>
-<h2 id="_4">有源汇上下界最大流</h2>
-<div class="admonition note">
-<p class="admonition-title">有源汇上下界最大流</p>
-<p>给定一个流网络，有源汇，每条边有下界 <span class="arithmatex">\(a(u, v)\)</span> 和上界 <span class="arithmatex">\(b(u, v)\)</span>，求最小流。</p>
-</div>
-<p>先求出可行流，再只保留原图中的边，求 <span class="arithmatex">\(s\)</span> 到 <span class="arithmatex">\(t\)</span> 的最大流（即尽可能多的添加流量），用可行流的值加上求出的最大值即为答案。实际上，因为当前 <span class="arithmatex">\(t\)</span> 到 <span class="arithmatex">\(s\)</span> 的流量为可行流的值，将这条边的流量全部退回对于这次最大流的影响即为可行流的值。因此直接在新图跑 <span class="arithmatex">\(s\)</span> 到 <span class="arithmatex">\(t\)</span> 的最大流即为有源汇上下界最大流。</p>
-<h2 id="_5">上下界费用流</h2>
-<p>直接将上面对应问题的最大流改为最小/大费用流即可。</p>
+<p>构造一个字符串 <span class="arithmatex">\(s = a + \texttt{#} + b\)</span>，其中 <span class="arithmatex">\(\texttt{#}\)</span> 是一个 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 中都没有的字符。求出 <span class="arithmatex">\(s\)</span> 的 <span class="arithmatex">\(\pi\)</span> 数组。接下来从 <span class="arithmatex">\(i = 2|a|\)</span> 开始枚举，若 <span class="arithmatex">\(\pi(i) = |a|\)</span>，说明 <span class="arithmatex">\(a\)</span> 在 <span class="arithmatex">\(b\)</span> 的 <span class="arithmatex">\(i - 2|a|\)</span> 处出现了。</p>
+<p>但是我们发现，由于 <span class="arithmatex">\(s_{|a|} = \texttt{#}\)</span>，因此所有的 <span class="arithmatex">\(\pi(i)\)</span> 都不会超过 <span class="arithmatex">\(|a|\)</span>。由于在匹配过程中，我们仅需要用到 <span class="arithmatex">\(\pi(i - 1)\)</span> 和所有 <span class="arithmatex">\(i &lt; |a|\)</span> 的 <span class="arithmatex">\(\pi(i)\)</span>，因此，我们没必要保存 <span class="arithmatex">\(i \geq |a|\)</span> 的 <span class="arithmatex">\(\pi(i)\)</span>。具体来说，我们不必显式地将 <span class="arithmatex">\(a\)</span> 与 <span class="arithmatex">\(b\)</span> 连接起来，</p>
 
 
 
