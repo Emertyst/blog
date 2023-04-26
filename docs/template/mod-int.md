@@ -33,104 +33,104 @@
 
 !!! notes "模意义下 int 类的封装"
 
-```cpp
-#include <iostream>
+    ```cpp
+    #include <iostream>
 
-template <const int MOD>
-class ModInt {
-private:
-    typedef long long ll;
-    typedef ModInt<MOD> Type;
-    int val;
+    template <const int MOD>
+    class ModInt {
+    private:
+        typedef long long ll;
+        typedef ModInt<MOD> Type;
+        int val;
 
-    static Type getNan() {
-        Type ans;
-        ans.val = -1;
-        return ans;
-    }
-    static int exgcd(int a, int b, int &x, int &y) {
-        if (b == 0)
-            return x = 1, y = 0, a;
-        int ans = exgcd(b, a % b, y, x);
-        return y -= a / b * x, ans;
-    }
+        static Type getNan() {
+            Type ans;
+            ans.val = -1;
+            return ans;
+        }
+        static int exgcd(int a, int b, int &x, int &y) {
+            if (b == 0)
+                return x = 1, y = 0, a;
+            int ans = exgcd(b, a % b, y, x);
+            return y -= a / b * x, ans;
+        }
 
-public:
-    ModInt() { val = 0; }
-    template <class T>
-    ModInt(T x) { val = (x % MOD + MOD) % MOD; }
+    public:
+        ModInt() { val = 0; }
+        template <class T>
+        ModInt(T x) { val = (x % MOD + MOD) % MOD; }
 
-    bool nan() const { return val == -1; }
+        bool nan() const { return val == -1; }
 
-    friend std::istream &operator>>(std::istream &input, Type &x) {
-        int tmp;
-        input >> tmp;
-        x = Type(tmp);
-        return input;
-    }
-    friend std::ostream &operator<<(std::ostream &output, const Type &x) {
-        if (x.val == -1)
-            output << "NaN";
-        else
-            output << x.val;
-        return output;
-    }
+        friend std::istream &operator>>(std::istream &input, Type &x) {
+            int tmp;
+            input >> tmp;
+            x = Type(tmp);
+            return input;
+        }
+        friend std::ostream &operator<<(std::ostream &output, const Type &x) {
+            if (x.val == -1)
+                output << "NaN";
+            else
+                output << x.val;
+            return output;
+        }
 
-    Type &operator+=(const Type &a) {
-        if (nan() || a.nan())
-            *this = getNan();
-        else
-            val = val + a.val >= MOD ? val + a.val - MOD : val + a.val;
-        return *this;
-    }
-    friend Type operator+(Type a, const Type &b) { return a += b; }
+        Type &operator+=(const Type &a) {
+            if (nan() || a.nan())
+                *this = getNan();
+            else
+                val = val + a.val >= MOD ? val + a.val - MOD : val + a.val;
+            return *this;
+        }
+        friend Type operator+(Type a, const Type &b) { return a += b; }
 
-    Type &operator-=(const Type &a) {
-        if (nan() || a.nan())
-            *this = getNan();
-        else
-            val = val < a.val ? val - a.val + MOD : val - a.val;
-        return *this;
-    }
-    friend Type operator-(Type a, const Type &b) { return a -= b; }
+        Type &operator-=(const Type &a) {
+            if (nan() || a.nan())
+                *this = getNan();
+            else
+                val = val < a.val ? val - a.val + MOD : val - a.val;
+            return *this;
+        }
+        friend Type operator-(Type a, const Type &b) { return a -= b; }
 
-    Type &operator*=(const Type &a) {
-        if (nan() || a.nan())
-            *this = getNan();
-        else
-            val = 1ll * val * a.val % MOD;
-        return *this;
-    }
-    friend Type operator*(Type a, const Type &b) { return a *= b; }
+        Type &operator*=(const Type &a) {
+            if (nan() || a.nan())
+                *this = getNan();
+            else
+                val = 1ll * val * a.val % MOD;
+            return *this;
+        }
+        friend Type operator*(Type a, const Type &b) { return a *= b; }
 
-    friend Type power(Type a, int b) {
-        if (a.nan())
-            return a;
-        Type ans = 1;
-        for (; b; b >>= 1, a *= a)
-            if (b & 1)
-                ans *= a;
-        return ans;
-    }
-    friend Type inv(const Type &a) {
-        if (a.nan())
-            return a;
-        int x, y, gcd = Type::exgcd(a.val, MOD, x, y);
-        Type ans;
-        if (gcd != 1)
-            ans = Type::getNan();
-        else
-            ans = Type(x);
-        return ans;
-    }
+        friend Type power(Type a, int b) {
+            if (a.nan())
+                return a;
+            Type ans = 1;
+            for (; b; b >>= 1, a *= a)
+                if (b & 1)
+                    ans *= a;
+            return ans;
+        }
+        friend Type inv(const Type &a) {
+            if (a.nan())
+                return a;
+            int x, y, gcd = Type::exgcd(a.val, MOD, x, y);
+            Type ans;
+            if (gcd != 1)
+                ans = Type::getNan();
+            else
+                ans = Type(x);
+            return ans;
+        }
 
-    Type &operator/=(const Type &a) {
-        if (nan() || a.nan())
-            *this = getNan();
-        else
-            *this *= inv(a);
-        return *this;
-    }
-    friend Type operator/(Type a, const Type &b) { return a /= b; }
-};
-```
+        Type &operator/=(const Type &a) {
+            if (nan() || a.nan())
+                *this = getNan();
+            else
+                *this *= inv(a);
+            return *this;
+        }
+        friend Type operator/(Type a, const Type &b) { return a /= b; }
+    };
+    ```
