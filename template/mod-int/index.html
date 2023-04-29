@@ -942,7 +942,7 @@
 <li><code>ModInt&lt;mod&gt; a;</code>：构造一个模 <code>mod</code> 意义下，值为 <span class="arithmatex">\(0\)</span> 的数。</li>
 <li><code>ModInt&lt;mod&gt; a(val);</code>：构造一个模 <code>mod</code> 意义下，值为 <code>val</code> 的数。</li>
 </ol>
-<p>其中，<code>mod</code> 为模数，<code>val</code> 为要分配的值。</p>
+<p>其中，<code>mod</code> 为模数（<strong>必须为常量</strong>），<code>val</code> 为要分配的值。</p>
 <h3 id="io">IO</h3>
 <p>可以使用 <code>istream</code> 和 <code>ostream</code> 进行输入输出。</p>
 <h3 id="nannot-a-number">NaN（Not a Number）</h3>
@@ -951,7 +951,7 @@
 <h3 id="_3">四则运算</h3>
 <p>与 <code>int</code> 用法相同。在除法时，如果除数在模 <code>mod</code> 意义下无逆元，那么会返回 NaN。</p>
 <h3 id="_4">逆元</h3>
-<p><code>inv(a);</code>：返回 <code>a</code> 在模 <code>mod</code> 意义下的逆元，若无逆元则返回 NaN。</p>
+<p><code>a.inv();</code>：返回 <code>a</code> 在模 <code>mod</code> 意义下的逆元，若无逆元则返回 NaN。</p>
 <h3 id="_5">乘方</h3>
 <p><code>power(a, b)</code>：返回 <code>a</code> 在模 <code>mod</code> 意义下的 <code>b</code> 次方。</p>
 <h2 id="_6">代码</h2>
