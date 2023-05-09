@@ -46,6 +46,7 @@ nav:
     - 简介: notes/string/index.md
     - KMP: notes/string/1.md
     - Z 函数: notes/string/2.md
+    - AC 自动机: notes/string/3.md
   - 杂项:
     - 文件 IO: notes/misc/1.md
     - 黑科技: notes/misc/2.md
