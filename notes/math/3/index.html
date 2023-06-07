@@ -898,7 +898,7 @@
 \begin{pmatrix}
     a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
     a_{2, 1} &amp; a_{2, 2} &amp; a_{2, 3} &amp; \cdots &amp; a_{2, n} \\
-    a_{3, 1} &amp; a_{2, 2} &amp; a_{3, 3} &amp; \cdots &amp; a_{3, n} \\
+    a_{3, 1} &amp; a_{3, 2} &amp; a_{3, 3} &amp; \cdots &amp; a_{3, n} \\
     \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
     a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
 \end{pmatrix}
@@ -917,6 +917,91 @@
 \sum_{p} (-1)^{\pi(p)} \prod_{j = 1}^n a_{j, p_j} = \sum_{p} (-1)^{\pi(p)} \prod_{j = 1}^n a_{p_j, j} \\
 \]</div>
 <p>注意到等号右边即为转置矩阵的行列式，因此结论成立。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>接下来的性质对于行和列都成立，但只证明行的情况，列的情况可以由转置矩阵的行列式得到。</p>
+</div>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 2</p>
+<p>若一个方阵的一行（列）全为 <span class="arithmatex">\(0\)</span>，那么行列式为 <span class="arithmatex">\(0\)</span>，即：</p>
+<div class="arithmatex">\[
+\det
+\begin{pmatrix}
+    a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+\end{pmatrix}
+= 0 \\
+\]</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">证明</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        0 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp; \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^m a_{j, p_j} \right) k \times 0 \times \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
+    =&amp; 0 \\
+\end{aligned}
+\]</div>
+</div>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 2</p>
+<p>一个方阵的一行（列）若乘上 <span class="arithmatex">\(k\)</span>，那么行列式的值也乘 <span class="arithmatex">\(k\)</span>，即：</p>
+<div class="arithmatex">\[
+\det
+\begin{pmatrix}
+    a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    k a_{m, 1} &amp; k a_{m, 2} &amp; k a_{m, 3} &amp; \cdots &amp; k a_{m, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+\end{pmatrix}
+= k \det
+\begin{pmatrix}
+    a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+\end{pmatrix} \\
+\]</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">证明</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        k a_{m, 1} &amp; k a_{m, 2} &amp; k a_{m, 3} &amp; \cdots &amp; k a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp; \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^m a_{j, p_j} \right) k a_{m, p_m} \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
+    =&amp; k \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^m a_{j, p_j} \right) a_{m, p_m} \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
+    =&amp; k \det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+\end{aligned}
+\]</div>
 </div>
 
 
