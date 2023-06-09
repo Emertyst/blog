@@ -950,14 +950,14 @@
         \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
         a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
     \end{pmatrix} \\
-    =&amp; \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^m a_{j, p_j} \right) k \times 0 \times \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
+    =&amp; \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^{m - 1} a_{j, p_j} \right) k \times 0 \times \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
     =&amp; 0 \\
 \end{aligned}
 \]</div>
 </div>
 <hr />
 <div class="admonition abstract">
-<p class="admonition-title">性质 2</p>
+<p class="admonition-title">性质 3</p>
 <p>一个方阵的一行（列）若乘上 <span class="arithmatex">\(k\)</span>，那么行列式的值也乘 <span class="arithmatex">\(k\)</span>，即：</p>
 <div class="arithmatex">\[
 \det
@@ -990,11 +990,139 @@
         \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
         a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
     \end{pmatrix} \\
-    =&amp; \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^m a_{j, p_j} \right) k a_{m, p_m} \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
-    =&amp; k \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^m a_{j, p_j} \right) a_{m, p_m} \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
+    =&amp; \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^{m - 1} a_{j, p_j} \right) k a_{m, p_m} \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
+    =&amp; k \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^{m - 1} a_{j, p_j} \right) a_{m, p_m} \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
     =&amp; k \det
     \begin{pmatrix}
         a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+\end{aligned}
+\]</div>
+</div>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 4</p>
+<p><del>我不知道怎么描述这个性质</del></p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} + b_1 &amp; a_{m, 2} + b_2 &amp; a_{m, 3} + b_3 &amp; \cdots &amp; a_{m, n} + b_n \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp; \det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix}
+    + \det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        b_1 &amp; b_2 &amp; b_3 &amp; \cdots &amp; b_n \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+\end{aligned}
+\]</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">证明</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} + b_1 &amp; a_{m, 2} + b_2 &amp; a_{m, 3} + b_3 &amp; \cdots &amp; a_{m, n} + b_n \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp; \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^{m - 1} a_{j, p_j} \right) (a_{m, p_m} + b_{p_m}) \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
+    =&amp; \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^{m - 1} a_{j, p_j} \right) a_{m, p_m} \left(\prod_{j = m + 1}^n a_{j, p_j} \right) + \sum_{p} (-1)^{\pi(p)} \left(\prod_{j = 1}^m a_{j, p_j} \right) b_{p_m} \left(\prod_{j = m + 1}^n a_{j, p_j} \right) \\
+    =&amp; \det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix}
+    + \det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        b_1 &amp; b_2 &amp; b_3 &amp; \cdots &amp; b_n \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+\end{aligned}
+\]</div>
+</div>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 5</p>
+<p>交换任意两行（列），行列式变为原来的相反数，即：</p>
+<div class="arithmatex">\[
+\det
+\begin{pmatrix}
+    a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{q, 1} &amp; a_{q, 2} &amp; a_{q, 3} &amp; \cdots &amp; a_{q, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+\end{pmatrix}
+= -\det
+\begin{pmatrix}
+    a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{q, 1} &amp; a_{q, 2} &amp; a_{q, 3} &amp; \cdots &amp; a_{q, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+\end{pmatrix} \\
+\]</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">证明</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{q, 1} &amp; a_{q, 2} &amp; a_{q, 3} &amp; \cdots &amp; a_{q, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp; \sum_{p} (-1)^{\pi(p)} \prod_{j = 1}^n a_{j, p_j} \\
+\end{aligned}
+\]</div>
+<p>假设排列 <span class="arithmatex">\(p' = (p_1, \cdots, p_q, \cdots, p_m, \cdots p_n)\)</span>，可以看出，<span class="arithmatex">\(p'\)</span> 是通过在 <span class="arithmatex">\(p\)</span> 中交换两个元素的位置得到的，因此 <span class="arithmatex">\(p'\)</span> 的奇偶性与 <span class="arithmatex">\(p\)</span> 相反。同时，因此有：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp; \sum_{p} (-1)^{\pi(p)} \prod_{j = 1}^n a_{j, p_j} \\
+    =&amp; -\sum_{p'} (-1)^{\pi(p')} \prod_{j = 1}^n a_{j, p'_j} \\
+    =&amp; -\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{q, 1} &amp; a_{q, 2} &amp; a_{q, 3} &amp; \cdots &amp; a_{q, n} \\
         \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
         a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
         \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
