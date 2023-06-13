@@ -876,21 +876,21 @@
 <h2 id="_2">逆序数</h2>
 <p>定义 <span class="arithmatex">\(p\)</span> 为一个长度为 <span class="arithmatex">\(n\)</span> 的排列，<span class="arithmatex">\(p_i\)</span> 为这个排列的第 <span class="arithmatex">\(i\)</span> 项。定义 <span class="arithmatex">\(\pi(p)\)</span> 为排列 <span class="arithmatex">\(p\)</span> 的逆序对数。若一个排列的逆序对数为奇数，则称这个排列是一个奇排列；若一个排列的逆序对数为偶数，则称这个排列是一个偶排列。</p>
 <div class="admonition abstract">
-<p class="admonition-title">结论</p>
+<p class="admonition-title">结论 1</p>
 <p>交换排列 <span class="arithmatex">\(p\)</span> 中的任意两项，排列 <span class="arithmatex">\(p\)</span> 的奇偶性改变。</p>
 </div>
-<div class="admonition info">
-<p class="admonition-title">证明</p>
+<details class="info">
+<summary>证明</summary>
 <p>假设交换后的排列为 <span class="arithmatex">\(p'\)</span>，交换的两项为 <span class="arithmatex">\(i, j\)</span> 且 <span class="arithmatex">\(i &lt; j\)</span>。如果 <span class="arithmatex">\(p_i &lt; p_j\)</span>，那么 <span class="arithmatex">\(\pi(p') = \pi(p) + 1\)</span>；如果 <span class="arithmatex">\(p_i &gt; p_j\)</span>，那么 <span class="arithmatex">\(\pi(p') = \pi(p) - 1\)</span>。因此奇偶性改变。</p>
-</div>
+</details>
 <div class="admonition abstract">
-<p class="admonition-title">结论</p>
+<p class="admonition-title">结论 2</p>
 <p>若对排列 <span class="arithmatex">\((1, 2, \cdots, n)\)</span> 进行若干次交换得到排列 <span class="arithmatex">\(p\)</span>，那么交换次数的奇偶性与排列 <span class="arithmatex">\(p\)</span> 的奇偶性相同。</p>
 </div>
-<div class="admonition info">
-<p class="admonition-title">证明</p>
+<details class="info">
+<summary>证明</summary>
 <p>排列 <span class="arithmatex">\((1, 2, \cdots, n)\)</span> 的逆序数是 <span class="arithmatex">\(0\)</span>，因此是一个偶排列，同时交换次数也是 <span class="arithmatex">\(0\)</span>。每对其中两个数进行交换，都会改变排列的奇偶性，同时也改变交换次数的奇偶性，因此结论成立。</p>
-</div>
+</details>
 <h2 id="_3">定义</h2>
 <p>对于一个 <span class="arithmatex">\(n\)</span> 阶<strong>方阵</strong> <span class="arithmatex">\(A\)</span>，定义 <span class="arithmatex">\(A\)</span> 的行列式为 <span class="arithmatex">\(\det A\)</span>：</p>
 <div class="arithmatex">\[
@@ -910,14 +910,14 @@
 <p class="admonition-title">性质 1</p>
 <p>一个方阵的行列式和其转置的行列式相等，即 <span class="arithmatex">\(\det A = \det A^T\)</span>。</p>
 </div>
-<div class="admonition info">
-<p class="admonition-title">证明</p>
+<details class="info">
+<summary>证明</summary>
 <p>对于一个排列 <span class="arithmatex">\(p\)</span>，我们需要找到一个排列 <span class="arithmatex">\(p'\)</span>，使得若 <span class="arithmatex">\(i = p'_j\)</span>，那么有 <span class="arithmatex">\(j = p_i\)</span>，此时有 <span class="arithmatex">\(a_{i, p_i} = a_{p'_j, j}\)</span>，因此 <span class="arithmatex">\(\prod_{i = 1}^n a_{i, p_i} = \prod_{i = 1}^n a_{p'_i, i}\)</span>。这个 <span class="arithmatex">\(p'\)</span> 可以通过交换 <span class="arithmatex">\(a\)</span> 的顺序得到。我们将下标看成一个二元组，排列 <span class="arithmatex">\(p\)</span> 对应的下标为 <span class="arithmatex">\((i, p_i)\)</span>，<span class="arithmatex">\(p'\)</span> 对应 <span class="arithmatex">\((p'_i, i)\)</span>，我们按第二个值排序（冒泡排序），相当于将第二个值交换得到排列 <span class="arithmatex">\((1, 2, \cdots, n)\)</span>，交换次数的奇偶性与 <span class="arithmatex">\(p\)</span> 的奇偶性相同。此时， 第一个值相当于从排列 <span class="arithmatex">\((1, 2, \cdots, n)\)</span> 交换得到排列 <span class="arithmatex">\(p'\)</span>，因此交换次数的奇偶性与 <span class="arithmatex">\(p'\)</span> 的奇偶性相同。容易看出 <span class="arithmatex">\(p\)</span> 与 <span class="arithmatex">\(p'\)</span> 奇偶性相同，前面的系数 <span class="arithmatex">\((-1)^{\pi(p)} = (-1)^{\pi(p')}\)</span>。同时，因为这是个排序过程，不同的排列 <span class="arithmatex">\(p, q\)</span> 一定会有与之对应的 <span class="arithmatex">\(p', q'\)</span>，同时它们也互不相同，因此有：</p>
 <div class="arithmatex">\[
 \sum_{p} (-1)^{\pi(p)} \prod_{j = 1}^n a_{j, p_j} = \sum_{p} (-1)^{\pi(p)} \prod_{j = 1}^n a_{p_j, j} \\
 \]</div>
 <p>注意到等号右边即为转置矩阵的行列式，因此结论成立。</p>
-</div>
+</details>
 <div class="admonition warning">
 <p class="admonition-title">注意</p>
 <p>接下来的性质对于行和列都成立，但只证明行的情况，列的情况可以由转置矩阵的行列式得到。</p>
@@ -938,8 +938,8 @@
 = 0 \\
 \]</div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">证明</p>
+<details class="info">
+<summary>证明</summary>
 <div class="arithmatex">\[
 \begin{aligned}
     &amp;\det
@@ -954,7 +954,7 @@
     =&amp; 0 \\
 \end{aligned}
 \]</div>
-</div>
+</details>
 <hr />
 <div class="admonition abstract">
 <p class="admonition-title">性质 3</p>
@@ -978,8 +978,8 @@
 \end{pmatrix} \\
 \]</div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">证明</p>
+<details class="info">
+<summary>证明</summary>
 <div class="arithmatex">\[
 \begin{aligned}
     &amp;\det
@@ -1002,7 +1002,7 @@
     \end{pmatrix} \\
 \end{aligned}
 \]</div>
-</div>
+</details>
 <hr />
 <div class="admonition abstract">
 <p class="admonition-title">性质 4</p>
@@ -1036,8 +1036,8 @@
 \end{aligned}
 \]</div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">证明</p>
+<details class="info">
+<summary>证明</summary>
 <div class="arithmatex">\[
 \begin{aligned}
     &amp;\det
@@ -1068,7 +1068,7 @@
     \end{pmatrix} \\
 \end{aligned}
 \]</div>
-</div>
+</details>
 <hr />
 <div class="admonition abstract">
 <p class="admonition-title">性质 5</p>
@@ -1096,8 +1096,8 @@
 \end{pmatrix} \\
 \]</div>
 </div>
-<div class="admonition info">
-<p class="admonition-title">证明</p>
+<details class="info">
+<summary>证明</summary>
 <div class="arithmatex">\[
 \begin{aligned}
     &amp;\det
@@ -1130,7 +1130,170 @@
     \end{pmatrix} \\
 \end{aligned}
 \]</div>
+</details>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 6</p>
+<p>若方阵的其中一行（列）是另一行（列）的 <span class="arithmatex">\(k\)</span> 倍，那么行列式为 <span class="arithmatex">\(0\)</span>，即：</p>
+<div class="arithmatex">\[
+\det
+\begin{pmatrix}
+    a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    k a_{m, 1} &amp; k a_{m, 2} &amp; k a_{m, 3} &amp; \cdots &amp; k a_{m, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+\end{pmatrix} \\
+= 0 \\
+\]</div>
 </div>
+<details class="info">
+<summary>证明</summary>
+<p>首先考虑 <span class="arithmatex">\(k = 1\)</span> 的情况。交换这两行，行列式变为相反数，但矩阵的形式不变，即：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp;-\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+\end{aligned}
+\]</div>
+<p>因此：</p>
+<div class="arithmatex">\[
+\det
+\begin{pmatrix}
+    a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+\end{pmatrix} \\
+= 0 \\
+\]</div>
+<p>对于 <span class="arithmatex">\(k \ne 1\)</span> 的情况，有：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        k a_{m, 1} &amp; k a_{m, 2} &amp; k a_{m, 3} &amp; \cdots &amp; k a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp;k \det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp; 0 \\
+\end{aligned}
+\]</div>
+</details>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 7</p>
+<p>一个方阵的一行（列）加上另一行（列）的若干倍，行列式的值不变，即：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{q, 1} + k a_{m, 1} &amp; a_{q, 2} + k a_{m, 2} &amp; a_{q, 3} + k a_{m, 3} &amp; \cdots &amp; a_{q, n} + k a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{q, 1} &amp; a_{q, 2} &amp; a_{q, 3} &amp; \cdots &amp; a_{q, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix}
+\end{aligned}
+\]</div>
+</div>
+<details class="info">
+<summary>证明</summary>
+<p>由性质 4 和性质 6，有：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+    &amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{q, 1} + k a_{m, 1} &amp; a_{q, 2} + k a_{m, 2} &amp; a_{q, 3} + k a_{m, 3} &amp; \cdots &amp; a_{q, n} + k a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{q, 1} &amp; a_{q, 2} &amp; a_{q, 3} &amp; \cdots &amp; a_{q, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix}
+    + \det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        k a_{m, 1} &amp; k a_{m, 2} &amp; k a_{m, 3} &amp; \cdots &amp; k a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix} \\
+    =&amp;\det
+    \begin{pmatrix}
+        a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{m, 1} &amp; a_{m, 2} &amp; a_{m, 3} &amp; \cdots &amp; a_{m, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{q, 1} &amp; a_{q, 2} &amp; a_{q, 3} &amp; \cdots &amp; a_{q, n} \\
+        \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n, 1} &amp; a_{n, 2} &amp; a_{n, 3} &amp; \cdots &amp; a_{n, n} \\
+    \end{pmatrix}
+\end{aligned}
+\]</div>
+</details>
 
 
 
