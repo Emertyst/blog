@@ -1294,6 +1294,26 @@
 \end{aligned}
 \]</div>
 </details>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 8</p>
+<p>上三角矩阵的行列式为对角线元素的乘积，即：</p>
+<div class="arithmatex">\[
+\det
+\begin{pmatrix}
+    a_{1, 1} &amp; a_{1, 2} &amp; a_{1, 3} &amp; \cdots &amp; a_{1, n} \\
+    0 &amp; a_{2, 2} &amp; a_{2, 3} &amp; \cdots &amp; a_{2, n} \\
+    0 &amp; 0 &amp; a_{3, 3} &amp; \cdots &amp; a_{3, n} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    0 &amp; 0 &amp; 0 &amp; \cdots &amp; a_{n, n} \\
+\end{pmatrix}
+= \prod_{i = 1}^n a_{i, i} \\
+\]</div>
+</div>
+<details class="info">
+<summary>证明</summary>
+<p>在枚举全排列 <span class="arithmatex">\(p\)</span> 时，如果要使 <span class="arithmatex">\(a_{1, p_1}\)</span> 不为 <span class="arithmatex">\(0\)</span>，那么 <span class="arithmatex">\(p_1 = 1\)</span>；如果要使 <span class="arithmatex">\(a_{2, p_2}\)</span> 也不为 <span class="arithmatex">\(0\)</span>，因为 <span class="arithmatex">\(1\)</span> 已经被使用，因此 <span class="arithmatex">\(p_2 = 2\)</span>；以此类推，可以发现如果要使 <span class="arithmatex">\(\prod_{i = 1}^n a_{i, p_i} \ne 0\)</span>，那么一定有 <span class="arithmatex">\(p_i = i\)</span>。也就是说，只有这一种排列对应的乘积是不为 <span class="arithmatex">\(0\)</span> 的，因此行列式的值就是这种排列对应的乘积，即对角线元素的乘积。</p>
+</details>
 
 
 
