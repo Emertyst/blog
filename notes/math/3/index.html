@@ -515,6 +515,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    高斯消元
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -853,6 +860,13 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     性质
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    高斯消元
   </a>
   
 </li>
@@ -1313,6 +1327,106 @@
 <details class="info">
 <summary>证明</summary>
 <p>在枚举全排列 <span class="arithmatex">\(p\)</span> 时，如果要使 <span class="arithmatex">\(a_{1, p_1}\)</span> 不为 <span class="arithmatex">\(0\)</span>，那么 <span class="arithmatex">\(p_1 = 1\)</span>；如果要使 <span class="arithmatex">\(a_{2, p_2}\)</span> 也不为 <span class="arithmatex">\(0\)</span>，因为 <span class="arithmatex">\(1\)</span> 已经被使用，因此 <span class="arithmatex">\(p_2 = 2\)</span>；以此类推，可以发现如果要使 <span class="arithmatex">\(\prod_{i = 1}^n a_{i, p_i} \ne 0\)</span>，那么一定有 <span class="arithmatex">\(p_i = i\)</span>。也就是说，只有这一种排列对应的乘积是不为 <span class="arithmatex">\(0\)</span> 的，因此行列式的值就是这种排列对应的乘积，即对角线元素的乘积。</p>
+</details>
+<h2 id="_5">高斯消元</h2>
+<p>用定义求行列式的值需要枚举全排列，复杂度过高，因此考虑使用高斯消元将矩阵消成上三角矩阵来求。</p>
+<div class="admonition note">
+<p class="admonition-title">代码</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><span class="kt">int</span><span class="w"> </span><span class="nf">det</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">num</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-3"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-4"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+</span><span id="__span-0-5"><span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">num</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">pos</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-0-6"><span class="w">            </span><span class="o">++</span><span class="n">pos</span><span class="p">;</span>
+</span><span id="__span-0-7"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+</span><span id="__span-0-8"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-9"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pos</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-0-10"><span class="w">            </span><span class="n">swap</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">pos</span><span class="p">],</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="p">);</span>
+</span><span id="__span-0-11"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-12"><span class="w">            </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mul</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">inv</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]));</span>
+</span><span id="__span-0-13"><span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">l</span><span class="o">++</span><span class="p">)</span>
+</span><span id="__span-0-14"><span class="w">                </span><span class="n">num</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">l</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">l</span><span class="p">],</span><span class="w"> </span><span class="n">mul</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">l</span><span class="p">]));</span>
+</span><span id="__span-0-15"><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-16"><span class="w">        </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mul</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="__span-0-17"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-18"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+</span><span id="__span-0-19"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<p>如果模数不是质数，那么模意义下的逆元不一定存在，我们需要使用辗转相除法代替求逆元：</p>
+<div class="admonition note">
+<p class="admonition-title">代码</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="kt">int</span><span class="w"> </span><span class="nf">det</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">num</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-2"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-1-3"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-4"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span>
+</span><span id="__span-1-5"><span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-6"><span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-1-7"><span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+</span><span id="__span-1-8"><span class="w">                    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">k</span><span class="p">)</span>
+</span><span id="__span-1-9"><span class="w">                        </span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">],</span><span class="w"> </span><span class="n">mul</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]));</span>
+</span><span id="__span-1-10"><span class="w">                </span><span class="n">swap</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="n">j</span><span class="p">]),</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dec</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">ans</span><span class="p">);</span>
+</span><span id="__span-1-11"><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-1-12"><span class="w">        </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mul</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]);</span>
+</span><span id="__span-1-13"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">ans</span><span class="p">)</span>
+</span><span id="__span-1-14"><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-1-15"><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-16"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+</span><span id="__span-1-17"><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+</div>
+<p>因为辗转相除的复杂度是 <span class="arithmatex">\(\log m\)</span>，其中 <span class="arithmatex">\(m\)</span> 为模数（即数的值域）。乍一看这个东西的时间复杂度是 <span class="arithmatex">\(O(n^3\log m)\)</span>，但实际上它的复杂度为 <span class="arithmatex">\(O(n^2\log m + n^3)\)</span></p>
+<details class="info">
+<summary>时间复杂度证明</summary>
+<p>先考虑这样一个问题：</p>
+<div class="admonition note">
+<p class="admonition-title">奇妙的问题</p>
+<p>给定 <span class="arithmatex">\(n\)</span> 个数，求它们的 <span class="arithmatex">\(\gcd\)</span>。</p>
+</div>
+<p>考虑一个朴素的辗转相除法：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span><span id="__span-2-2"><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+</span><span id="__span-2-3"><span class="w">    </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">gcd</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="w"> </span><span class="n">num</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+</span></code></pre></div></td></tr></table></div>
+<p>若所有数都小于等于 <span class="arithmatex">\(m\)</span>，那么这个算法的时间复杂度是 <span class="arithmatex">\(O(n \log m)\)</span> 吗？当然不是，应该是 <span class="arithmatex">\(O(n + \log m)\)</span>。</p>
+<p>假设当前求出前 <span class="arithmatex">\(k\)</span> 个数的 <span class="arithmatex">\(\gcd\)</span> 为 <span class="arithmatex">\(d\)</span>，在求 <span class="arithmatex">\(\gcd(d, a_{k + 1})\)</span> 时，只需常数次除法就能将 <span class="arithmatex">\(a_{k + 1}\)</span> 除成一个小于 <span class="arithmatex">\(d\)</span> 的数，这样，我们就继续了之前的辗转相除。因此，除了每个数进行的常数次除法之外，剩下的除法次数就是 <span class="arithmatex">\(O(\log m)\)</span>，也就是说，整个过程的时间复杂度就是 <span class="arithmatex">\(O(n + \log m)\)</span>。</p>
+<p>回到高斯消元这里，第 <span class="arithmatex">\(4 \sim 11\)</span> 行代码是辗转相除的部分，根据上面的结论，这一层 <code>while</code> 循环的总数也就是 <span class="arithmatex">\(O(n + \log m)\)</span>，因为第 <span class="arithmatex">\(3, 8\)</span> 行各有一个循环 <span class="arithmatex">\(n\)</span> 次的 <code>for</code> 循环，因此总时间复杂度为 <span class="arithmatex">\(O(n^2 \log m + n^3)\)</span>。</p>
 </details>
 
 
