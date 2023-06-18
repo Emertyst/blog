@@ -522,6 +522,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    行列式与体积
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -867,6 +874,13 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     高斯消元
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    行列式与体积
   </a>
   
 </li>
@@ -1428,6 +1442,74 @@
 <p>假设当前求出前 <span class="arithmatex">\(k\)</span> 个数的 <span class="arithmatex">\(\gcd\)</span> 为 <span class="arithmatex">\(d\)</span>，在求 <span class="arithmatex">\(\gcd(d, a_{k + 1})\)</span> 时，只需常数次除法就能将 <span class="arithmatex">\(a_{k + 1}\)</span> 除成一个小于 <span class="arithmatex">\(d\)</span> 的数，这样，我们就继续了之前的辗转相除。因此，除了每个数进行的常数次除法之外，剩下的除法次数就是 <span class="arithmatex">\(O(\log m)\)</span>，也就是说，整个过程的时间复杂度就是 <span class="arithmatex">\(O(n + \log m)\)</span>。</p>
 <p>回到高斯消元这里，第 <span class="arithmatex">\(4 \sim 11\)</span> 行代码是辗转相除的部分，根据上面的结论，这一层 <code>while</code> 循环的总数也就是 <span class="arithmatex">\(O(n + \log m)\)</span>，因为第 <span class="arithmatex">\(3, 8\)</span> 行各有一个循环 <span class="arithmatex">\(n\)</span> 次的 <code>for</code> 循环，因此总时间复杂度为 <span class="arithmatex">\(O(n^2 \log m + n^3)\)</span>。</p>
 </details>
+<h2 id="_6">行列式与体积</h2>
+<p>如果我们将行列式的每一行看作一个向量，那么 <span class="arithmatex">\(n\)</span> 个向量 <span class="arithmatex">\(v_1, v_2, \cdots, v_n\)</span> 所围成的一个 <span class="arithmatex">\(n\)</span> 维立方体（一个有 <span class="arithmatex">\(2^n\)</span> 个顶点的立方体，其中每个顶点都是若干个向量加和的端点）即为矩阵行列式的绝对值。</p>
+<p>关于体积的求法，我们任选一个向量 <span class="arithmatex">\(v'_1\)</span>，然后进行 <span class="arithmatex">\(n - 1\)</span> 次操作，第 <span class="arithmatex">\(k\)</span> 次操作选出一个向量 <span class="arithmatex">\(v'_{k + 1}\)</span>，作它与前 <span class="arithmatex">\(k\)</span> 个向量构成的 <span class="arithmatex">\(k\)</span> 维空间的法向量，这样其实就是做了高，然后再用 <span class="arithmatex">\(k\)</span> 维立方体的体积乘这个法向量的模长。</p>
+<p>对于体积，我们有如下性质：</p>
+<div class="admonition abstract">
+<p class="admonition-title">性质 2</p>
+<p>若一个向量的每一维坐标都是 <span class="arithmatex">\(0\)</span>，那么体积也为 <span class="arithmatex">\(0\)</span>。</p>
+</div>
+<details class="info">
+<summary>证明</summary>
+<p>这个向量无论对哪个空间作法向量，模长都是 <span class="arithmatex">\(0\)</span>，因此体积为 <span class="arithmatex">\(0\)</span>。</p>
+</details>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 3</p>
+<p>若一个向量的每一维坐标变为原来的 <span class="arithmatex">\(k\)</span> 倍，则体积变为原来的 <span class="arithmatex">\(k\)</span> 倍。</p>
+</div>
+<details class="info">
+<summary>证明</summary>
+<p>如果把这个向量作为 <span class="arithmatex">\(v_1\)</span>，那么这个一维立方体的体积变为原来的 <span class="arithmatex">\(k\)</span> 倍，因此体积变为原来 <span class="arithmatex">\(k\)</span> 倍。</p>
+</details>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 5</p>
+<p>交换两个向量的顺序，体积不变。</p>
+</div>
+<details class="info">
+<summary>证明</summary>
+<p>交换两个向量的顺序后，我们仍然可以按照原来选择的顺序求体积，因此体积不变。</p>
+</details>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 6</p>
+<p>若一个向量是另一个向量的若干倍，体积为 <span class="arithmatex">\(0\)</span>。</p>
+</div>
+<details class="info">
+<summary>证明</summary>
+<p>我们选择这两个向量作为 <span class="arithmatex">\(v'_1, v'_2\)</span>，可以发现这两个向量共线，它们所构成二维立方体的体积（也就是平行四边形的面积）为 <span class="arithmatex">\(0\)</span>，因此体积为 <span class="arithmatex">\(0\)</span>。</p>
+</details>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 7</p>
+<p>将一个向量加上另一个向量的若干倍，体积不变。</p>
+</div>
+<details class="info">
+<summary>证明</summary>
+<p>我们选择这两个向量作为 <span class="arithmatex">\(v'_1, v'_2\)</span>，我们发现，若将 <span class="arithmatex">\(v'_1\)</span> 加上 <span class="arithmatex">\(kv'_2\)</span>，这两个向量构成的平行四边形只是被拉伸了，高（即 <span class="arithmatex">\(v'_2\)</span> 对 <span class="arithmatex">\(v'_1 + kv'_2\)</span> 做的垂线的模长）不变，因此加之前和之后这个平行四边形面积不变。因此体积不变。</p>
+</details>
+<hr />
+<div class="admonition abstract">
+<p class="admonition-title">性质 8</p>
+<p>对角矩阵对应的立方体体积为对角线上元素乘积的绝对值（也就是这个矩阵的行列式的绝对值）。</p>
+</div>
+<details class="info">
+<summary>证明</summary>
+<p>可以看出这些向量两两垂直，因此体积就是所有向量模长的乘积，也就是矩阵对角线上元素乘积的绝对值。</p>
+</details>
+<hr />
+<p>可以看出，我们将一些体积的性质与行列式的性质对应起来了，我们可以利用性质 7 对这个立方体进行消元，这样能够得到一个两两垂直的向量组，再利用性质 8 即可算出立方体的体积。这个过程对应在矩阵中即为高斯消元，因此我们可以说体积就是矩阵行列式的绝对值了。</p>
+<p>有了这个结论，我们可以在体积上推导出性质 1 和 4：</p>
+<div class="admonition abstract">
+<p class="admonition-title">性质 1</p>
+<p>若将向量组 <span class="arithmatex">\(v\)</span> 中每一个向量的同一维坐标按向量的顺序排成一个新的向量组 <span class="arithmatex">\(v'\)</span>，则这两个向量组对应立方体的体积相等。</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">性质 4</p>
+<p>若将向量 <span class="arithmatex">\(v_m\)</span> 加上一个向量 <span class="arithmatex">\(w\)</span>，记向量组 <span class="arithmatex">\(v_1, \cdots, v_m + w, \cdots, v_n\)</span> 对应的体积为 <span class="arithmatex">\(V_1\)</span>；<span class="arithmatex">\(v_1, \cdots, w, \cdots, v_n\)</span> 对应的体积为 <span class="arithmatex">\(V_2\)</span>；<span class="arithmatex">\(v_1, \cdots, w, \cdots, v_n\)</span> 对应的体积为 <span class="arithmatex">\(V_3\)</span>。那么 <span class="arithmatex">\(V_1 = V_2 + V_3\)</span> 或 <span class="arithmatex">\(V_1 = |V_2 - V_3|\)</span>。</p>
+</div>
 
 
 
