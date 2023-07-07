@@ -1035,13 +1035,42 @@
 </table>
 <h3 id="io">IO</h3>
 <p>可以使用 <code>istream</code> 和 <code>ostream</code> 进行输入输出。在输入时，会<strong>忽略若干字符</strong>直到找到一个可以成为数的子串，且不会读取这个子串后面的字符。下面是一些示例：</p>
-<p>|输入流中的字符串|构造出高精度数的值|输入之后输入流中的字符串|
-|:-:|:-:|:-:|:-:|
-|<code>114514</code>|<span class="arithmatex">\(114514\)</span>|无|
-|<code>-114514</code>|<span class="arithmatex">\(-114514\)</span>|无|
-|<code>--114514</code>|<span class="arithmatex">\(-114514\)</span>|无|
-|<code>?114514</code>|<span class="arithmatex">\(114514\)</span>|无|
-|<code>?-114514?</code>|<span class="arithmatex">\(-114514\)</span>|<code>?</code>|</p>
+<table>
+<thead>
+<tr>
+<th align="center">输入流中的字符串</th>
+<th align="center">构造出高精度数的值</th>
+<th align="center">输入之后输入流中的字符串</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>114514</code></td>
+<td align="center"><span class="arithmatex">\(114514\)</span></td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>-114514</code></td>
+<td align="center"><span class="arithmatex">\(-114514\)</span></td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>--114514</code></td>
+<td align="center"><span class="arithmatex">\(-114514\)</span></td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>?114514</code></td>
+<td align="center"><span class="arithmatex">\(114514\)</span></td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center"><code>?-114514?</code></td>
+<td align="center"><span class="arithmatex">\(-114514\)</span></td>
+<td align="center"><code>?</code></td>
+</tr>
+</tbody>
+</table>
 <h3 id="_3">异常</h3>
 <h4 id="_4">数值过大</h4>
 <p>由于 NTT 的精度限制，本实现只能支持 <span class="arithmatex">\(6 \times 10^6\)</span> 长度的乘法（即结果的长度最多 <span class="arithmatex">\(6 \times 10^6\)</span>）。如果结果的长度超过了最大长度，则抛出 <code>OutOfRange</code> 异常。此外，由于除法过程中用到了一些可能比除数和被除数还大的临时数据，因此除法的最大长度比乘法低（大概是除数的长度不超过 <span class="arithmatex">\(3 \times 10^6\)</span>，但这个估计可能有误差）。</p>
