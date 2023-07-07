@@ -52,6 +52,7 @@ nav:
     - 黑科技: notes/misc/2.md
   - 一些封装:
     - 模意义下 int: template/mod-int.md
+    - 高精度整数: template/big-integer.md
   - cymrain07 的宝藏:
     - fhq-Treap 合并的技巧: cymrain07/1.md
     - Splay 的 Finger-Search 优化启发式合并: cymrain07/2.md
