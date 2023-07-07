@@ -24,7 +24,7 @@
 可以使用 `istream` 和 `ostream` 进行输入输出。在输入时，会**忽略若干字符**直到找到一个可以成为数的子串，且不会读取这个子串后面的字符。下面是一些示例：
 
 |输入流中的字符串|构造出高精度数的值|输入之后输入流中的字符串|
-|:-:|:-:|:-:|:-:|
+|:-:|:-:|:-:|
 |`114514`|$114514$|无|
 |`-114514`|$-114514$|无|
 |`--114514`|$-114514$|无|
@@ -59,7 +59,7 @@
     #include <iostream>
     #include <string>
     #include <vector>
-    
+
     namespace Integer {
     typedef long long ll;
     typedef unsigned long long ull;
