@@ -112,8 +112,7 @@
             const char *what() const throw() { return "Divide by 0!"; }
         };
 
-        void
-        skip() {
+        void skip() {
             int n = (int)size() - 1;
             while (n && !at(n))
                 --n;
