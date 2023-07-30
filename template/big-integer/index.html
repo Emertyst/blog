@@ -1075,7 +1075,7 @@
 <h4 id="_4">数值过大</h4>
 <p>由于 NTT 的精度限制，本实现只能支持 <span class="arithmatex">\(6 \times 10^6\)</span> 长度的乘法（即结果的长度最多 <span class="arithmatex">\(6 \times 10^6\)</span>）。如果结果的长度超过了最大长度，则抛出 <code>OutOfRange</code> 异常。此外，由于除法过程中用到了一些可能比除数和被除数还大的临时数据，因此除法的最大长度比乘法低（大概是除数的长度不超过 <span class="arithmatex">\(3 \times 10^6\)</span>，但这个估计可能有误差）。</p>
 <h4 id="0">除 0</h4>
-<p>在除法和取模时，如果除数和模数为 <span class="arithmatex">\(0\)</span>，则抛出 <code>DivideByZero</code> 异常。</p>
+<p>在除法或取模时，如果除数或模数为 <span class="arithmatex">\(0\)</span>，则抛出 <code>DivideByZero</code> 异常。</p>
 <h3 id="_5">四则运算、比较运算</h3>
 <p>同 <code>int</code>。若两个高精度数分别为 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(m\)</span> 位（对于除法，则 <span class="arithmatex">\(n\)</span> 为被除数，<span class="arithmatex">\(m\)</span> 为除数），则时间复杂度为：</p>
 <table>
@@ -1099,11 +1099,12 @@
 <td align="center"><span class="arithmatex">\(O((n + m) \log (n + m))\)</span></td>
 </tr>
 <tr>
-<td align="center">除</td>
+<td align="center">除、取模</td>
 <td align="center">设 <span class="arithmatex">\(k = \max\{n + 2m, 4(n - m)\}\)</span>，则复杂度为 <span class="arithmatex">\(O(k \log k)\)</span>（常数极大，约为乘法的 <span class="arithmatex">\(8\)</span> 倍）</td>
 </tr>
 </tbody>
 </table>
+<p>取模时（以 <code>a % b</code> 为例），结果的符号与 <span class="arithmatex">\(a\)</span> 的符号相同，结果的绝对值为 <span class="arithmatex">\(|a| \bmod |b|\)</span>。</p>
 <h3 id="_6">乘方</h3>
 <p>如果要将一个高精度数 <span class="arithmatex">\(a\)</span> 乘 <span class="arithmatex">\(k\)</span> 次方（<span class="arithmatex">\(k\)</span> 为 <code>int</code>），可以写成 <code>a ^ k</code>，复杂度为 <span class="arithmatex">\(O(nk \log nk)\)</span>。</p>
 <h2 id="_7">代码</h2>
@@ -1718,7 +1719,7 @@
 </span><span id="__span-0-283"><span class="w">    </span><span class="n">BigInteger</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="o">/=</span><span class="p">(</span><span class="n">BigInteger</span><span class="w"> </span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-284"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 </span><span id="__span-0-285"><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="n">DivideByZero</span><span class="p">();</span>
-</span><span id="__span-0-286"><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">tag</span><span class="p">;</span>
+</span><span id="__span-0-286"><span class="w">        </span><span class="kt">bool</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">tag</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">tag</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">NEG</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">POS</span><span class="p">;</span>
 </span><span id="__span-0-287"><span class="w">        </span><span class="n">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">POS</span><span class="p">;</span>
 </span><span id="__span-0-288"><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(),</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 </span><span id="__span-0-289"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
