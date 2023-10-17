@@ -30,7 +30,6 @@ extra_javascript:
 nav:
   - 简介: index.md
   - 网络流:
-    - 简介: notes/network-flows/index.md
     - 最大流与最小割: notes/network-flows/1.md
     - 最小割树: notes/network-flows/2.md
     - 费用流: notes/network-flows/3.md
