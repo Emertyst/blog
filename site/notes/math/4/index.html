@@ -983,10 +983,13 @@
 <h1 id="_1">广义容斥原理与二项式反演</h1>
 <h2 id="_2">容斥原理</h2>
 <p><del>先来复习一下容斥原理</del></p>
+<div class="admonition abstract">
+<p class="admonition-title">容斥原理</p>
 <p>设 <span class="arithmatex">\(\mathbf S_1, \mathbf S_2, \cdots, \mathbf S_n\)</span> 为有限集，则：</p>
 <div class="arithmatex">\[
 \left|\bigcup_{i = 1}^n \mathbf S_i\right| = \sum_{1 \leq i \leq n} \left|\mathbf S_i\right| - \sum_{1 \leq i, j \leq n} \left|\mathbf S_i \cap \mathbf S_j \right| + \cdots + (-1)^{n - 1} \left|\bigcap_{i = 1}^n \mathbf S_i\right| \\
 \]</div>
+</div>
 <h2 id="_3">广义容斥原理</h2>
 <h3 id="_4">定义</h3>
 <p>容斥原理可以看成给定 <span class="arithmatex">\(n\)</span> 个条件，求不满足任何一个条件的元素个数。广义容斥原理则是求恰好满足 <span class="arithmatex">\(k\)</span> 个条件的情况个数。</p>
@@ -1009,7 +1012,7 @@ f(x) = \sum_{i = x}^n (-1)^{i - x} \binom{i}{x} g(i) \\
 <p class="admonition-title">为什么 <span class="arithmatex">\(g(x)\)</span> 可以用 <span class="arithmatex">\(f(x)\)</span> 表示</p>
 <p>假设我们选出<strong>恰好</strong>满足的 <span class="arithmatex">\(x\)</span> 个条件，它们构成集合 <span class="arithmatex">\(\mathbf S\)</span>；选出<strong>“至少”</strong>满足的 <span class="arithmatex">\(y\)</span> 个条件，它们构成集合 <span class="arithmatex">\(\mathbf T\)</span>（其中，第一种钦定方式只对应一种情况，第二种钦定方式对应多种情况）。第一种钦定方式对应的情况如果对第二种钦定方式有贡献，当且仅当 <span class="arithmatex">\(\mathbf T \subset \mathbf S\)</span>。也就是说，每一种恰好满足 <span class="arithmatex">\(i\)</span> 个条件的情况，对 <span class="arithmatex">\(g(x)\)</span> 的贡献为 <span class="arithmatex">\(\dbinom{i}{x}\)</span>，而恰好满足 <span class="arithmatex">\(i\)</span> 个条件的情况数为 <span class="arithmatex">\(f(i)\)</span>，因此 <span class="arithmatex">\(f\)</span> 对 <span class="arithmatex">\(g(x)\)</span> 的贡献即为 <span class="arithmatex">\(\displaystyle\sum_{i = x}^n \binom{i}{x} f(x)\)</span>。通过列举“至少”满足 <span class="arithmatex">\(x\)</span> 个条件的所有情况，可以发现每一种情况都是一个恰好满足 <span class="arithmatex">\(i\)</span> 个条件（<span class="arithmatex">\(i \geq x\)</span>）的情况，也就是说 <span class="arithmatex">\(g(x)\)</span> 只有来自 <span class="arithmatex">\(f(i), i \geq x\)</span> 的贡献，因此满足上面的关系。</p>
 </div>
-<p>（广义容斥原理的证明在下文）</p>
+<p>（证明在下文）</p>
 <h3 id="_5">应用</h3>
 <div class="admonition note">
 <p class="admonition-title">例题</p>
