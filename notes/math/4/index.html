@@ -228,20 +228,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../network-flows/" class="md-nav__link">
-        简介
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../network-flows/1/" class="md-nav__link">
         最大流与最小割
       </a>
@@ -1015,9 +1001,13 @@ g(x) = \sum_{i = x}^n \binom{i}{x} f(x) \\
 f(x) = \sum_{i = x}^n (-1)^{i - x} \binom{i}{x} g(i) \\
 \]</div>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>我们有时将「钦定 <span class="arithmatex">\(x\)</span> 个条件必须满足，剩下的条件满不满足都行」称为「“至少”满足 <span class="arithmatex">\(x\)</span> 个条件」，这里“至少”并不是传统意义上的至少，这点需要注意。</p>
+</div>
 <div class="admonition info">
 <p class="admonition-title">为什么 <span class="arithmatex">\(g(x)\)</span> 可以用 <span class="arithmatex">\(f(x)\)</span> 表示</p>
-<p>假设我们使用 <span class="arithmatex">\(f(x)\)</span> 的钦定方式选出恰好满足的 <span class="arithmatex">\(x\)</span> 个条件，它们构成集合 <span class="arithmatex">\(\mathbf S\)</span>；使用 <span class="arithmatex">\(g(x)\)</span> 的钦定方式选出必须满足的 <span class="arithmatex">\(y\)</span> 个条件，它们构成集合 <span class="arithmatex">\(\mathbf T\)</span>（其中，第一种钦定方式只对应一种情况，第二种钦定方式对应多种情况）。第一种钦定方式对应的情况如果对第二种钦定方式有贡献，当且仅当 <span class="arithmatex">\(\mathbf T \subset \mathbf S\)</span>。也就是说，每一种恰好满足 <span class="arithmatex">\(i\)</span> 个条件的情况，对 <span class="arithmatex">\(g(x)\)</span> 的贡献为 <span class="arithmatex">\(\dbinom{i}{x}\)</span>，而恰好满足 <span class="arithmatex">\(i\)</span> 个条件的情况数为 <span class="arithmatex">\(f(x)\)</span>，因此有了上面的关系。</p>
+<p>假设我们选出<strong>恰好</strong>满足的 <span class="arithmatex">\(x\)</span> 个条件，它们构成集合 <span class="arithmatex">\(\mathbf S\)</span>；选出<strong>“至少”</strong>满足的 <span class="arithmatex">\(y\)</span> 个条件，它们构成集合 <span class="arithmatex">\(\mathbf T\)</span>（其中，第一种钦定方式只对应一种情况，第二种钦定方式对应多种情况）。第一种钦定方式对应的情况如果对第二种钦定方式有贡献，当且仅当 <span class="arithmatex">\(\mathbf T \subset \mathbf S\)</span>。也就是说，每一种恰好满足 <span class="arithmatex">\(i\)</span> 个条件的情况，对 <span class="arithmatex">\(g(x)\)</span> 的贡献为 <span class="arithmatex">\(\dbinom{i}{x}\)</span>，而恰好满足 <span class="arithmatex">\(i\)</span> 个条件的情况数为 <span class="arithmatex">\(f(i)\)</span>，因此 <span class="arithmatex">\(f\)</span> 对 <span class="arithmatex">\(g(x)\)</span> 的贡献即为 <span class="arithmatex">\(\displaystyle\sum_{i = x}^n \binom{i}{x} f(x)\)</span>。通过列举“至少”满足 <span class="arithmatex">\(x\)</span> 个条件的所有情况，可以发现每一种情况都是一个恰好满足 <span class="arithmatex">\(i\)</span> 个条件（<span class="arithmatex">\(i \geq x\)</span>）的情况，也就是说 <span class="arithmatex">\(g(x)\)</span> 只有来自 <span class="arithmatex">\(f(i), i \geq x\)</span> 的贡献，因此满足上面的关系。</p>
 </div>
 <p>（广义容斥原理的证明在下文）</p>
 <h3 id="_5">应用</h3>
@@ -1039,7 +1029,7 @@ D(n) = n! \sum_{i = 0}^n \frac{(-1)^i}{i!} \\
 <div class="admonition info">
 <p class="admonition-title">广义容斥解法</p>
 <p>虽然用广义容斥解更加麻烦，但是我们可以使用这个例题来帮助理解广义容斥。</p>
-<p>设 <span class="arithmatex">\(f(x)\)</span> 为 <span class="arithmatex">\(n\)</span> 个球中，<span class="arithmatex">\(x\)</span> 个球在对应编号的盒里的情况数，<span class="arithmatex">\(g(x)\)</span> 为钦定 <span class="arithmatex">\(x\)</span> 个球在对应编号的盒里，剩下的球随便放的情况数。<span class="arithmatex">\(f(m)\)</span> 即为答案。易得：</p>
+<p>设 <span class="arithmatex">\(f(x)\)</span> 为 <span class="arithmatex">\(n\)</span> 个球中，恰好 <span class="arithmatex">\(x\)</span> 个球在对应编号的盒里的情况数，<span class="arithmatex">\(g(x)\)</span> 为 <span class="arithmatex">\(n\)</span> 个球中，“至少” <span class="arithmatex">\(x\)</span> 个球在对应编号的盒里的情况数。<span class="arithmatex">\(f(m)\)</span> 即为答案。易得：</p>
 <div class="arithmatex">\[
 g(x) = \binom{n}{x} (n - x)! = \frac{n!}{x!} \\
 \]</div>
