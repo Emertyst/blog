@@ -1410,8 +1410,8 @@
 &amp;\textbf{return } (T, \mathbf C) \\
 \end{aligned}
 \]</div>
-<div class="admonition warning">
-<p class="admonition-title">注意</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p><span class="arithmatex">\((\mathbf C_r^1 | r \in \mathbf R_1), (\mathbf C_r^2 | r \in \mathbf R_2)\)</span> 中的上标表示的是编号。</p>
 </div>
 <p>对于当前处理的点集 <span class="arithmatex">\(\mathbf R\)</span> 和上一层递归传进来的图 <span class="arithmatex">\(G\)</span>，首先任选两点 <span class="arithmatex">\(r_1, r_2\)</span>，求出一个 <span class="arithmatex">\(r_1, r_2\)</span> 在图 <span class="arithmatex">\(G\)</span> 中的最小割（<strong>注意不是原图</strong>）。然后进行缩点，并以<strong>缩点之后的</strong> <span class="arithmatex">\(G_1, G_2\)</span> 为基础求两个 Gomory-Hu 树。最后进行划分的合并（具体合并方法的解释在下文）。</p>
