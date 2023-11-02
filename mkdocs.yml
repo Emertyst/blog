@@ -43,6 +43,7 @@ nav:
     - Miller Rabin: notes/math/2.md
     - 行列式: notes/math/3.md
     - 广义容斥原理与二项式反演: notes/math/4.md
+    - 莫比乌斯反演: notes/math/5.md
   - 字符串:
     - 简介: notes/string/index.md
     - KMP: notes/string/1.md
