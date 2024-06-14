@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../0/">
       
       
         <link rel="next" href="../../misc/1/">
@@ -613,6 +613,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../0/" class="md-nav__link">
+        前置知识
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1069,6 +1083,8 @@
 
 <h2 id="winapi">一个简单的 WinAPI 程序</h2>
 <p>让我们先看看一个最简单的 WinAPI 程序的例子：</p>
+<details class="notes" open="open">
+<summary>代码</summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -1138,7 +1154,7 @@
 </span><span id="__span-0-23"><span class="p">}</span>
 </span><span id="__span-0-24">
 </span><span id="__span-0-25"><span class="kt">int</span><span class="w"> </span><span class="n">WINAPI</span><span class="w"> </span><span class="n">wWinMain</span><span class="p">(</span><span class="n">HINSTANCE</span><span class="w"> </span><span class="n">hInstance</span><span class="p">,</span><span class="w"> </span><span class="n">HINSTANCE</span><span class="w"> </span><span class="n">hPrevInstance</span><span class="p">,</span><span class="w"> </span><span class="n">PTSTR</span><span class="w"> </span><span class="n">cmdLine</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cmdShow</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-0-26"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">wchar_t</span><span class="w"> </span><span class="n">CLASS_NAME</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;WindowClass&quot;</span><span class="p">);</span>
+</span><span id="__span-0-26"><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">TCHAR</span><span class="w"> </span><span class="n">CLASS_NAME</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;WindowClass&quot;</span><span class="p">);</span>
 </span><span id="__span-0-27">
 </span><span id="__span-0-28"><span class="w">    </span><span class="n">WNDCLASS</span><span class="w"> </span><span class="n">wc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span>
 </span><span id="__span-0-29"><span class="w">    </span><span class="n">wc</span><span class="p">.</span><span class="n">lpfnWndProc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WindowProc</span><span class="p">;</span>
@@ -1159,6 +1175,7 @@
 </span><span id="__span-0-44"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 </span><span id="__span-0-45"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
+</details>
 <p>看起来非常复杂，让我们先拆解来看。</p>
 <h2 id="_1">头文件</h2>
 <p>WinAPI 用到的绝大多数东西都在 <code>Windows.h</code> 和 <code>CommCtrl.h</code> 这两个头文件里。</p>
@@ -1170,10 +1187,14 @@
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="kt">int</span><span class="w"> </span><span class="n">WINAPI</span><span class="w"> </span><span class="n">wWinMain</span><span class="p">(</span><span class="n">HINSTANCE</span><span class="w"> </span><span class="n">hInstance</span><span class="p">,</span><span class="w">    </span><span class="c1">// 实例的句柄，这个数据类型及其实际存储的信息不用理解，只需要直接使用这个值</span>
-</span><span id="__span-1-2"><span class="n">HINSTANCE</span><span class="w"> </span><span class="n">hPrevInstance</span><span class="p">,</span><span class="w">                    </span><span class="c1">// 没有任何意义，始终为 0</span>
-</span><span id="__span-1-3"><span class="n">PTSTR</span><span class="w"> </span><span class="n">cmdLine</span><span class="p">,</span><span class="w">                              </span><span class="c1">// 为命令行参数，在初学阶段不会使用</span>
-</span><span id="__span-1-4"><span class="kt">int</span><span class="w"> </span><span class="n">cmdShow</span><span class="p">)</span><span class="w">                                </span><span class="c1">// 为指示窗口状态（最小化、最大化、正常显示）的值，其具体值我们不用理解</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><span class="kt">int</span><span class="w"> </span><span class="n">WINAPI</span><span class="w"> </span><span class="n">wWinMain</span><span class="p">(</span>
+</span><span id="__span-1-2"><span class="n">HINSTANCE</span><span class="w"> </span><span class="n">hInstance</span><span class="p">,</span><span class="w">        </span><span class="c1">// 实例的句柄，这个数据类型及其实际存储的信息不用理解，只需要直接使用这个值</span>
+</span><span id="__span-1-3"><span class="n">HINSTANCE</span><span class="w"> </span><span class="n">hPrevInstance</span><span class="p">,</span><span class="w">    </span><span class="c1">// 没有任何意义，始终为 0</span>
+</span><span id="__span-1-4"><span class="n">PTSTR</span><span class="w"> </span><span class="n">cmdLine</span><span class="p">,</span><span class="w">              </span><span class="c1">// 为命令行参数，在初学阶段不会使用</span>
+</span><span id="__span-1-5"><span class="kt">int</span><span class="w"> </span><span class="n">cmdShow</span><span class="w">                 </span><span class="c1">// 为指示窗口状态（最小化、最大化、正常显示）的值，其具体值我们不用理解</span>
+</span><span id="__span-1-6"><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>不同于控制台程序，窗口程序以 <code>wWinMain</code> 为入口，其中「w」表示这个程序使用 Unicode 字符（宽字符 <code>wchar_t</code>），若没有这个「w」则使用 ANSI 字符（<code>char</code>）。<code>WINAPI</code> 修饰函数，具体含义不用理解。</p>
 <h2 id="_3">创建窗口</h2>
@@ -1187,7 +1208,7 @@
 <span class="normal">6</span>
 <span class="normal">7</span>
 <span class="normal">8</span>
-<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="k">const</span><span class="w"> </span><span class="kt">wchar_t</span><span class="w"> </span><span class="n">CLASS_NAME</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;WindowClass&quot;</span><span class="p">);</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="k">const</span><span class="w"> </span><span class="n">TCHAR</span><span class="w"> </span><span class="n">CLASS_NAME</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;WindowClass&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// TCHAR 即为 wchar_t</span>
 </span><span id="__span-2-2">
 </span><span id="__span-2-3"><span class="n">WNDCLASS</span><span class="w"> </span><span class="n">wc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">};</span><span class="w">              </span><span class="c1">// 使用一个结构体存储窗口类的参数</span>
 </span><span id="__span-2-4">
@@ -1210,18 +1231,22 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="n">HWND</span><span class="w"> </span><span class="n">hwnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateWindowEx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w">   </span><span class="c1">// 扩展窗口样式，这里不使用扩展窗口，因此设置为 0</span>
-</span><span id="__span-3-2"><span class="n">CLASS_NAME</span><span class="p">,</span><span class="w">                     </span><span class="c1">// 标识窗口类的字符串</span>
-</span><span id="__span-3-3"><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;WindowName&quot;</span><span class="p">),</span><span class="w">             </span><span class="c1">// 窗口标题</span>
-</span><span id="__span-3-4"><span class="n">WS_OVERLAPPEDWINDOW</span><span class="p">,</span><span class="w">            </span><span class="c1">// 窗口样式，此处为一个重叠的窗口（带有标题栏和边框、图标、最小化、最大化、退出按钮，可调整大小的窗口）</span>
-</span><span id="__span-3-5"><span class="n">CW_USEDEFAULT</span><span class="p">,</span><span class="w">                  </span><span class="c1">// 窗口的最左侧位置，以屏幕左上角为 0，这里使用默认值</span>
-</span><span id="__span-3-6"><span class="n">CW_USEDEFAULT</span><span class="p">,</span><span class="w">                  </span><span class="c1">// 窗口的最上侧位置，以屏幕左上角为 0，这里使用默认值</span>
-</span><span id="__span-3-7"><span class="n">CW_USEDEFAULT</span><span class="p">,</span><span class="w">                  </span><span class="c1">// 窗口的宽度，这里使用默认值</span>
-</span><span id="__span-3-8"><span class="n">CW_USEDEFAULT</span><span class="p">,</span><span class="w">                  </span><span class="c1">// 窗口的高度，这里使用默认值</span>
-</span><span id="__span-3-9"><span class="nb">NULL</span><span class="p">,</span><span class="w">                           </span><span class="c1">// 父窗口的句柄，因为主窗口没有父窗口，所以为 NULL</span>
-</span><span id="__span-3-10"><span class="nb">NULL</span><span class="p">,</span><span class="w">                           </span><span class="c1">// 这里表示不使用菜单</span>
-</span><span id="__span-3-11"><span class="n">hInstance</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 实例的句柄</span>
-</span><span id="__span-3-12"><span class="nb">NULL</span><span class="p">);</span><span class="w">                          </span><span class="c1">// 在初学阶段不会使用，设置为 NULL</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="n">HWND</span><span class="w"> </span><span class="n">hwnd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CreateWindowEx</span><span class="p">(</span>
+</span><span id="__span-3-2"><span class="mi">0</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 扩展窗口样式，这里不使用扩展窗口，因此设置为 0</span>
+</span><span id="__span-3-3"><span class="n">CLASS_NAME</span><span class="p">,</span><span class="w">             </span><span class="c1">// 标识窗口类的字符串</span>
+</span><span id="__span-3-4"><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;WindowName&quot;</span><span class="p">),</span><span class="w">     </span><span class="c1">// 窗口标题</span>
+</span><span id="__span-3-5"><span class="n">WS_OVERLAPPEDWINDOW</span><span class="p">,</span><span class="w">    </span><span class="c1">// 窗口样式，此处为一个重叠的窗口（带有标题栏和边框、图标、最小化、最大化、退出按钮，可调整大小的窗口）</span>
+</span><span id="__span-3-6"><span class="n">CW_USEDEFAULT</span><span class="p">,</span><span class="w">          </span><span class="c1">// 窗口的最左侧位置，以屏幕左上角为 0，这里使用默认值</span>
+</span><span id="__span-3-7"><span class="n">CW_USEDEFAULT</span><span class="p">,</span><span class="w">          </span><span class="c1">// 窗口的最上侧位置，以屏幕左上角为 0，这里使用默认值</span>
+</span><span id="__span-3-8"><span class="n">CW_USEDEFAULT</span><span class="p">,</span><span class="w">          </span><span class="c1">// 窗口的宽度，这里使用默认值</span>
+</span><span id="__span-3-9"><span class="n">CW_USEDEFAULT</span><span class="p">,</span><span class="w">          </span><span class="c1">// 窗口的高度，这里使用默认值</span>
+</span><span id="__span-3-10"><span class="nb">NULL</span><span class="p">,</span><span class="w">                   </span><span class="c1">// 父窗口的句柄，因为主窗口没有父窗口，所以为 NULL</span>
+</span><span id="__span-3-11"><span class="nb">NULL</span><span class="p">,</span><span class="w">                   </span><span class="c1">// 这里表示不使用菜单</span>
+</span><span id="__span-3-12"><span class="n">hInstance</span><span class="p">,</span><span class="w">              </span><span class="c1">// 实例的句柄</span>
+</span><span id="__span-3-13"><span class="nb">NULL</span><span class="w">                    </span><span class="c1">// 在初学阶段不会使用，设置为 NULL</span>
+</span><span id="__span-3-14"><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p><code>CreateWindowEx</code> 返回值类型为 <code>HWND</code>，表示创建窗口的句柄（可以理解为一个指针）。如果创建失败，将返回 <code>NULL</code>，此时需要退出程序；否则显示窗口。</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -1242,9 +1267,13 @@
 <p>消息以 <code>MSG</code> 类型存储，我们不需要知道这玩意到底是怎么存储的，只需要使用它处理消息。<code>GetMessage</code> 函数的四个参数含义如下：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><span class="n">GetMessage</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">,</span><span class="w">    </span><span class="c1">// 将读取到的消息存储在这个对象中</span>
-</span><span id="__span-6-2"><span class="nb">NULL</span><span class="p">,</span><span class="w">               </span><span class="c1">// 这里表示从所有窗口里检索消息</span>
-</span><span id="__span-6-3"><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">               </span><span class="c1">// 这里表示不进行范围筛选，返回所有可用消息</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><span class="n">GetMessage</span><span class="p">(</span>
+</span><span id="__span-6-2"><span class="o">&amp;</span><span class="n">msg</span><span class="p">,</span><span class="w">   </span><span class="c1">// 将读取到的消息存储在这个对象中</span>
+</span><span id="__span-6-3"><span class="nb">NULL</span><span class="p">,</span><span class="w">   </span><span class="c1">// 这里表示从所有窗口里检索消息</span>
+</span><span id="__span-6-4"><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w">    </span><span class="c1">// 这里表示不进行范围筛选，返回所有可用消息</span>
+</span><span id="__span-6-5"><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>对于一般的消息 <code>GetMessage</code> 返回一个大于 <span class="arithmatex">\(0\)</span> 的值，但如果收到 <code>WM_QUIT</code> 消息，则返回 <span class="arithmatex">\(0\)</span>，此时应该退出消息循环，因此使用上面的 <code>while</code> 结构。</p>
 <p>对于一条消息，我们只需要使用 <code>TranslateMessage</code> 和 <code>DispatchMessage</code> 两个函数即可完成消息处理。同样，它们的实现方式我们不需要理解，只需要知道消息处理过程中会调用<strong>窗口过程</strong>。</p>
@@ -1295,9 +1324,13 @@
 <p>返回值 <code>LRESULT</code> 和函数的修饰符 <code>CALLBACK</code> 不用理解，只需要知道 <code>LRESULT</code> 大概就是个整型即可。<code>WindowProc</code> 的四个参数含义如下：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
 <span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><span class="n">LRESULT</span><span class="w"> </span><span class="n">CALLBACK</span><span class="w"> </span><span class="n">WindowProc</span><span class="p">(</span><span class="n">HWND</span><span class="w"> </span><span class="n">hwnd</span><span class="p">,</span><span class="w">  </span><span class="c1">// 窗口的句柄</span>
-</span><span id="__span-8-2"><span class="n">UINT</span><span class="w"> </span><span class="n">uMsg</span><span class="p">,</span><span class="w">                              </span><span class="c1">// 消息代码</span>
-</span><span id="__span-8-3"><span class="n">WPARAM</span><span class="w"> </span><span class="n">wParam</span><span class="p">,</span><span class="w"> </span><span class="n">LPARAM</span><span class="w"> </span><span class="n">lParam</span><span class="p">)</span><span class="w">           </span><span class="c1">// 消息参数，其含义取决于消息类型</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><span class="n">LRESULT</span><span class="w"> </span><span class="n">CALLBACK</span><span class="w"> </span><span class="n">WindowProc</span><span class="p">(</span>
+</span><span id="__span-8-2"><span class="n">HWND</span><span class="w"> </span><span class="n">hwnd</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 窗口的句柄</span>
+</span><span id="__span-8-3"><span class="n">UINT</span><span class="w"> </span><span class="n">uMsg</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 消息代码</span>
+</span><span id="__span-8-4"><span class="n">WPARAM</span><span class="w"> </span><span class="n">wParam</span><span class="p">,</span><span class="w"> </span><span class="n">LPARAM</span><span class="w"> </span><span class="n">lParam</span><span class="w">    </span><span class="c1">// 消息参数，其含义取决于消息类型</span>
+</span><span id="__span-8-5"><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>消息代码一般使用 <code>switch case</code> 语句处理。<code>WM_DESTROY</code> 为销毁窗口的消息，对于此消息来说，<code>wParam</code> 和 <code>lParam</code> 均没有用处。在处理此消息时，我们一般会使用 <code>PostQuitMessage(0)</code>，这个语句会向消息队列中发送 <code>WM_QUIT</code> 消息，如上文介绍，它会结束消息循环（如果不这样处理，会出现窗口关闭而程序未结束的情况），其中 <span class="arithmatex">\(0\)</span> 为退出代码（并不代表收到 <code>WM_QUIT</code> 消息时 <code>GetMessage</code> 的返回值），初学时不使用退出代码，直接设置为 <span class="arithmatex">\(0\)</span>。</p>
 <p><code>WM_PAINT</code> 为绘制窗口的消息，对于此消息来说，<code>wParam</code> 和 <code>lParam</code> 均没有用处。这里的处理方式为使用背景色填充窗口，具体实现方式现在不需要理解。</p>

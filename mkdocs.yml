@@ -50,6 +50,7 @@ nav:
     - Z 函数: notes/string/2.md
   - Windows API:
     - 简介: notes/winapi/index.md
+    - 前置知识: notes/winapi/0.md
     - 入门: notes/winapi/1.md
   - 杂项:
     - 文件 IO: notes/misc/1.md
