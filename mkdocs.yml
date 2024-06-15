@@ -52,6 +52,7 @@ nav:
     - 简介: notes/winapi/index.md
     - 前置知识: notes/winapi/0.md
     - 入门: notes/winapi/1.md
+    - 编码约定: notes/winapi/2.md
   - 杂项:
     - 文件 IO: notes/misc/1.md
     - 黑科技: notes/misc/2.md
