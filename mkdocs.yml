@@ -53,6 +53,7 @@ nav:
     - 前置知识: notes/Win32/0.md
     - 入门: notes/Win32/1.md
     - 编码约定: notes/Win32/2.md
+    - 杂项: notes/Win32/misc.md
   - 杂项:
     - 文件 IO: notes/misc/1.md
     - 黑科技: notes/misc/2.md
