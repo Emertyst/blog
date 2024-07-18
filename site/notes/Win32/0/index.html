@@ -864,6 +864,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#const_cast" class="md-nav__link">
+    <span class="md-ellipsis">
+      const_cast
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1327,6 +1336,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#const_cast" class="md-nav__link">
+    <span class="md-ellipsis">
+      const_cast
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1390,6 +1408,17 @@
 <h3 id="typedef">指针的 <code>typedef</code></h3>
 <p>指针的 <code>typedef</code> 写作 <code>typedef int *Pint;</code>，在声明变量时，<code>Pint p;</code> 就和 <code>int *p;</code> 等价了。同样，若 <code>typedef const int *Pint;</code>，则 <code>Pint p;</code> 和 <code>const int *p;</code> 等价；若 <code>typedef int *const Pint;</code>，则 <code>Pint p;</code> 和 <code>int *const p;</code> 等价。值得注意的是，若 <code>typedef int *Pint;</code>，则 <code>const Pint p;</code> 与 <code>Pint *const p;</code> 等价。</p>
 <p>至于 <code>const</code> 的作用范围，<code>typedef const int *Pint, tni;</code> 中 <code>const</code> 修饰 <code>int</code>，即 <code>tni</code> 为 <code>const int</code> 类型；<code>typedef int *const Pint, tni;</code> 中 <code>*const</code> 修饰 <code>Pint</code>，即 <code>tni</code> 为 <code>int</code> 类型。</p>
+<h3 id="const_cast"><code>const_cast</code></h3>
+<p>当你写下这样的语句：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="k">typedef</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">STR</span><span class="p">;</span>
+</span><span id="__span-2-2"><span class="n">STR</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;!!!&quot;</span><span class="p">;</span>
+</span></code></pre></div></td></tr></table></div>
+<p>你会发现在 G++ 中有这样的警告：<code>ISO C++ forbids converting a string constant to 'STR' {aka 'char*'}</code>，而在 MSVC 中过不了编译。这是因为我们将一个字符串常量赋值给了一个字符串变量。正确的赋值方法是这样：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="k">typedef</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">STR</span><span class="p">;</span>
+</span><span id="__span-3-2"><span class="n">STR</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">const_cast</span><span class="o">&lt;</span><span class="n">STR</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;!!!&quot;</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
 <h2 id="switch"><code>switch</code> 语句</h2>
 <p><del>你可能会问，这有什么好讲的呢？</del></p>
 <p><code>switch</code> 语句实际上相当于一个 <code>goto</code>，会从一个符合条件的 <code>case</code> 标记后运行。这也就解释了需要 <code>break</code> 的原因，因为 <code>case</code> 就相当于是一个 <code>goto</code> 的标记，程序是跳转到 <code>case</code> 后并一直向后运行的，因此如果不 <code>break</code> 就会运行到后面不应该运行的代码。</p>
@@ -1404,17 +1433,17 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span>
-<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-2"><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
-</span><span id="__span-2-3"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-2-4"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
-</span><span id="__span-2-5">
-</span><span id="__span-2-6"><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
-</span><span id="__span-2-7"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
-</span><span id="__span-2-8">
-</span><span id="__span-2-9"><span class="k">default</span><span class="o">:</span>
-</span><span id="__span-2-10"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
-</span><span id="__span-2-11"><span class="p">}</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+</span><span id="__span-4-3"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-4-4"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-4-5">
+</span><span id="__span-4-6"><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+</span><span id="__span-4-7"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-4-8">
+</span><span id="__span-4-9"><span class="k">default</span><span class="o">:</span>
+</span><span id="__span-4-10"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-4-11"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 <p>在这个例子中，变量 <code>x</code> 的作用域是整个 <code>switch</code> 语句，但如果 <code>n</code> 的值不是 <span class="arithmatex">\(1\)</span>，就会跳过 <code>x</code> 的定义。此时 g++ 会给你一个警告，但 MSVC 甚至不会让你通过编译。所以在使用 <code>switch</code> 语句时，一定要注意限制定义在 <code>switch</code> 语句内变量的作用域，就像这样：</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -1428,18 +1457,18 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-2"><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-3-3"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-</span><span id="__span-3-4"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
-</span><span id="__span-3-5"><span class="p">}</span>
-</span><span id="__span-3-6">
-</span><span id="__span-3-7"><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
-</span><span id="__span-3-8"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
-</span><span id="__span-3-9">
-</span><span id="__span-3-10"><span class="k">default</span><span class="o">:</span>
-</span><span id="__span-3-11"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
-</span><span id="__span-3-12"><span class="p">}</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-5-4"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-5-5"><span class="p">}</span>
+</span><span id="__span-5-6">
+</span><span id="__span-5-7"><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+</span><span id="__span-5-8"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-5-9">
+</span><span id="__span-5-10"><span class="k">default</span><span class="o">:</span>
+</span><span id="__span-5-11"><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+</span><span id="__span-5-12"><span class="p">}</span>
 </span></code></pre></div></td></tr></table></div>
 
 
