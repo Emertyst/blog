@@ -38,6 +38,7 @@ nav:
     - 红黑树: notes/data-structure/1.md
   - 动态规划:
     - 四边形不等式: notes/dp/1.md
+    - 高维前缀和、子集 dp、快速沃尔什变换: notes/dp/2.md
   - 数学:
     - 多项式全家桶: notes/math/1.md
     - Miller Rabin: notes/math/2.md
