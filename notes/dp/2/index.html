@@ -1438,6 +1438,7 @@
 </span></code></pre></div></td></tr></table></div>
 <p>第一层循环枚举维度，第二层循环枚举全集的所有子集，通过 <code>if</code> 保证每一维只被计算一次。</p>
 </details>
+<p>第二种实现方式会比第一种慢一些，但时间复杂度相同。</p>
 <p>实际上，子集 dp 不只能处理求和的问题（也可以求最大值等），也不只能处理子集的问题（若模板中的求和条件改为 <span class="arithmatex">\(\mathbf S \subset \mathbf T\)</span>，求后缀和即可），也可以用差分将 <span class="arithmatex">\(g\)</span> 转化为 <span class="arithmatex">\(f\)</span>。</p>
 <h2 id="fwt">快速沃尔什变换(FWT)</h2>
 <div class="admonition info">
