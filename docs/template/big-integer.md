@@ -427,12 +427,12 @@
     #undef M
     #undef M1
     #undef M2
-    #undef lg(a)
-    #undef inc1(a, b)
-    #undef inc2(a, b)
-    #undef dec1(a, b)
-    #undef dec2(a, b)
-    #undef mul1(a, b)
-    #undef mul2(a, b)
+    #undef lg
+    #undef inc1
+    #undef inc2
+    #undef dec1
+    #undef dec2
+    #undef mul1
+    #undef mul2
     } // namespace Integer
     ```
