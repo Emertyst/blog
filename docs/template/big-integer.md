@@ -76,24 +76,39 @@
     typedef long double ld;
 
     namespace Math {
-    const int G = 3, MOD1 = 998244353, MOD2 = 1004535809;
-    const ll M = 1002772198720536577ll, M1 = 334257240187163831ll, M2 = 668514958533372747ll;
-    int lg(int a) { return 31 - __builtin_clz(a); }
-    int inc(int a, int b, int mod) { return a + b >= mod ? a + b - mod : a + b; }
-    int dec(int a, int b, int mod) { return a < b ? a - b + mod : a - b; }
-    int mul(int a, int b, int mod) { return 1ll * a * b % mod; }
+    #define G 3
+    #define MOD1 998244353
+    #define MOD2 1004535809
+    #define M 1002772198720536577ll
+    #define M1 334257240187163831ll
+    #define M2 668514958533372747ll
+    #define lg(a) (31 - __builtin_clz(a))
+    #define inc1(a, b) (a + b >= MOD1 ? a + b - MOD1 : a + b)
+    #define inc2(a, b) (a + b >= MOD2 ? a + b - MOD2 : a + b)
+    #define dec1(a, b) (a < b ? a - b + MOD1 : a - b)
+    #define dec2(a, b) (a < b ? a - b + MOD2 : a - b)
+    #define mul1(a, b) (1ll * a * b % MOD1)
+    #define mul2(a, b) (1ll * a * b % MOD2)
     ll mul(ll a, ll b) {
         ull c = (ld)a / M * b + 0.5L, ans = 1ull * a * b - c * M;
         return ans < 1ull * M ? ans : ans + M;
     }
-    int power(int a, int b, int mod) {
+    int power1(int a, int b) {
         int ans = 1;
-        for (; b; b >>= 1, a = mul(a, a, mod))
+        for (; b; b >>= 1, a = mul1(a, a))
             if (b & 1)
-                ans = mul(ans, a, mod);
+                ans = mul1(ans, a);
         return ans;
     }
-    int inv(int a, int mod) { return power(a, mod - 2, mod); }
+    int power2(int a, int b) {
+        int ans = 1;
+        for (; b; b >>= 1, a = mul2(a, a))
+            if (b & 1)
+                ans = mul2(ans, a);
+        return ans;
+    }
+    int inv1(int a) { return power1(a, MOD1 - 2); }
+    int inv2(int b) { return power2(b, MOD2 - 2); }
     } // namespace Math
 
     class BigInteger : std::vector<int> {
@@ -151,16 +166,16 @@
             return lg;
         }
         void init() {
-            int u = Math::power(Math::G, (Math::MOD1 - 1) >> LG, Math::MOD1), v = Math::power(Math::G, (Math::MOD2 - 1) >> LG, Math::MOD2);
+            int u = Math::power1(G, (MOD1 - 1) >> LG), v = Math::power2(G, (MOD2 - 1) >> LG);
             w1[N >> 1] = w2[N >> 1] = 1;
             for (int i = (N >> 1) + 1; i < N; ++i)
-                w1[i] = Math::mul(w1[i - 1], u, Math::MOD1), w2[i] = Math::mul(w2[i - 1], v, Math::MOD2);
+                w1[i] = mul1(w1[i - 1], u), w2[i] = mul2(w2[i - 1], v);
             for (int i = (N >> 1) - 1; i; --i)
                 w1[i] = w1[i << 1], w2[i] = w2[i << 1];
             for (int i = 1; i < N; ++i)
                 rev[i] = (rev[i >> 1] >> 1) | ((i & 1) << (LG - 1));
         }
-        void ntt(BigInteger &a, int lg, bool inv, int *w, int mod) {
+        void ntt1(BigInteger &a, int lg, bool inv, int *w) {
             if (!rev[1])
                 init();
             int n = 1 << lg;
@@ -170,13 +185,32 @@
             for (int l = 1; l < n; l <<= 1)
                 for (int i = 0, *k = w + l; i < n; i += (l << 1))
                     for (int j = i, *g = k; j < i + l; ++j, ++g) {
-                        int tmp1 = a[j], tmp2 = Math::mul(*g, a[j + l], mod);
-                        a[j] = Math::inc(tmp1, tmp2, mod), a[j + l] = Math::dec(tmp1, tmp2, mod);
+                        int tmp1 = a[j], tmp2 = mul1(*g, a[j + l]);
+                        a[j] = inc1(tmp1, tmp2), a[j + l] = dec1(tmp1, tmp2);
                     }
             if (inv) {
                 std::reverse(a.data() + 1, a.data() + n);
-                for (int i = 0, inv = Math::inv(n, mod); i < n; ++i)
-                    a[i] = Math::mul(a[i], inv, mod);
+                for (int i = 0, inv = Math::inv1(n); i < n; ++i)
+                    a[i] = mul1(a[i], inv);
+            }
+        }
+        void ntt2(BigInteger &a, int lg, bool inv, int *w) {
+            if (!rev[1])
+                init();
+            int n = 1 << lg;
+            for (int i = 1; i < n; ++i)
+                if (i < (rev[i] >> (LG - lg)))
+                    std::swap(a[i], a[rev[i] >> (LG - lg)]);
+            for (int l = 1; l < n; l <<= 1)
+                for (int i = 0, *k = w + l; i < n; i += (l << 1))
+                    for (int j = i, *g = k; j < i + l; ++j, ++g) {
+                        int tmp1 = a[j], tmp2 = mul2(*g, a[j + l]);
+                        a[j] = inc2(tmp1, tmp2), a[j + l] = dec2(tmp1, tmp2);
+                    }
+            if (inv) {
+                std::reverse(a.data() + 1, a.data() + n);
+                for (int i = 0, inv = Math::inv2(n); i < n; ++i)
+                    a[i] = mul2(a[i], inv);
             }
         }
 
@@ -327,14 +361,14 @@
                 throw OutOfRange();
             resize(1 << lg), a.resize(1 << lg);
             BigInteger b = a, c = *this;
-            ntt(a, lg, false, w1, Math::MOD1), ntt(c, lg, false, w1, Math::MOD1);
-            ntt(*this, lg, false, w2, Math::MOD2), ntt(b, lg, false, w2, Math::MOD2);
+            ntt1(a, lg, false, w1), ntt1(c, lg, false, w1);
+            ntt2(*this, lg, false, w2), ntt2(b, lg, false, w2);
             for (int i = 0; i < (1 << lg); ++i)
-                a[i] = Math::mul(a[i], c[i], Math::MOD1), at(i) = Math::mul(at(i), b[i], Math::MOD2);
-            ntt(a, lg, true, w1, Math::MOD1), ntt(*this, lg, true, w2, Math::MOD2);
+                a[i] = mul1(a[i], c[i]), at(i) = mul2(at(i), b[i]);
+            ntt1(a, lg, true, w1), ntt2(*this, lg, true, w2);
             std::vector<ll> tmp(1 << lg);
             for (int i = 0; i < (1 << lg); ++i)
-                tmp[i] = (Math::mul(a[i], Math::M1) + Math::mul(at(i), Math::M2)) % Math::M;
+                tmp[i] = (Math::mul(a[i], M1) + Math::mul(at(i), M2)) % M;
             for (int i = 0; i < n + m; ++i)
                 tmp[i + 1] += tmp[i] / MAX, at(i) = tmp[i] % MAX;
             resize(n + m);
@@ -386,5 +420,19 @@
     };
 
     int BigInteger::w1[], BigInteger::w2[], BigInteger::rev[];
+
+    #undef G
+    #undef MOD1
+    #undef MOD2
+    #undef M
+    #undef M1
+    #undef M2
+    #undef lg(a)
+    #undef inc1(a, b)
+    #undef inc2(a, b)
+    #undef dec1(a, b)
+    #undef dec2(a, b)
+    #undef mul1(a, b)
+    #undef mul2(a, b)
     } // namespace Integer
     ```
