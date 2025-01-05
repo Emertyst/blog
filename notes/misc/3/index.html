@@ -1835,23 +1835,38 @@
 <h2 id="5">5 向量组的线性相关性与矩阵的秩</h2>
 <h3 id="51">5.1 向量组的线性相关性和秩</h3>
 <h4 id="_1">线性表示</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">线性表示的定义</p>
 <p>向量 <span class="arithmatex">\(b\)</span> 能由向量 <span class="arithmatex">\(a_1, a_2, \cdots, a_n\)</span> 线性表示 <span class="arithmatex">\(\iff\)</span> 存在 <span class="arithmatex">\(n\)</span> 个数 <span class="arithmatex">\(k_1, k_2, \cdots, k_n\)</span>，使 <span class="arithmatex">\(k_1 a_1 + k_2 a_2 + \cdots + k_n a_n = b\)</span></p>
-</blockquote>
+</div>
 <h4 id="_2">线性相关</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">线性相关的定义</p>
 <p>向量组 <span class="arithmatex">\(a_1, a_2, \cdots, a_n\)</span> 线性相关 <span class="arithmatex">\(\iff\)</span> 存在 <span class="arithmatex">\(n\)</span> 个不全为零的数 <span class="arithmatex">\(k_1, k_2, \cdots, k_n\)</span>，使 <span class="arithmatex">\(k_1 a_1 + k_2 a_2 + \cdots + k_n a_n = 0\)</span></p>
-</blockquote>
+</div>
 <h4 id="_3">结论</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p><span class="arithmatex">\(A = [a_1, a_2, \cdots, a_n]\)</span>，且 <span class="arithmatex">\(A\)</span> 为方阵时，向量组 <span class="arithmatex">\(a_1, a_2, \cdots, a_n\)</span> 线性相关（无关） <span class="arithmatex">\(\iff\)</span> <span class="arithmatex">\(|A| = 0\)</span>（<span class="arithmatex">\(|A| \ne 0\)</span>）</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>向量组 <span class="arithmatex">\(a_1, a_2, \cdots, a_n\)</span>（<span class="arithmatex">\(n \geqslant 2\)</span>）线性相关 <span class="arithmatex">\(\iff\)</span> 该向量组中至少有一个向量可由其余的 <span class="arithmatex">\(n - 1\)</span> 个向量线性表示</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>若向量组 <span class="arithmatex">\(a_1, a_2, \cdots, a_n\)</span> 线性无关，而向量组 <span class="arithmatex">\(a_1, a_2, \cdots, a_n, b\)</span> 线性相关 <span class="arithmatex">\(\Rightarrow\)</span> 向量 <span class="arithmatex">\(b\)</span> 可由向量组 <span class="arithmatex">\(a_1, a_2, \cdots, a_n\)</span> 线性表示且表达式唯一。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设向量组 Ⅰ 为 <span class="arithmatex">\(a_1, a_2, \cdots, a_r\)</span>，向量组 Ⅱ 为 <span class="arithmatex">\(a_1, a_2, \cdots, a_r, a_{r + 1}, \cdots, a_n\)</span>。</p>
 <ol>
 <li>若向量组 Ⅰ 线性相关，则向量组 Ⅱ 也线性相关。</li>
 <li>若向量组 Ⅱ 线性无关，则向量组 Ⅰ 也线性无关。</li>
 </ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设 <span class="arithmatex">\(r\)</span> 元向量组 Ⅰ 为 <span class="arithmatex">\(a_1, a_2, \cdots, a_m\)</span>，<span class="arithmatex">\(s\)</span> 元向量组 Ⅱ 为 <span class="arithmatex">\(b_1, b_2, \cdots, b_m\)</span>，<span class="arithmatex">\(r + s\)</span> 元向量组 Ⅲ 为 <span class="arithmatex">\(c_1, c_2, \cdots, c_m\)</span>，其中，</p>
 <div class="arithmatex">\[
 c_i =
@@ -1864,31 +1879,46 @@ c_i =
 <li>若向量组 Ⅰ 和 Ⅱ 中有一个线性无关，则向量组 Ⅲ 也线性无关。</li>
 <li>若向量组 Ⅲ 线性相关，则向量组 Ⅰ 和 Ⅱ 都线性相关。</li>
 </ol>
-</blockquote>
+</div>
 <h3 id="52">5.2 矩阵的秩</h3>
 <h4 id="_4">矩阵的秩</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">矩阵的秩的定义</p>
 <p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(m \times n\)</span> 矩阵，<span class="arithmatex">\(1 \leqslant k \leqslant \min\{m, n\}\)</span>，由矩阵 <span class="arithmatex">\(A\)</span> 的任意 <span class="arithmatex">\(k\)</span> 个行和 <span class="arithmatex">\(k\)</span> 个列相交处的 <span class="arithmatex">\(k^2\)</span> 个元素按照原来的相对位置所构成的方阵叫做矩阵 <span class="arithmatex">\(A\)</span> 的 <span class="arithmatex">\(k\)</span> 阶子阵，其行列式的值叫做矩阵 <span class="arithmatex">\(A\)</span> 的 <span class="arithmatex">\(k\)</span> 阶子式。</p>
 <p>矩阵 <span class="arithmatex">\(A\)</span> 中非奇异子阵的最高阶数（即非零子式的最高阶数）称为矩阵 <span class="arithmatex">\(A\)</span> 的秩，记作 <span class="arithmatex">\(r(A)\)</span>。</p>
-</blockquote>
+</div>
 <h4 id="_5">满秩矩阵</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">满秩矩阵的定义</p>
 <p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(n\)</span> 阶方阵，当 <span class="arithmatex">\(r(A) = n\)</span> 时，<span class="arithmatex">\(A\)</span> 叫做满秩矩阵；当 <span class="arithmatex">\(r(A) &lt; n\)</span> 时，<span class="arithmatex">\(A\)</span> 叫做降秩矩阵。</p>
-</blockquote>
+</div>
 <h4 id="_6">结论</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p><span class="arithmatex">\(r(A^T) = r(A)\)</span></p>
-<p>三秩相等定理：<span class="arithmatex">\(r(A) = A \text{ 的行秩} = A \text{ 的列秩}\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">三秩相等定理</p>
+<p><span class="arithmatex">\(r(A) = A \text{ 的行秩} = A \text{ 的列秩}\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(m \times n\)</span> 矩阵，<span class="arithmatex">\(P\)</span> 为 <span class="arithmatex">\(m\)</span> 阶可逆矩阵，若 <span class="arithmatex">\(B = PA\)</span>，则 <span class="arithmatex">\(A\)</span> 中任意 <span class="arithmatex">\(r\)</span> 个列向量 <span class="arithmatex">\(a_{i_1}, a_{i_2}, \cdots, a_{i_r}\)</span> 和 <span class="arithmatex">\(B\)</span> 中相应的列向量 <span class="arithmatex">\(b_{i_1}, b_{i_2}, \cdots, b_{i_r}\)</span> 满足相同的线性表达式，从而具有相同的线性相关性。</p>
 <p>推论：</p>
 <ol>
 <li><span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 的列向量组的极大无关组一一对应，<span class="arithmatex">\(r(B) = r(A)\)</span>。（求最大无关组的方法）</li>
 <li><span class="arithmatex">\(a_j = k_1 a_{i_1} + k_2 a_{i_2} + \cdots + k_r a_{i_r} \iff b_j = k_1 b_{i_1} + k_2 b_{i_2} + \cdots + k_r b_{i_r}\)</span></li>
 </ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>（初等变换不改变矩阵的秩）设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(m \times n\)</span> 矩阵，<span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(Q\)</span> 分别为 <span class="arithmatex">\(m\)</span> 阶和 <span class="arithmatex">\(n\)</span> 阶可逆矩阵，则</p>
 <div class="arithmatex">\[
 r(PA) = r(AQ) = r(PAQ) = r(A)
 \]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设 <span class="arithmatex">\(A, B, C\)</span> 分别为 <span class="arithmatex">\(m \times n, s \times t, m \times t\)</span> 矩阵，则</p>
 <div class="arithmatex">\[
 r\left(
@@ -1904,18 +1934,30 @@ O &amp; B \\
 \end{bmatrix}
 \right) \geqslant r(A) + r(B) \\
 \]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(m \times k\)</span> 矩阵，<span class="arithmatex">\(B\)</span> 为 <span class="arithmatex">\(k \times n\)</span> 矩阵，则</p>
 <div class="arithmatex">\[
 r(A) + r(B) - k \leqslant r(AB) \leqslant \min\{r(A), r(B)\} \\
 \]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(m \times k\)</span> 矩阵，<span class="arithmatex">\(B\)</span> 为 <span class="arithmatex">\(k \times n\)</span> 矩阵，则</p>
 <div class="arithmatex">\[
 r([A, B]) \leqslant r(A) + r(B) \\
 \]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 都是 <span class="arithmatex">\(m \times n\)</span> 矩阵，则</p>
 <div class="arithmatex">\[
 r(A + B) \leqslant r(A) + r(B) \\
 \]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(n\)</span> 阶方阵，则</p>
 <div class="arithmatex">\[
 r(A^*) =
@@ -1925,6 +1967,9 @@ r(A^*) =
     0, &amp;r(A) \leqslant n - 2 \\
 \end{cases}
 \]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(n\)</span> 阶方阵，<span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(b\)</span> 为 <span class="arithmatex">\(n\)</span> 元列向量，则下列命题互为充要条件</p>
 <ol>
 <li><span class="arithmatex">\(A\)</span> 为满秩矩阵</li>
@@ -1934,104 +1979,164 @@ r(A^*) =
 <li><span class="arithmatex">\(A x = b\)</span> 只有唯一解</li>
 <li><span class="arithmatex">\(A\)</span> 的行向量组和列向量组都是线性无关的</li>
 </ol>
-</blockquote>
+</div>
 <h3 id="53">5.3 矩阵的秩在向量组中的应用</h3>
 <h4 id="_7">等价向量组</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">等价向量组的定义</p>
 <p>若向量组 Ⅰ：<span class="arithmatex">\(b_1, b_2, \cdots, b_n\)</span> 中的每个向量都能由向量组 Ⅱ：<span class="arithmatex">\(a_1, a_2, \cdots, a_m\)</span> 线性表示，则称向量组 Ⅰ 能由向量组 Ⅱ 线性表示。</p>
 <p>若向量组 Ⅰ 与向量组 Ⅱ 能够相互线性表示，责成这两个向量组等价。</p>
-</blockquote>
+</div>
 <h4 id="_8">结论</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>向量组 <span class="arithmatex">\(b_1, b_2, \cdots, b_n\)</span> 能由向量组 <span class="arithmatex">\(a_1, a_2, \cdots, a_m\)</span> 线性表示 <span class="arithmatex">\(\iff\)</span> 存在矩阵 <span class="arithmatex">\(P\)</span>，使 <span class="arithmatex">\(B=AP\)</span>，其中，<span class="arithmatex">\(A = [a_1, a_2, \cdots, a_m], B = [b_1, b_2, \cdots, b_n]\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>若向量组 Ⅰ 能由向量组 Ⅱ 线性表示，则 <span class="arithmatex">\(r(Ⅰ) &lt; r(Ⅱ)\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>若向量组 Ⅰ 与向量组 Ⅱ 等价，则 <span class="arithmatex">\(r(Ⅰ) = r(Ⅱ)\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>向量组 <span class="arithmatex">\(b_1, b_2, \cdots, b_n\)</span> 能由向量组 <span class="arithmatex">\(a_1, a_2, \cdots, a_m\)</span> 线性表示 <span class="arithmatex">\(\iff r(a_1, a_2, \cdots, a_m, b_1, b_2, \cdots, b_n) = r(a_1, a_2, \cdots, a_m)\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>向量组 <span class="arithmatex">\(b_1, b_2, \cdots, b_n\)</span> 与向量组 <span class="arithmatex">\(a_1, a_2, \cdots, a_m\)</span> 等价 <span class="arithmatex">\(\iff r(a_1, a_2, \cdots, a_m, b_1, b_2, \cdots, b_n) = r(a_1, a_2, \cdots, a_m) = r(b_1, b_2, \cdots, b_n)\)</span></p>
-</blockquote>
+</div>
 <h2 id="6">6 线性方程组</h2>
 <h3 id="_9">齐次线性方程组</h3>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">齐次线性方程组解的存在性</p>
 <p>齐次线性方程组 <span class="arithmatex">\(A x = 0\)</span> 只有零解（有非零解）<span class="arithmatex">\(\iff\)</span> <span class="arithmatex">\(r(A) = n\)</span>（<span class="arithmatex">\(r(A) &lt; n\)</span>）</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">齐次线性方程组的解法</p>
 <p>齐次线性方程组 <span class="arithmatex">\(A x = 0\)</span> 的解集 <span class="arithmatex">\(S\)</span> 的秩 <span class="arithmatex">\(r(S) = n - r(A)\)</span>，即 <span class="arithmatex">\(A x = 0\)</span> 的基础解系所含向量的个数为 <span class="arithmatex">\(n - r(A)\)</span>，其中，<span class="arithmatex">\(n\)</span> 为未知数的个数，即 <span class="arithmatex">\(A\)</span> 的列数。</p>
 <p>设 <span class="arithmatex">\(A\)</span> 的行最简形为 <span class="arithmatex">\(\begin{bmatrix} E_r &amp; B \\ O &amp; O \\ \end{bmatrix}\)</span>，其中，<span class="arithmatex">\(B\)</span> 为 <span class="arithmatex">\(r \times (n - r)\)</span> 矩阵，则 <span class="arithmatex">\(A x = 0\)</span> 的基础解系是 <span class="arithmatex">\(\begin{bmatrix} -B \\ E_{n - r} \end{bmatrix}\)</span> 的列向量组。</p>
-</blockquote>
+</div>
 <h3 id="_10">非齐次线性方程组</h3>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">非齐次线性方程组解的存在性</p>
 <p>非齐次线性方程组 <span class="arithmatex">\(A x = b\)</span> 有唯一解（有无穷多解）<span class="arithmatex">\(\iff\)</span> <span class="arithmatex">\(r(A) = n\)</span>（<span class="arithmatex">\(r(A) &lt; n\)</span>）</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">非齐次线性方程组的解法</p>
 <p>设 <span class="arithmatex">\(u\)</span> 为非齐次线性方程组 <span class="arithmatex">\(A x = b\)</span> 的一个已知解（称为特解），<span class="arithmatex">\(v_1, v_2, \cdots, v_{n - r}\)</span> 为 <span class="arithmatex">\(A x = 0\)</span> 的基础解系，则 <span class="arithmatex">\(A x = b\)</span> 的通解为</p>
 <div class="arithmatex">\[
 x = k_1 v_1 + k_2 v_2 + \cdots + k_{n - r} v_{n - r} + u \\
 \]</div>
 <p>其中 <span class="arithmatex">\(k_1, k_2, \cdots, k_{n - r}\)</span> 为任意常数。</p>
-</blockquote>
+</div>
 <h3 id="_11">结论</h3>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(m \times n\)</span> 实矩阵，<span class="arithmatex">\(r(A^T A) = r(A A^T) = r(A)\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p><span class="arithmatex">\(A^T A x = A^T b\)</span> 一定有解</p>
-</blockquote>
+</div>
 <h2 id="7">7 向量空间及向量的正交性</h2>
 <h3 id="71">7.1 向量空间</h3>
 <h4 id="_12">向量空间</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">向量空间的定义</p>
 <p>设 <span class="arithmatex">\(V\)</span> 是 <span class="arithmatex">\(n\)</span> 元向量的集合，如果 <span class="arithmatex">\(V\)</span> 非空，并且对于向量的线性运算封闭（即对任意 <span class="arithmatex">\(v_1 \in V, v_2 \in V, k \in \mathbf R\)</span>，都有 <span class="arithmatex">\(v_1 + v_2 \in V, kv_1 \in V\)</span>），则称 <span class="arithmatex">\(V\)</span> 是一个向量空间。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>向量空间里一定有零向量。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>向量空间 <span class="arithmatex">\(V\)</span> 的一个极大无关组被叫做 <span class="arithmatex">\(V\)</span> 的一个基，<span class="arithmatex">\(V\)</span> 的秩叫做 <span class="arithmatex">\(V\)</span> 的维数，记作 <span class="arithmatex">\(\dim(V)\)</span>。若 <span class="arithmatex">\(\dim(V) = r\)</span>，则称 <span class="arithmatex">\(V\)</span> 为 <span class="arithmatex">\(r\)</span> 为向量空间。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>设 <span class="arithmatex">\(V\)</span> 是 <span class="arithmatex">\(n\)</span> 维向量空间，<span class="arithmatex">\(m &lt; n\)</span>，则 <span class="arithmatex">\(V\)</span> 中任一线性无关的向量组 <span class="arithmatex">\(v_1, v_2, \cdots, v_m\)</span> 都可以扩充成 <span class="arithmatex">\(V\)</span> 的一个基。</p>
 <p>可以用来求线性空间的基。</p>
-</blockquote>
+</div>
 <h4 id="_13">过渡矩阵</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">过渡矩阵的定义</p>
 <p>从旧基 <span class="arithmatex">\(a_1, a_2, \cdots, a_n\)</span> 到新基 <span class="arithmatex">\(b_1, b_2, \cdots, b_n\)</span> 的过渡矩阵 <span class="arithmatex">\(P\)</span>（<span class="arithmatex">\(B = AP\)</span>）的求法：记 <span class="arithmatex">\(A = [a_1, a_2, \cdots, a_n], B = [b_1, b_2, \cdots, b_n]\)</span>，使用初等行变换将 <span class="arithmatex">\([A, B]\)</span> 左侧 <span class="arithmatex">\(n \times n\)</span> 化成单位矩阵，右侧即为 <span class="arithmatex">\(P\)</span>。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>过渡矩阵是可逆矩阵。</p>
-</blockquote>
+</div>
 <h3 id="72">7.2 向量的正交性</h3>
 <h4 id="_14">向量的内积</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">向量内积的定义</p>
 <p>设 <span class="arithmatex">\(a = [a_1, a_2, \cdots, a_n]^T, b = [b_1, b_2, \cdots, b_n]^T\)</span> 是两个实向量，<span class="arithmatex">\(a\)</span> 与 <span class="arithmatex">\(b\)</span> 的内积记作 <span class="arithmatex">\((a, b)\)</span>，规定</p>
 <div class="arithmatex">\[
 (a, b) = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = a^T b \\
 \]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">向量内积的性质</p>
 <ol>
 <li><span class="arithmatex">\((a, b) = (b, a)\)</span></li>
 <li><span class="arithmatex">\((k a, b) = k (a, b)\)</span></li>
 <li><span class="arithmatex">\((a + b, c) = (a, c) + (b, c)\)</span></li>
 <li><span class="arithmatex">\((a, a) \geqslant 0\)</span>，且 <span class="arithmatex">\((a, a) = 0 \iff a = 0\)</span></li>
 </ol>
-</blockquote>
+</div>
 <h4 id="_15">向量的长度（范数）</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">向量长度（范数）的定义</p>
 <p>实向量 <span class="arithmatex">\(a = [a_1, a_2, \cdots, a_n]^T\)</span> 的长度（也叫做范数）记作 <span class="arithmatex">\(\lVert a \rVert\)</span>，规定 </p>
 <div class="arithmatex">\[
 \lVert a \rVert = \sqrt{(a, a)} = \sqrt{a_1^2 + a_2^2 + \cdots + a_n^2} \\
 \]</div>
-<p>对于非零向量 <span class="arithmatex">\(a\)</span>，称 <span class="arithmatex">\(\dfrac{a}{\lVerta \rVert}\)</span> 为 <span class="arithmatex">\(a\)</span> 的单位化向量。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">单位化向量的定义</p>
+<p>对于非零向量 <span class="arithmatex">\(a\)</span>，称 <span class="arithmatex">\(\dfrac{a}{\lVert a \rVert}\)</span> 为 <span class="arithmatex">\(a\)</span> 的单位化向量。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">向量长度（范数）的性质</p>
 <ol>
-<li><span class="arithmatex">\(\lVerta \rVert \geqslant 0\)</span>，且 <span class="arithmatex">\(\lVerta \rVert = 0 \iff a = 0\)</span></li>
-<li><span class="arithmatex">\(\lVert k a \rVert = |k| \times \lVerta \rVert\)</span></li>
-<li><span class="arithmatex">\(\lVerta + b \rVert \leqslant \lVerta \rVert + \lVertb \rVert\)</span></li>
-<li><span class="arithmatex">\(|(a, b)| \leqslant \lVerta \rVert \times \lVertb \rVert\)</span></li>
+<li><span class="arithmatex">\(\lVert a \rVert \geqslant 0\)</span>，且 <span class="arithmatex">\(\lVert a \rVert = 0 \iff a = 0\)</span></li>
+<li><span class="arithmatex">\(\lVert k a \rVert = |k| \times \lVert a \rVert\)</span></li>
+<li><span class="arithmatex">\(\lVert a + b \rVert \leqslant \lVert a \rVert + \lVert b \rVert\)</span></li>
+<li><span class="arithmatex">\(|(a, b)| \leqslant \lVert a \rVert \times \lVert b \rVert\)</span></li>
 </ol>
-</blockquote>
+</div>
 <h4 id="_16">正交向量组</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">正交向量组的定义</p>
 <p>由两两正交的非零向量组成的向量组称为正交向量组，由单位向量组成的正交向量组成为标准正交向量组。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>正交向量组一定线性无关。</p>
-</blockquote>
+</div>
 <h4 id="_17">施密特正交化方法</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">施密特正交化</p>
 <p>设 <span class="arithmatex">\(a_1, a_2, \cdots, a_n\)</span> 是一个线性无关的向量组，若令</p>
 <div class="arithmatex">\[
 \begin{cases}
     b_1 = a_1, \\
-    b_j = a_j - \displaystyle\sum_{i = 1}^{j - 1} \frac{b_i^T a_j}{\lVertb_i \rVert^2} b_i \\
+    b_j = a_j - \displaystyle\sum_{i = 1}^{j - 1} \frac{b_i^T a_j}{\lVert b_i \rVert^2} b_i \\
 \end{cases}
 \]</div>
 <p>则 <span class="arithmatex">\(b_1, b_2, \cdots, b_n\)</span> 是与 <span class="arithmatex">\(a_1, a_2, \cdots, a_n\)</span> 等价的正交向量组。</p>
-</blockquote>
+</div>
 <h4 id="_18">正交矩阵</h4>
-<blockquote>
+<div class="admonition note">
+<p class="admonition-title">正交矩阵的定义</p>
 <p>若实方阵 <span class="arithmatex">\(A\)</span> 满足 <span class="arithmatex">\(A^T A = E\)</span>，则称 <span class="arithmatex">\(A\)</span> 为正交矩阵。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">正交矩阵的性质</p>
 <p>设 <span class="arithmatex">\(A, B\)</span> 为同阶正交矩阵，则</p>
 <ol>
 <li><span class="arithmatex">\(A\)</span> 可逆，且 <span class="arithmatex">\(A^{-1} = A^T\)</span></li>
@@ -2039,8 +2144,11 @@ x = k_1 v_1 + k_2 v_2 + \cdots + k_{n - r} v_{n - r} + u \\
 <li><span class="arithmatex">\(AB\)</span> 为正交矩阵</li>
 <li><span class="arithmatex">\(|A| = \pm 1\)</span></li>
 </ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>实方阵 <span class="arithmatex">\(A\)</span> 为正交矩阵 <span class="arithmatex">\(\iff\)</span> <span class="arithmatex">\(A\)</span> 的列向量组为标准正交向量组</p>
-</blockquote>
+</div>
 
 
 
