@@ -58,6 +58,7 @@ nav:
   - 杂项:
     - 文件 IO: notes/misc/1.md
     - 黑科技: notes/misc/2.md
+    - 线代期末考试: notes/misc/3.md
   - 一些封装:
     - 模意义下 int: template/mod-int.md
     - 高精度整数: template/big-integer.md
