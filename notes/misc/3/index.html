@@ -1283,6 +1283,72 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 方阵的特征值与相似对角化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 方阵的特征值与相似对角化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 方阵的特征值及其特征向量
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 方阵的特征值及其特征向量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征值
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征向量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征值与特征向量的求法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      结论
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1815,6 +1881,72 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 方阵的特征值与相似对角化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 方阵的特征值与相似对角化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 方阵的特征值及其特征向量
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 方阵的特征值及其特征向量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征值
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征向量
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      特征值与特征向量的求法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      结论
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1911,8 +2043,8 @@ c_i =
 </ol>
 </div>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>（初等变换不改变矩阵的秩）设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(m \times n\)</span> 矩阵，<span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(Q\)</span> 分别为 <span class="arithmatex">\(m\)</span> 阶和 <span class="arithmatex">\(n\)</span> 阶可逆矩阵，则</p>
+<p class="admonition-title">初等变换不改变矩阵的秩</p>
+<p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(m \times n\)</span> 矩阵，<span class="arithmatex">\(P\)</span> 和 <span class="arithmatex">\(Q\)</span> 分别为 <span class="arithmatex">\(m\)</span> 阶和 <span class="arithmatex">\(n\)</span> 阶可逆矩阵，则</p>
 <div class="arithmatex">\[
 r(PA) = r(AQ) = r(PAQ) = r(A)
 \]</div>
@@ -2150,6 +2282,68 @@ x = k_1 v_1 + k_2 v_2 + \cdots + k_{n - r} v_{n - r} + u \\
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>实方阵 <span class="arithmatex">\(A\)</span> 为正交矩阵 <span class="arithmatex">\(\iff\)</span> <span class="arithmatex">\(A\)</span> 的列向量组为标准正交向量组</p>
+</div>
+<h2 id="8">8. 方阵的特征值与相似对角化</h2>
+<h3 id="81">8.1 方阵的特征值及其特征向量</h3>
+<h4 id="_19">特征值</h4>
+<div class="admonition note">
+<p class="admonition-title">特征值的定义</p>
+<p>设 <span class="arithmatex">\(A\)</span> 为 <span class="arithmatex">\(n\)</span> 阶方阵，<span class="arithmatex">\(\lambda\)</span> 为变量，把 <span class="arithmatex">\(|\lambda E - A| = 0\)</span> 的根称为 <span class="arithmatex">\(A\)</span> 的特征值（单根称为单特征值，重根称为重特征值）。</p>
+</div>
+<h4 id="_20">特征向量</h4>
+<div class="admonition note">
+<p class="admonition-title">特征向量的定义</p>
+<p>设 <span class="arithmatex">\(\lambda_i\)</span> 是 <span class="arithmatex">\(A\)</span> 的特征值，则齐次线性方程组 <span class="arithmatex">\((\lambda_i E - A)x = 0\)</span> 的非零解向量称为 <span class="arithmatex">\(A\)</span> 的对应于（或属于）<span class="arithmatex">\(\lambda_i\)</span> 的特征向量。</p>
+</div>
+<h4 id="_21">特征值与特征向量的求法</h4>
+<div class="admonition note">
+<p class="admonition-title">特征值与特征向量的求法</p>
+<p>解 <span class="arithmatex">\(|\lambda E - A| = 0\)</span>（使用初等行列变换和按行/列展开）得特征值。再解 <span class="arithmatex">\((\lambda_i E - A)x = 0\)</span> 得到 <span class="arithmatex">\(\lambda_i\)</span> 对应的特征向量。</p>
+</div>
+<h4 id="_22">结论</h4>
+<div class="admonition tip">
+<p class="admonition-title">方阵的迹的定义</p>
+<p>方阵 <span class="arithmatex">\(A\)</span> 的 <span class="arithmatex">\(n\)</span> 个对角元之和叫做 <span class="arithmatex">\(A\)</span> 的迹，记为 <span class="arithmatex">\(\operatorname{tr}(A)\)</span>。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="arithmatex">\(n\)</span> 阶方阵 <span class="arithmatex">\(A\)</span> 在复数域内有且只有 <span class="arithmatex">\(n\)</span> 个特征值（<span class="arithmatex">\(k\)</span> 重特征值看作 <span class="arithmatex">\(k\)</span> 个）</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>若 <span class="arithmatex">\(n\)</span> 阶方阵 <span class="arithmatex">\(A\)</span> 的特征值为 <span class="arithmatex">\(\lambda_1, \lambda_2, \cdots, \lambda_n\)</span>，则</p>
+<ol>
+<li><span class="arithmatex">\(\lambda_1 + \lambda_2 + \cdots + \lambda_n = \operatorname{tr}(A)\)</span></li>
+<li><span class="arithmatex">\(\lambda_1 \lambda_2 \cdots \lambda_n = |A|\)</span></li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>方阵 <span class="arithmatex">\(A\)</span> 可逆 <span class="arithmatex">\(\iff\)</span> <span class="arithmatex">\(A\)</span> 的特征值都不为零</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>设 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(n\)</span> 阶方阵，则 <span class="arithmatex">\(\lambda\)</span> 是 <span class="arithmatex">\(A\)</span> 的特征值且 <span class="arithmatex">\(p\)</span> 是 <span class="arithmatex">\(\lambda\)</span> 对应的特征向量 <span class="arithmatex">\(\iff\)</span> 数 <span class="arithmatex">\(\lambda\)</span> 和 <span class="arithmatex">\(n\)</span> 元非零向量 <span class="arithmatex">\(p\)</span> 满足 <span class="arithmatex">\(Ap = \lambda p\)</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>若 <span class="arithmatex">\(\lambda\)</span> 是方阵 <span class="arithmatex">\(A\)</span> 的特征值，<span class="arithmatex">\(p\)</span> 是对应的特征向量，<span class="arithmatex">\(k\)</span> 是正整数，则 <span class="arithmatex">\(\lambda^k\)</span> 是 <span class="arithmatex">\(A^k\)</span> 的特征值，<span class="arithmatex">\(p\)</span> 仍是对应的特征向量。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>设 <span class="arithmatex">\(\lambda\)</span> 是可逆矩阵 <span class="arithmatex">\(A\)</span> 的特征值，<span class="arithmatex">\(p\)</span> 是对应的特征向量，则 <span class="arithmatex">\(\lambda^{-1}\)</span> 和 <span class="arithmatex">\(|A|\lambda^{-1}\)</span> 分别是 <span class="arithmatex">\(A^{-1}\)</span> 和 <span class="arithmatex">\(A^*\)</span> 的特征值，<span class="arithmatex">\(p\)</span> 仍是对应的特征向量。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>方阵 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(A^T\)</span> 的特征值相同</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>设 <span class="arithmatex">\(\lambda_1, \lambda_2, \cdots, \lambda_m\)</span> 是方阵 <span class="arithmatex">\(A\)</span> 的互异特征值，则它们分别对应的特征向量 <span class="arithmatex">\(p_1, p_2, \cdots, p_m\)</span> 一定线性无关。</p>
+<div class="admonition 推论">
+<p class="admonition-title">推论</p>
+<p>设 <span class="arithmatex">\(\lambda_1, \lambda_2, \cdots, \lambda_m\)</span> 是方阵 <span class="arithmatex">\(A\)</span> 的互异特征值，<span class="arithmatex">\(p_{i1}, p_{i2}, \cdots, p_{ir_i}\)</span> 是 <span class="arithmatex">\(\lambda_i\)</span> 对应的线性无关的特征向量，则 <span class="arithmatex">\(p_{11}, p_{12}, \cdots, p_{1r_1}, \cdots, p_{m1}, p_{m2}, \cdots, p_{mr_m}\)</span> 线性无关。</p>
+</div>
 </div>
 
 
