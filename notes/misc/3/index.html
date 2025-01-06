@@ -1476,6 +1476,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 正定二次型与正定矩阵
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 正定二次型与正定矩阵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      正定二次型与正定矩阵
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2206,6 +2230,30 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 正定二次型与正定矩阵
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.2 正定二次型与正定矩阵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      正定二次型与正定矩阵
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2779,6 +2827,43 @@ f(x_1, x_2, \cdots, x_n) =
 <li>合同 <span class="arithmatex">\(\Rightarrow\)</span> 等价</li>
 <li>实对称矩阵：相似 <span class="arithmatex">\(\Rightarrow\)</span> 合同</li>
 </ul>
+</div>
+<h3 id="92">9.2 正定二次型与正定矩阵</h3>
+<h4 id="_31">正定二次型与正定矩阵</h4>
+<div class="admonition note">
+<p class="admonition-title">正定二次型与正定矩阵的定义</p>
+<p>对于 <span class="arithmatex">\(n\)</span> 元二次型 <span class="arithmatex">\(f(x) = x^T A x\)</span>，若对任意 <span class="arithmatex">\(n\)</span> 元非零实向量 <span class="arithmatex">\(x\)</span> 都有 <span class="arithmatex">\(f(x) &gt; 0\)</span>，则称该二次型为正定二次型，并称 <span class="arithmatex">\(A\)</span> 为正定矩阵；若对任意 <span class="arithmatex">\(n\)</span> 元非零实向量 <span class="arithmatex">\(x\)</span> 都有 <span class="arithmatex">\(f(x) &lt; 0\)</span>，则称该二次型为负定二次型，并称 <span class="arithmatex">\(A\)</span> 为负定矩阵。</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>正定矩阵和负定矩阵都是实对称矩阵。</p>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">正定矩阵的充要条件</p>
+<p>设 <span class="arithmatex">\(f(x) = x^T A x\)</span> 为 <span class="arithmatex">\(n\)</span> 元二次型，则下列命题互为充要条件</p>
+<ol>
+<li><span class="arithmatex">\(f(x)\)</span> 为正定二次型，即 <span class="arithmatex">\(A\)</span> 为正定矩阵</li>
+<li><span class="arithmatex">\(A\)</span> 的特征值都为正数</li>
+<li><span class="arithmatex">\(A\)</span> 的正惯性指数为 <span class="arithmatex">\(n\)</span></li>
+<li><span class="arithmatex">\(A\)</span> 相合于单位矩阵</li>
+<li>存在 <span class="arithmatex">\(n\)</span> 阶可逆矩阵 <span class="arithmatex">\(B\)</span>，使 <span class="arithmatex">\(A = B^T B\)</span></li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">推论</p>
+<p>若 <span class="arithmatex">\(n\)</span> 阶实对称矩阵 <span class="arithmatex">\(A\)</span> 是正定矩阵，则</p>
+<ol>
+<li><span class="arithmatex">\(A\)</span> 的对角元 <span class="arithmatex">\(a_{ii} &gt; 0\)</span></li>
+<li><span class="arithmatex">\(|A| &gt; 0\)</span></li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">顺序主子阵的定义</p>
+<p>矩阵 <span class="arithmatex">\(A = [a_{ij}]_{n \times n}\)</span> 的左上角 <span class="arithmatex">\(k\)</span> 阶子阵称为 <span class="arithmatex">\(A\)</span> 的 <span class="arithmatex">\(k\)</span> 阶顺序主子阵，记作 <span class="arithmatex">\(A_k\)</span>，即 <span class="arithmatex">\(A_k = [a_{ij}]_{k \times k}\)</span>。<span class="arithmatex">\(A_k\)</span> 的行列式叫做 <span class="arithmatex">\(A\)</span> 的 <span class="arithmatex">\(k\)</span> 阶顺序主子式。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">正定矩阵的另一个充要条件</p>
+<p>实对称矩阵 <span class="arithmatex">\(A\)</span> 为正定矩阵的充要条件是 <span class="arithmatex">\(A\)</span> 的各阶顺序主子式都大于零。</p>
 </div>
 
 
