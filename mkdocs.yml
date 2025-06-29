@@ -67,4 +67,6 @@ nav:
     - 多项式公式总结: cymrain07/3.md
     - 二逼平衡树的各种神奇的数据结构的时空及代码长度: cymrain07/4.md
   - 魔方:
-    - CMLL: cube/1.md
+    - Roux:
+      - CMLL: cube/roux/cmll.md
+      - EOLR: cube/roux/eolr.md

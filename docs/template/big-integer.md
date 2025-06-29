@@ -67,6 +67,7 @@
     #include <cstring>
     #include <iostream>
     #include <string>
+    #include <tuple>
     #include <vector>
 
     namespace Integer {
@@ -76,47 +77,34 @@
     typedef long double ld;
 
     namespace Math {
-    #define G 3
-    #define MOD1 998244353
-    #define MOD2 1004535809
-    #define M 1002772198720536577ll
-    #define M1 334257240187163831ll
-    #define M2 668514958533372747ll
-    #define lg(a) (31 - __builtin_clz(a))
-    #define inc1(a, b) (a + b >= MOD1 ? a + b - MOD1 : a + b)
-    #define inc2(a, b) (a + b >= MOD2 ? a + b - MOD2 : a + b)
-    #define dec1(a, b) (a < b ? a - b + MOD1 : a - b)
-    #define dec2(a, b) (a < b ? a - b + MOD2 : a - b)
-    #define mul1(a, b) (1ll * a * b % MOD1)
-    #define mul2(a, b) (1ll * a * b % MOD2)
+    constexpr int G = 3, MOD[2] = {998244353, 1004535809};
+    constexpr ll M = 1002772198720536577ll, N[2] = {334257240187163831ll, 668514958533372747ll};
+    template <int MOD>
+    int inc(int a, int b) { return a + b >= MOD ? a + b - MOD : a + b; }
+    template <int MOD>
+    int dec(int a, int b) { return a < b ? a - b + MOD : a - b; }
+    template <int MOD>
+    int mul(int a, int b) { return 1ll * a * b % MOD; }
+    template <int MOD>
+    int power(int a, int b) {
+        int ans = 1;
+        for (; b; b >>= 1, a = mul<MOD>(a, a))
+            if (b & 1)
+                ans = mul<MOD>(ans, a);
+        return ans;
+    }
+    template <int MOD>
+    int inv(int a) { return power<MOD>(a, MOD - 2); }
     ll mul(ll a, ll b) {
         ull c = (ld)a / M * b + 0.5L, ans = 1ull * a * b - c * M;
         return ans < 1ull * M ? ans : ans + M;
     }
-    int power1(int a, int b) {
-        int ans = 1;
-        for (; b; b >>= 1, a = mul1(a, a))
-            if (b & 1)
-                ans = mul1(ans, a);
-        return ans;
-    }
-    int power2(int a, int b) {
-        int ans = 1;
-        for (; b; b >>= 1, a = mul2(a, a))
-            if (b & 1)
-                ans = mul2(ans, a);
-        return ans;
-    }
-    int inv1(int a) { return power1(a, MOD1 - 2); }
-    int inv2(int b) { return power2(b, MOD2 - 2); }
     } // namespace Math
-
+    using namespace Math;
     class BigInteger : std::vector<int> {
     private:
         const static int LEN = 1e6, DIG = 6, MAX = 1e6, LG = 32 - __builtin_clz(LEN), N = 1 << LG;
         const static bool NEG = false, POS = true;
-
-        static int w1[N + 5], w2[N + 5], rev[N + 5];
 
         bool tag;
 
@@ -126,6 +114,36 @@
         class DivideByZero : public std::exception {
             const char *what() const throw() { return "Divide by 0!"; }
         };
+
+        class Rev {
+        private:
+            int rev[N];
+
+        public:
+            Rev() {
+                for (int i = 1; i < N; ++i)
+                    rev[i] = (rev[i >> 1] >> 1) | ((i & 1) << (LG - 1));
+            }
+            const int &operator[](int a) const { return rev[a]; }
+        };
+        template <int I>
+        class W {
+        private:
+            int w[N];
+
+        public:
+            W() {
+                int u = power<MOD[I]>(G, (MOD[I] - 1) >> LG);
+                w[N >> 1] = 1;
+                for (int i = (N >> 1) + 1; i < N; ++i)
+                    w[i] = Math::mul<MOD[I]>(w[i - 1], u);
+                for (int i = (N >> 1) - 1; i; --i)
+                    w[i] = w[i << 1];
+            }
+            const int &operator[](int a) const { return w[a]; }
+        };
+        static inline const Rev rev;
+        static inline const std::tuple<W<0>, W<1>> w;
 
         void skip() {
             int n = (int)size() - 1;
@@ -159,59 +177,38 @@
             skip();
         }
 
-        int getLen(int n) {
-            int lg = 0;
-            while ((1 << lg) < n)
-                ++lg;
-            return lg;
-        }
-        void init() {
-            int u = Math::power1(G, (MOD1 - 1) >> LG), v = Math::power2(G, (MOD2 - 1) >> LG);
-            w1[N >> 1] = w2[N >> 1] = 1;
-            for (int i = (N >> 1) + 1; i < N; ++i)
-                w1[i] = mul1(w1[i - 1], u), w2[i] = mul2(w2[i - 1], v);
-            for (int i = (N >> 1) - 1; i; --i)
-                w1[i] = w1[i << 1], w2[i] = w2[i << 1];
-            for (int i = 1; i < N; ++i)
-                rev[i] = (rev[i >> 1] >> 1) | ((i & 1) << (LG - 1));
-        }
-        void ntt1(BigInteger &a, int lg, bool inv, int *w) {
-            if (!rev[1])
-                init();
+        static int getLen(int n) { return 32 - __builtin_clz(n); }
+        template <int I>
+        static void ntt(vector<int> &a, int lg, bool inv) {
             int n = 1 << lg;
             for (int i = 1; i < n; ++i)
                 if (i < (rev[i] >> (LG - lg)))
                     std::swap(a[i], a[rev[i] >> (LG - lg)]);
             for (int l = 1; l < n; l <<= 1)
-                for (int i = 0, *k = w + l; i < n; i += (l << 1))
-                    for (int j = i, *g = k; j < i + l; ++j, ++g) {
-                        int tmp1 = a[j], tmp2 = mul1(*g, a[j + l]);
-                        a[j] = inc1(tmp1, tmp2), a[j + l] = dec1(tmp1, tmp2);
+                for (int i = 0; i < n; i += (l << 1))
+                    for (int j = i; j < i + l; ++j) {
+                        int tmp1 = a[j], tmp2 = mul<MOD[I]>(std::get<I>(w)[l + j - i], a[j + l]);
+                        a[j] = inc<MOD[I]>(tmp1, tmp2), a[j + l] = dec<MOD[I]>(tmp1, tmp2);
                     }
             if (inv) {
                 std::reverse(a.data() + 1, a.data() + n);
-                for (int i = 0, inv = Math::inv1(n); i < n; ++i)
-                    a[i] = mul1(a[i], inv);
+                for (int i = 0, inv = Math::inv<MOD[I]>(n); i < n; ++i)
+                    a[i] = mul<MOD[I]>(a[i], inv);
             }
         }
-        void ntt2(BigInteger &a, int lg, bool inv, int *w) {
-            if (!rev[1])
-                init();
-            int n = 1 << lg;
-            for (int i = 1; i < n; ++i)
-                if (i < (rev[i] >> (LG - lg)))
-                    std::swap(a[i], a[rev[i] >> (LG - lg)]);
-            for (int l = 1; l < n; l <<= 1)
-                for (int i = 0, *k = w + l; i < n; i += (l << 1))
-                    for (int j = i, *g = k; j < i + l; ++j, ++g) {
-                        int tmp1 = a[j], tmp2 = mul2(*g, a[j + l]);
-                        a[j] = inc2(tmp1, tmp2), a[j + l] = dec2(tmp1, tmp2);
-                    }
-            if (inv) {
-                std::reverse(a.data() + 1, a.data() + n);
-                for (int i = 0, inv = Math::inv2(n); i < n; ++i)
-                    a[i] = mul2(a[i], inv);
-            }
+
+        template <int I>
+        static void multiply(const BigInteger &a, const BigInteger &b, vector<ll> &c, int lg) {
+            vector<int> x(a.begin(), a.end()), y(b.begin(), b.end());
+            x.resize(1 << lg, 0), y.resize(1 << lg, 0);
+            ntt<I>(x, lg, false), ntt<I>(y, lg, false);
+            for (int i = 0; i < (int)x.size(); ++i)
+                x[i] = mul<MOD[I]>(x[i], y[i]);
+            ntt<I>(x, lg, true);
+            for (int i = 0; i < (int)x.size(); ++i)
+                (c[i] += mul(1ll * x[i], Math::N[I])) %= M;
+            if constexpr (I)
+                multiply<I - 1>(a, b, c, lg);
         }
 
         BigInteger &operator<<=(int a) { return insert(begin(), a, 0), *this; }
@@ -354,24 +351,16 @@
         BigInteger &operator-=(const BigInteger &a) { return (tag != a.tag) ? add(a) : subtract(a), *this; }
         friend BigInteger operator-(BigInteger a, const BigInteger &b) { return a -= b; }
 
-        BigInteger &operator*=(BigInteger a) {
+        BigInteger &operator*=(const BigInteger &a) {
             tag ^= (a.tag == NEG);
             int n = size(), m = a.size(), lg = getLen(n + m);
             if (n + m - 1 > LEN)
                 throw OutOfRange();
-            resize(1 << lg), a.resize(1 << lg);
-            BigInteger b = a, c = *this;
-            ntt1(a, lg, false, w1), ntt1(c, lg, false, w1);
-            ntt2(*this, lg, false, w2), ntt2(b, lg, false, w2);
-            for (int i = 0; i < (1 << lg); ++i)
-                a[i] = mul1(a[i], c[i]), at(i) = mul2(at(i), b[i]);
-            ntt1(a, lg, true, w1), ntt2(*this, lg, true, w2);
-            std::vector<ll> tmp(1 << lg);
-            for (int i = 0; i < (1 << lg); ++i)
-                tmp[i] = (Math::mul(a[i], M1) + Math::mul(at(i), M2)) % M;
+            vector<ll> tmp(1 << lg, 0);
+            multiply<1>(*this, a, tmp, lg);
+            resize(n + m);
             for (int i = 0; i < n + m; ++i)
                 tmp[i + 1] += tmp[i] / MAX, at(i) = tmp[i] % MAX;
-            resize(n + m);
             if ((int)size() > 1 && *(end() - 1) == 0)
                 erase(end() - 1);
             return *this;
@@ -418,21 +407,5 @@
             return ans;
         }
     };
-
-    int BigInteger::w1[], BigInteger::w2[], BigInteger::rev[];
-
-    #undef G
-    #undef MOD1
-    #undef MOD2
-    #undef M
-    #undef M1
-    #undef M2
-    #undef lg
-    #undef inc1
-    #undef inc2
-    #undef dec1
-    #undef dec2
-    #undef mul1
-    #undef mul2
     } // namespace Integer
     ```
