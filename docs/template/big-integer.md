@@ -222,7 +222,6 @@
         }
         friend BigInteger operator>>(BigInteger a, int b) { return a >>= b; }
         friend BigInteger inv(const BigInteger &a) {
-
             int n = (int)a.size();
             if (n <= 2) {
                 lll b = 1, c = 0;
@@ -361,8 +360,7 @@
             resize(n + m);
             for (int i = 0; i < n + m; ++i)
                 tmp[i + 1] += tmp[i] / MAX, at(i) = tmp[i] % MAX;
-            if ((int)size() > 1 && *(end() - 1) == 0)
-                erase(end() - 1);
+            skip();
             return *this;
         }
         friend BigInteger operator*(BigInteger a, const BigInteger &b) { return a *= b; }

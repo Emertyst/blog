@@ -2,15 +2,15 @@
 
 !!! note "`M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftftlttuttttttttutttttuttltttttuttuttttttttftttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftftlttuttttttttutttttuttltttttuttuttttttttftttttft)
 
 !!! note "`U M' U2 M U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftltlttuttttttttutttttuttftttttuttuttttttttftttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftltlttuttttttttutttttuttftttttuttuttttttttftttttft)
 
 !!! note "`U' M U' M' U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftftfttuttttttttutttttuttltttttuttuttttttttftttttlt)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftftfttuttttttttutttttuttltttttuttuttttttttftttttlt)
 
     打乱：
 
@@ -25,28 +25,28 @@
   
 !!! note "`M' U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftltfttuttttttttutttttuttftttttuttuttttttttftttttlt)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftltfttuttttttttutttttuttftttttuttuttttttttftttttlt)
 
 !!! note "`M' U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftltfttuttttttttutttttuttftttttuttuttttttttltttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftltfttuttttttttutttttuttftttttuttuttttttttltttttft)
 ## 4/0
 
 !!! note "`M' U2 M' U2 M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltftftlttuttttttttutttttfttutttttuttuttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltftftlttuttttttttutttttfttutttttuttuttttttttutttttft)
 
 !!! note "`M' U2 M' U2 M' U M`"
     
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftltfttuttttttttutttttlttutttttuttuttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftltfttuttttttttutttttlttutttttuttuttttttttutttttft)
 
 !!! note "`M' U2 M' U' M' U2 M U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftltlttuttttttttutttttfttutttttuttuttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftltlttuttttttttutttttfttutttttuttuttttttttutttttft)
 
 !!! note "`M' U' M' U' M U' M U' M' U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftftfttuttttttttutttttlttutttttuttuttttttttutttttlt)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftftfttuttttttttutttttlttutttttuttuttttttttutttttlt)
 
     打乱：
 
@@ -58,23 +58,23 @@
 
 !!! note "`M' U M U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftututfttlttttttttutttttlttutttttuttfttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftututfttlttttttttutttttlttutttttuttfttttttttutttttft)
 
 !!! note "`M' U' M U M' U M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftututlttlttttttttutttttfttutttttuttfttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftututlttlttttttttutttttfttutttttuttfttttttttutttttft)
 
 !!! note "`M U M' U' M U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftututlttfttttttttutttttlttutttttuttfttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftututlttfttttttttutttttlttutttttuttfttttttttutttttft)
 
 !!! note "`M' U' M U M' U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltututlttfttttttttutttttfttutttttuttfttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltututlttfttttttttutttttfttutttttuttfttttttttutttttft)
 
 !!! note "`M' U' M' U' M' U2 M U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftututfttlttttttttutttttfttutttttuttlttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftututfttlttttttttutttttfttutttttuttlttttttttutttttft)
 
     打乱：
 
@@ -82,7 +82,7 @@
 
 !!! note "`U' M' U2 M' U' M U' M' U M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftututfttfttttttttutttttlttutttttuttfttttttttutttttlt)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftututfttfttttttttutttttlttutttttuttfttttttttutttttlt)
 
     打乱：
 
@@ -92,47 +92,47 @@
 
 !!! note "`M' U M U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtlttttttttltttttuttftttttuttfttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtlttttttttltttttuttftttttuttfttttttttutttttft)
 
 !!! note "`M' U' M U' M' U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltutututtfttttttttftttttuttftttttuttfttttttttutttttlt)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltutututtfttttttttftttttuttftttttuttfttttttttutttttlt)
 
 !!! note "`M' U' M U' M' U M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltutututtfttttttttftttttuttltttttuttfttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltutututtfttttttttftttttuttltttttuttfttttttttutttttft)
 
 !!! note "`M' U' M U' M' U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtlttttttttftttttuttltttttuttfttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtlttttttttftttttuttltttttuttfttttttttutttttft)
 
 !!! note "`M' U' M U2 M' U2 M U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltutututtfttttttttltttttuttftttttuttfttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltutututtfttttttttltttttuttftttttuttfttttttttutttttft)
 
 !!! note "`M U M U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtlttttttttftttttuttftttttuttfttttttttutttttlt)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtlttttttttftttttuttftttttuttfttttttttutttttlt)
 
 !!! note "`M U' M U' M' U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltutututtlttttttttftttttuttftttttuttfttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltutututtlttttttttftttttuttftttttuttfttttttttutttttft)
 
 !!! note "`M U' M U2 M' U2 M U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtfttttttttftttttuttltttttuttfttttttttutttttlt)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtfttttttttftttttuttltttttuttfttttttttutttttlt)
 
 !!! note "`U' M U M' U2 M' U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtlttttttttftttttuttftttttuttlttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtlttttttttftttttuttftttttuttlttttttttutttttft)
 
 !!! note "`U' M U2 M' U' M' U' M U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtfttttttttltttttuttftttttuttfttttttttutttttlt)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtfttttttttltttttuttftttttuttfttttttttutttttlt)
 
 !!! note "`U' M U M' U2 M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtfttttttttltttttuttltttttuttfttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftutututtfttttttttltttttuttltttttuttfttttttttutttttft)
 
     打乱：
 
@@ -142,27 +142,27 @@
 
 !!! note "`U M' U' M U2 M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftltututtfttttttttltttttfttutttttuttuttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftltututtfttttttttltttttfttutttttuttuttttttttutttttft)
 
 !!! note "`M' U M U M' U2 M U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltftututtfttttttttltttttfttutttttuttuttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltftututtfttttttttltttttfttutttttuttuttttttttutttttft)
 
 !!! note "`M' U M U2 M' U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftltututtfttttttttftttttlttutttttuttuttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftltututtfttttttttftttttlttutttttuttuttttttttutttttft)
 
 !!! note "`M' U M U2 M' U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtfttttttttftttttlttutttttuttuttttttttutttttlt)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtfttttttttftttttlttutttttuttuttttttttutttttlt)
 
 !!! note "`M' U M' U' M U M' U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltltututtfttttttttftttttfttutttttuttuttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltltututtfttttttttftttttfttutttttuttuttttttttutttttft)
 
 !!! note "`U M2 U' M' U' M U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtfttttttttltttttlttutttttuttuttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtfttttttttltttttlttutttttuttuttttttttutttttft)
 
     打乱：
 
@@ -170,7 +170,7 @@
 
 !!! note "`M' U2 M' U' M' U' M U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtlttttttttltttttfttutttttuttuttttttttutttttft)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtlttttttttltttttfttutttttuttuttttttttutttttft)
 
     打乱：
 
@@ -180,45 +180,45 @@
 
 !!! note "`M' U M U2 M' U' M' U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftltfttuttttttttutttttuttltttttfttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftltfttuttttttttutttttuttltttttfttuttttttttutttttut)
 
 !!! note "`M' U' M U2 M' U' M' U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftltftlttuttttttttutttttuttftttttfttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftltftlttuttttttttutttttuttftttttfttuttttttttutttttut)
 
 !!! note "`M' U M U2 M' U' M' U' M U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltftftlttuttttttttutttttuttftttttfttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltftftlttuttttttttutttttuttftttttfttuttttttttutttttut)
 
 !!! note "`M' U' M U2 M U' M' U' M U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftftfttuttttttttutttttuttltttttlttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftftfttuttttttttutttttuttltttttlttuttttttttutttttut)
 
 ## 2o/2
 
 !!! note "`M2 U' M' U2 M' U2 M' U M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftftuttuttttttttltttttuttltttttfttuttttttttftttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftftuttuttttttttltttttuttltttttfttuttttttttftttttut)
 
 !!! note "`M2 U' M' U2 M' U2 M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutltltuttuttttttttftttttuttftttttfttuttttttttftttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutltltuttuttttttttftttttuttftttttfttuttttttttftttttut)
 
 !!! note "`M' U2 M' U2 M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftftuttuttttttttftttttuttltttttlttuttttttttftttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftftuttuttttttttftttttuttltttttlttuttttttttftttttut)
 
 !!! note "`M' U2 M' U2 M U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftltuttuttttttttltttttuttftttttfttuttttttttftttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftltuttuttttttttltttttuttftttttfttuttttttttftttttut)
 
 !!! note "`M U2 M U' M' U2 M U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftltuttuttttttttftttttuttltttttfttuttttttttftttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftltuttuttttttttftttttuttltttttfttuttttttttftttttut)
 
 !!! note "`M U' M' U' M U' M U' M' U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftftuttuttttttttltttttuttftttttfttuttttttttltttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tutftftuttuttttttttltttttuttftttttfttuttttttttltttttut)
 
     打乱：
 
@@ -228,49 +228,49 @@
 
 !!! note "`M2 U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltltututtfttttttttftttttuttftttttfttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltltututtfttttttttftttttuttftttttfttuttttttttutttttut)
 
 !!! note "`M2 U' M' U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtfttttttttltttttuttltttttfttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtfttttttttltttttuttltttttfttuttttttttutttttut)
 
 !!! note "`M' U M' U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltftututtfttttttttltttttuttftttttfttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tltftututtfttttttttltttttuttftttttfttuttttttttutttttut)
 
 !!! note "`M' U M' U2 M' U2 M U M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtlttttttttltttttuttftttttfttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtlttttttttltttttuttftttttfttuttttttttutttttut)
 
 !!! note "`U2 M' U2 M' U M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftltututtfttttttttftttttuttltttttfttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftltututtfttttttttftttttuttltttttfttuttttttttutttttut)
 
 !!! note "`U M' U' M' U' M' U' M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtfttttttttftttttuttltttttlttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftftututtfttttttttftttttuttltttttlttuttttttttutttttut)
 
 !!! note "`U' M U2 M' U M' U M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftltututtfttttttttltttttuttftttttfttuttttttttutttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tftltututtfttttttttltttttuttftttttfttuttttttttutttttut)
 
 ## 0/2
 
 !!! note "`M U' M U M' U M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tututututtfttttttttltttttuttltttttfttfttttttttftttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tututututtfttttttttltttttuttltttttfttfttttttttftttttut)
 
 !!! note "`M' U' M' U M'`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tututututtlttttttttltttttuttftttttfttfttttttttftttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tututututtlttttttttltttttuttftttttfttfttttttttftttttut)
 
 !!! note "`M' U' M' U M U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tututututtfttttttttftttttuttltttttlttfttttttttftttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tututututtfttttttttftttttuttltttttlttfttttttttftttttut)
 
 !!! note "`M' U' M U' M U2 M' U' M`"
 
-    ![](https://cube.rider.biz/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tututututtlttttttttftttttuttftttttfttlttttttttftttttut)
+    ![](https://visualcube.api.cubing.net/visualcube.php?fmt=svg&size=100&cc=silver&fo=100&co=35&sch=gybbrr&fd=tututututtlttttttttftttttuttftttttfttlttttttttftttttut)
 
     打乱：
 
