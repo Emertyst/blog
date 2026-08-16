@@ -40,11 +40,13 @@ nav:
     - 四边形不等式: notes/dp/1.md
     - 高维前缀和、子集 dp、快速沃尔什变换: notes/dp/2.md
   - 数学:
+    - 数论:
+      - 莫比乌斯反演: notes/math/number-theory/mobius
+      - 线性同余方程组: notes/math/number-theory/crt.md
+      - Miller Rabin: notes/math/number-theory/miller-rabin.md
     - 多项式全家桶: notes/math/1.md
-    - Miller Rabin: notes/math/2.md
     - 行列式: notes/math/3.md
     - 广义容斥原理与二项式反演: notes/math/4.md
-    - 莫比乌斯反演: notes/math/5.md
   - 字符串:
     - 简介: notes/string/index.md
     - KMP: notes/string/1.md
@@ -61,6 +63,9 @@ nav:
   - 一些封装:
     - 模意义下 int: template/mod-int.md
     - 高精度整数: template/big-integer.md
+  - 板子:
+    - 内容: template/template.md
+    - 使用方法: template/use.md
   - cymrain07 的宝藏:
     - fhq-Treap 合并的技巧: cymrain07/1.md
     - Splay 的 Finger-Search 优化启发式合并: cymrain07/2.md
