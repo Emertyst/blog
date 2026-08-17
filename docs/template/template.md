@@ -170,7 +170,7 @@ $$
 class SAM {
 private:
     static const int M = N * 2;
-    int tot, lst, fa[M], pos[M], len[M], son[M][26];
+    int tot, lst, lnk[M], pos[M], len[M], son[M][26];
     bool cln[M];
     vector<int> edg[M];
 
@@ -180,27 +180,27 @@ public:
         c -= 'a';
         int u = lst, v = lst = ++tot;
         pos[v] = p, len[v] = len[u] + 1;
-        for (; u && !son[u][c]; u = fa[u])
+        for (; u && !son[u][c]; u = lnk[u])
             son[u][c] = v;
         if (!u)
-            fa[v] = 1;
+            lnk[v] = 1;
         else {
             int x = son[u][c];
             if (len[x] == len[u] + 1)
-                fa[v] = x;
+                lnk[v] = x;
             else {
                 int y = ++tot;
-                fa[y] = fa[x], pos[y] = pos[x], len[y] = len[u] + 1, cln[y] = true;
+                lnk[y] = lnk[x], pos[y] = pos[x], len[y] = len[u] + 1, cln[y] = true;
                 for (int i = 0; i < 26; ++i)
                     son[y][i] = son[x][i];
-                for (fa[x] = fa[v] = y; u && son[u][c] == x; u = fa[u])
+                for (lnk[x] = lnk[v] = y; u && son[u][c] == x; u = lnk[u])
                     son[u][c] = y;
             }
         }
     }
     void init() {
         for (int i = 2; i <= tot; ++i)
-            edg[fa[i]].push_back(i);
+            edg[lnk[i]].push_back(i);
     }
 };
 ```

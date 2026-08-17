@@ -49,8 +49,9 @@ nav:
     - 广义容斥原理与二项式反演: notes/math/4.md
   - 字符串:
     - 简介: notes/string/index.md
-    - KMP: notes/string/1.md
-    - Z 函数: notes/string/2.md
+    - KMP: notes/string/kmp.md
+    - Z 函数: notes/string/exkmp.md
+    - 后缀自动机: notes/string/sam.md
   - Win32:
     - 简介: notes/Win32/index.md
     - 前置知识: notes/Win32/0.md
