@@ -2126,6 +2126,7 @@
 </span></code></pre></div></td></tr></table></div>
 </details>
 <p>它把 <code>standard input</code> 与 <code>standard output</code> 改成“标准输入”“标准输出”，并把时限、内存的单位缩写为 <code>s</code> 与 <code>MB</code>，更符合中文题面的习惯。注意这只改了正文中出现的文本；“时间限制”“输入格式”“样例”这些章节标题由 <code>olymp.sty</code> 提供，要显示中文还需要在 <code>statements.ftl</code> 里加载 <code>olymp-zh</code>。</p>
+<p>虽然 <code>Statement</code> 页面要求按 <code>Legend</code>、<code>Input</code> 等逐项编写题面，但他们只是在 <code>problem.tex</code> 中的对应标题后被调用。因此如果修改 <code>problem.tex</code>，可操作空间将相当大，比如接下来要讲的通信题。</p>
 <h3 id="_4">通信题</h3>
 <p>对于通信题，默认的 <code>problem.tex</code> 会给两段文本分别套上“输入格式”“输出格式”的标题，这对通信题并不合适，因此我推荐的改法是删掉 <code>\InputFile</code> 与 <code>\OutputFile</code> 两行：</p>
 <details class="note">
@@ -2243,7 +2244,7 @@
 </span><span id="__span-2-56"><span class="k">\end</span><span class="nb">{</span>problem<span class="nb">}</span>
 </span></code></pre></div></td></tr></table></div>
 </details>
-<p>这样“输入格式”“输出格式”的标题就没有了，可以直接在 <code>Input</code> 一栏写第一次运行的说明、在 <code>Output</code> 一栏写第二次运行的说明，正文读起来是连贯的。如果希望保留分节标题，也可以改用 olymp-addons 提供的 <code>\FirstRun</code>、<code>\SecondRun</code>、<code>\InputProtocol</code>、<code>\OutputProtocol</code> 自行组织。</p>
+<p>这样“输入格式”“输出格式”的标题就没有了，可以直接在 <code>Input</code> 一栏写第一次运行的说明、在 <code>Output</code> 一栏写第二次运行的说明，正文读起来是连贯的。如果希望保留分节标题，也可以用 olymp-addons 提供的 <code>\FirstRun</code>、<code>\SecondRun</code>、<code>\InputProtocol</code>、<code>\OutputProtocol</code> 自行组织。</p>
 <div class="admonition tip">
 <p class="admonition-title">编写 HTML 题面时需要注意</p>
 <p>前面提到，生成 HTML 题面时只会使用 Polygon 内置的样式，额外上传的扩展不参与渲染。因此通信题的 HTML 题面无法使用 olymp-comm 里定义的 <code>\FirstRun</code>、<code>\SecondRun</code> 等命令，只能自己用 <code>\textbf{\Large{第一次运行}}</code> 这类 LaTeX 原生命令把分节标题拼出来。</p>
